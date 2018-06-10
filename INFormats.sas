@@ -58,10 +58,24 @@ run;
 
 
 
-
 * Write out the file using dlm= " ";
 data _null_;
 	 set home.Currency;
 	 file timeq2(Revenue2.txt) dlm=" ";
 	 put Amount1 :nlmnigbp14. Amount2 :nlmnlinr14. Amount3 :NLMNIAED18.;
+run;
+
+
+data home.Currency2;
+	infile timeq2(Revenue2.txt);
+	input Month1 :nlmnigbp14. Month2 :nlmnlinr14. Month3 :NLMNIAED18.;
+run;
+
+proc print data=home.Currency2;
+	format Month1 :nlmnigbp14. Month2 :nlmnlinr14. Month3 :NLMNIAED18.;
+run;
+
+/* Apply user defined formats */
+proc print data=home.Currency2;
+	format Month1 :fmtzabw14. Month2 :fmtindr16. Month3 :fmtngn14.;
 run;
