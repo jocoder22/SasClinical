@@ -3,7 +3,7 @@ libname home "C:\Users\Jose\Documents\SasClinical";
 Filename timeq2 "C:\Users\Jose\Documents\SasClinical\chapter1";  
 
 /* Create formats to write currencies for India, Nigeria and Zimbabwe*/
-proc format;
+proc format library=home;
    picture fmtindr low-high ='000,000,000.00'
                (prefix='Rs. ' mult=100);
 
@@ -15,6 +15,11 @@ proc format;
                (prefix='ZBW' mult=100);
 
 run;
+
+proc format library=home fmtlib;
+run;
+
+options fmtsearch=(home); * reference to the library
 
 
 data home.DateNew;
