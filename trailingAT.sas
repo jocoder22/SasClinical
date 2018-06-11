@@ -68,7 +68,7 @@ run;
 
 data home.census(drop=code);
     retain City State;
-    input code4 @;
+    input code$ @;
     if code='City' then 
         input City$ State$;
     else if code='Pol' then
