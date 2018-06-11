@@ -26,5 +26,42 @@ proc print data=home.double;
 run;
 
 
+/*
+Using single trailing @, to hold the line for another input
 
+The @ holds the line for multiple iterations within one data step.
+
+Usally work with Output statement;
+
+*/
+
+
+data home.single;
+    datalines;
+    input Name$ Age Gender$ Height Weight @;
+    if Gender = 'F' then do;
+        input TaxR;
+        Comment = "Female Taxation rule";
+        Output;
+    end;
+    else do;
+        input TaxR*1.2;
+        Comment = "Male Taxation rule (x1.2)";
+        Output;
+    end;
+    datalines;
+Jones 37 M 74.8 148 2245
+Mary 34 F 56.2 138 2232
+Jane 45 F 67.8 122 2421
+Peter 44 M 73.5 168 2355
+John 39 M 70.2 161 2346
+Mark 32 M 69.7 159 2156
+James 45 M 66.1 163 2145
+Helen 38 F 55.0 145 2034
+Ann 31 F 59.1 136 2456
+;
+run;
+
+proc print data=home.single;
+run;
 
