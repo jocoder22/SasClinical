@@ -65,3 +65,27 @@ run;
 proc print data=home.single;
 run;
 
+
+data home.census(drop=code);
+    retain City State;
+    input code4 @;
+    if code='City' then 
+        input City$ State$;
+    else if code='Pol' then
+        do;
+            input FirstName$ LastName$ Age;
+            Output;
+        end;
+    datalines;
+City Baltimore Maryland
+Pol Mark John 38
+Pol James Orange 45
+Pol Harley Johnson 56
+City Houston Texas
+Pol Pauline Barker 62
+Pol Kinddy Lawson 51
+run;
+
+proc print data=home.census;
+run;
+
