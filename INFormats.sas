@@ -20,8 +20,8 @@ run;
 data home.DateNew;
 	infile timeq2(ex1.txt) dlm='09'X;
 	input FlightNo$ Dest$ TravelDate RevFClass RevEClass TotalRevF :$13. TotalRevE :$13. TravelTime;
-	informat Date mmddyy10. Time time8. ;
-	Format Date date9. Time time8.;
+	informat TravelDate mmddyy10. TravelTime time8. ;
+	Format TravelDate date9. TravelTime time8.;
 Run;
 
 
