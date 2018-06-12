@@ -37,7 +37,7 @@ Usally work with Output statement;
 
 
 data home.single;
-    datalines;
+    infile datalines;
     input Name$ Age Gender$ Height Weight @;
     if Gender = 'F' then do;
         input TaxR;
@@ -70,7 +70,7 @@ data home.census(drop=code);
     retain City State;
     input code$ @;
     if code='City' then 
-        input City$ State$;
+        input City :$10. State$;
     else if code='Pol' then
         do;
             input FirstName$ LastName$ Age;
