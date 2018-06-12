@@ -38,17 +38,22 @@ Usally work with Output statement;
 
 data home.single;
     infile datalines;
-    input Name$ Age Gender$ Height Weight @;
+    input Name$ Age Gender$ Weight Height  @;
     if Gender = 'F' then do;
-        input TaxR;
+    	BMI = 1.1*Weight/((Height*0.01)**2);
+        input TaxR; 
         Comment = "Female Taxation rule";
         Output;
     end;
-    else do;
-        input TaxR*1.2;
-        Comment = "Male Taxation rule (x1.2)";
+    else if Gender = 'M' then do;
+    	BMI = Weight/((Height*0.01)**2);
+        input TaxR;
+        TaxR = TaxR * 1.21;
+        BMI = Weight/((Height*0.01)**2); 
+        Comment = "Male Taxation rule";
         Output;
     end;
+    format TaxR nlmnlinr14.2;
     datalines;
 Jones 37 M 74.8 148 2245
 Mary 34 F 56.2 138 2232
