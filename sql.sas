@@ -3,7 +3,7 @@ libname home "C:\Users\Jose\Documents\SasClinical";
 
 
 proc sql;
-    select Subid, Studyid, Gender
+    select Subid, Studyid, Gender, Age
         from home.double
         where Age < 40
         group by Gender
