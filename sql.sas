@@ -13,3 +13,9 @@ quit;
 
 
 /* Querying multiple tables */
+proc sql;
+    select double.Subid, treatment.Studyid, Gender, Txt, Dose 
+        from home.double, home.treatment
+        where double.Subid = treatment.Subid
+        order by treatment.Studyid;
+quit;
