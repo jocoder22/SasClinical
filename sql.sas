@@ -14,7 +14,7 @@ quit;
 
 /* Querying multiple tables */
 proc sql;
-    select double.Subjid, treatment.Studyid, Gender, Txt, Dose 
+    select double.Subjid, Studyid, Gender, Txt, Dose 
         from home.double, home.treatment
         where double.Subid = treatment.Subid
         order by Txt;
@@ -26,4 +26,14 @@ proc sql;
     select Txt, Dose, count(Dose) as NumberTxt
         from home.treatment
         group by Dose;
+quit;
+
+
+/* Creating table to store query results*/
+proc sql;
+    create table home.summary as
+        select Studyid, Gender, avg(Age) as AverageAge
+        from home.double
+        group by Studyid
+        order by Gender;
 quit;

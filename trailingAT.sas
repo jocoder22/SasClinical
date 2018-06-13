@@ -9,16 +9,16 @@ libname home "C:\Users\Jose\Documents\SasClinical";
 
 data home.double;
     infile datalines;
-    input Subjid$ Studyid$ Age Gender$ @@;
+    input Subjid$ Siteid$ Age Gender$ @@;
     datalines;
-A20sub Inv2008 38 M A21sub Inv2008 46 F A23sub Inv2008 37 F
-A22sub Inv2008 39 F A25sub Inv2008 56 M A24sub Inv2008 66 F
-A26sub Inv2008 44 M A30sub Inv2008 51 M A28sub Inv2008 56 F
-A27sub Inv2008 67 F A29sub Inv2008 70 M A44sub Inv2008 73 F
-A34sub Inv2008 45 M A31sub Inv2008 50 F A32sub Inv2008 48 M
-A33sub Inv2008 37 F A36sub Inv2008 46 M A35sub Inv2008 77 F
-A45sub Inv2008 65 F A38sub Inv2008 39 M A37sub Inv2008 61 M
-A40sub Inv2008 76 F A39sub Inv2008 43 M A42sub Inv2008 58 F
+A20sub Inv2118 38 M A21sub Inv2138 46 F A23sub Inv2148 37 F
+A22sub Inv2148 39 F A25sub Inv2118 56 M A24sub Inv2148 66 F
+A26sub Inv2128 44 M A30sub Inv2128 51 M A28sub Inv2118 56 F
+A27sub Inv2148 67 F A29sub Inv2148 70 M A44sub Inv2138 73 F
+A34sub Inv2138 45 M A31sub Inv2118 50 F A32sub Inv2128 48 M
+A33sub Inv2138 37 F A36sub Inv2128 46 M A35sub Inv2148 77 F
+A45sub Inv2138 65 F A38sub Inv2128 39 M A37sub Inv2128 61 M
+A40sub Inv2118 76 F A39sub Inv2138 43 M A42sub Inv2118 58 F
 ; 
 run;
 
