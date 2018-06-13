@@ -25,6 +25,23 @@ run;
 proc print data=home.double;
 run;
 
+data home.Treatment;
+    infile datalines;
+    input Subid$ Studyid$ Txt$ Dose$ @@;
+    datalines;
+A20sub Inv2008 Y 1 A21sub Inv2008 N 0 A23sub Inv2008 Y 3
+A22sub Inv2008 N 0 A25sub Inv2008 N 0 A24sub Inv2008 N 0
+A26sub Inv2008 Y 2 A30sub Inv2008 N 0 A28sub Inv2008 Y 2
+A27sub Inv2008 Y 2 A29sub Inv2008 N 0 A44sub Inv2008 Y 3
+A34sub Inv2008 Y 1 A31sub Inv2008 Y 3 A32sub Inv2008 N 0
+A33sub Inv2008 N 0 A36sub Inv2008 Y 2 A35sub Inv2008 N 0
+A45sub Inv2008 Y 1 A38sub Inv2008 Y 2 A37sub Inv2008 Y 1
+A40sub Inv2008 N 0 A39sub Inv2008 Y 3 A42sub Inv2008 N 0
+; 
+run;
+
+proc print data=home.Treatment;
+run;
 
 /*
 Using single trailing @, to hold the line for another input
