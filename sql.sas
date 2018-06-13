@@ -17,5 +17,13 @@ proc sql;
     select double.Subjid, treatment.Studyid, Gender, Txt, Dose 
         from home.double, home.treatment
         where double.Subid = treatment.Subid
-        order by treatment.Studyid;
+        order by Txt;
+quit;
+
+
+/* Summarizing table data*/
+proc sql;
+    select Txt, Dose, count(Dose) as NumberTxt
+        from home.treatment
+        group by Dose;
 quit;
