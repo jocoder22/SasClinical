@@ -4,7 +4,7 @@ libname home "C:\Users\Jose\Documents\SasClinical";
 
 /* Creating SQL Queries */
 proc sql;
-    select Subid, Studyid, Gender, Age
+    select Subjid, Studyid, Gender, Age
         from home.double
         where Age < 40
         group by Gender
@@ -14,7 +14,7 @@ quit;
 
 /* Querying multiple tables */
 proc sql;
-    select double.Subid, treatment.Studyid, Gender, Txt, Dose 
+    select double.Subjid, treatment.Studyid, Gender, Txt, Dose 
         from home.double, home.treatment
         where double.Subid = treatment.Subid
         order by treatment.Studyid;
