@@ -34,6 +34,5 @@ proc sql;
     create table home.summary as
         select Siteid, Gender, avg(Age) as AverageAge
         from home.double
-        group by Siteid
-        order by Gender;
+        group by Siteid Gender;
 quit;
