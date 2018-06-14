@@ -19,3 +19,10 @@ proc import out=home.mydataRange
 	getnames=no;
 	range='Test$A1:F22';
 run;
+
+/* Importing Microsoft Access Table*/
+proc import datatable=Flight
+		out=home.flight
+		dbms=access replace;
+	database="&folder/acs.mdb";
+run;
