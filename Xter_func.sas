@@ -13,3 +13,33 @@ Have a wonderful day
 See you in next session
 ;
 run;
+
+
+data home.fullname;
+    infile datalines;
+    Label Fname="First Name"
+          Lname="Last Name"
+          FullName="Full Name";
+    length FullName $26;
+    input Fname :$10. Lname :$12.;
+    FullName = catx(" ", Fname, Lname);
+    datalines;
+Jose Hargver
+Mary Loveensten
+Peterson Klevson
+Jean Ortgeon
+Marleong Bartsisone
+Robertson Nowerginma
+;
+run;
+
+
+/* Demonstrate case functions*/
+/* Upcase, lowercase, propcase */
+
+data caseF;
+    set home.func1;
+    desUp = upcase(Describe);
+    desLo = lowcase(Describe);
+    desPo = propcase(Describe);
+run;
