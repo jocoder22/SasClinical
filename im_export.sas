@@ -26,3 +26,21 @@ proc import datatable=Flight
 		dbms=access replace;
 	database="&folder/acs.mdb";
 run;
+
+
+/* Import cvs file */
+proc import datafile="&folder/mydata.cvs"
+        out=home.mycvs
+        dbms=cvs replace;
+        getnames=no;
+run;
+
+
+
+/* Import other delimited file */
+proc import datafile="&folder/mydata22.txt"
+        out=home.mytext
+        dbms=dlm replace;
+        delimiter=" ";
+        getnames=no;
+run;
