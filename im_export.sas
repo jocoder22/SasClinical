@@ -50,7 +50,7 @@ run;
 
 /* Exporting files */
 proc export outfile="&folder/mycars.txt"
-    data=sasuser.cars
+    data=sashelp.cars
     dbms=dlm;
     delimiter=" ";
 run;
