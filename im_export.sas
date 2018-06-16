@@ -51,11 +51,14 @@ run;
 /* Exporting files */
 proc export outfile="&folder/mycars.txt"
     data=sashelp.cars
-    dbms=dlm;
+    dbms=dlm replace;
     delimiter=" ";
 run;
 
-
+proc export outfile="&folder/Excars.xlsx"
+    data=sashelp.cars
+    dbms=xlsx replace;
+run;
 
 /* Exporting Access files */
 proc export outtable=cars
