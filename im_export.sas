@@ -59,7 +59,7 @@ run;
 
 /* Exporting Access files */
 proc export outtable=cars
-    data=sasuser.cars
+    data=sashelp.cars
     dbms=access;
     database="&folder/Accesscars.mdb";
 run;
