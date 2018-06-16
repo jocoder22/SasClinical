@@ -20,6 +20,7 @@ proc import out=home.mydataRange
 	range='Test$A1:F22';
 run;
 
+
 /* Importing Microsoft Access Table*/
 proc import datatable=Flight
 		out=home.flight
@@ -43,4 +44,22 @@ proc import datafile="&folder/mydata22.txt"
         dbms=dlm replace;
         delimiter=" ";
         getnames=no;
+run;
+
+
+
+/* Exporting files */
+proc export outfile="&folder/mycars.txt"
+    data=sasuser.cars
+    dbms=dlm;
+    delimiter=" ";
+run;
+
+
+
+/* Exporting Access files */
+proc export outtable=cars
+    data=sasuser.cars
+    dbms=access;
+    database="&folder/Accesscars.mdb";
 run;
