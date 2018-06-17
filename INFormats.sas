@@ -20,6 +20,7 @@ proc format library=home fmtlib;
 run;
 
 options fmtsearch=(home); * reference to the library where the format is stored
+* Run the option before using the informat;
 
 
 data home.DateNew;
