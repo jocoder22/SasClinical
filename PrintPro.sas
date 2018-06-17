@@ -10,5 +10,5 @@ run;
 
 
 * Without sorting;
-proc print data=sasuser.admit obs="Rank";
+proc print data=sasuser.admit (obs=20) obs="Rank";
 run;
