@@ -16,6 +16,7 @@ proc format library=home;
 
 run;
 
+* To print the format name and attributes ;
 proc format library=home fmtlib;
 run;
 
