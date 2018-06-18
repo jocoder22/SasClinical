@@ -23,6 +23,7 @@ data home.fullname;
     length FullName $26;
     input Fname :$10. Lname :$12.;
     FullName = catx(" ", Fname, Lname);
+    * can use, call catx(" ", FullName, Fname, Lname);
     datalines;
 Jose Hargver
 Mary Loveensten
