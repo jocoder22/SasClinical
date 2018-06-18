@@ -37,3 +37,12 @@ run;
 
 proc contents data=home.sortedExtra;
 run;
+
+
+* Sorting using sortseq=linguistic options, numeric_collation=on;
+* this sort data by order of the integer within a text;
+* 30th street, before 32nd street;
+proc sort data=home.address out=home.address2
+        sortseq=linguistic(numeric_collation=on);
+    by street;
+run;
