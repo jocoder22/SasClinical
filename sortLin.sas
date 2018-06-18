@@ -14,4 +14,8 @@ proc print data=home.sortedTeam;
     title2 "Sorted using sortseq linguistic option";
 run;
 
+* Display the linguistic information using proc contents;
+* so that other program will have access to the linguistic collation;
+proc contents data=home.sortedTeam;
+run;
 
