@@ -1,6 +1,6 @@
 libname home "C:\Users\Jose\Documents\SasClinical";
 
-* Sorting using sortseq=linguistic option;
+* Sorting using sortseq=linguistic options, strength=position;
 * this sort data without regard to variable case;
 proc sort data=home.team out=home.sortedTeam
         sortseq=linguistic(strength=primary);
@@ -19,3 +19,21 @@ run;
 proc contents data=home.sortedTeam;
 run;
 
+
+* Sorting using sortseq=linguistic options, alternate_handling=shifted;
+* this sort data without regard to variable with extra blank, punctuations
+  or other characters;
+proc sort data=home.extraX out=home.sortedExtra
+        sortseq=linguistic(alternate_handling=shifted);
+    by fullname;
+run;
+
+
+proc print data=home.sortedExtra;
+    by fullname;
+    id fullname;
+run;
+
+
+proc contents data=home.sortedExtra;
+run;
