@@ -46,3 +46,12 @@ proc sort data=home.address out=home.address2
         sortseq=linguistic(numeric_collation=on);
     by street;
 run;
+
+proc print data=home.address2;
+    by street;
+    id street zip;
+run;
+
+
+proc contents data=home.address2;
+run;
