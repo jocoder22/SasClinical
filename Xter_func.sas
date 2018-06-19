@@ -59,3 +59,11 @@ Owen    Nancy
 run;
 
 
+data home.c_comp2;
+    set home.c_comp;
+    Name2 = compress(name);
+    Name3 = compbl(name);
+run;
+
+proc print data=home.c_comp2;
+run;
