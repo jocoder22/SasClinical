@@ -63,7 +63,17 @@ data home.c_comp2;
     set home.c_comp;
     Name2 = compress(name);
     Name3 = compbl(name);
+    Name4 = lowcase(name);
 run;
 
 proc print data=home.c_comp2;
 run;
+
+
+
+* Using substr function;
+data home.suhu;
+    set home.c_comp2;
+    Name5 = Upcase(substr(Name4,1,1));
+run;
+
