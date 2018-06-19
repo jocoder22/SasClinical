@@ -44,3 +44,18 @@ data caseF;
     desLo = lowcase(Describe);
     desPo = propcase(Describe);
 run;
+
+
+
+* Using compress and compbl funtions;
+data home.c_comp;
+    infile datalines;
+    input name : $24.;
+    datalines;
+Jane   Easiys
+Mark      kolwein
+Owen    Nancy
+;
+run;
+
+
