@@ -80,3 +80,13 @@ data home.suhu;
     Name5 = Upcase(substr(Name4,1,1));
 run;
 
+
+
+* indexw, index, indexc;
+* indexw, finds whole word: strings separated by spaces, or space and end/beginging of string;
+* index returns the position of the substring while indexc returns position of xter;
+
+
+* find and findc;
+* find returns the positon of a substring;
+* findc return the position of a xter;
