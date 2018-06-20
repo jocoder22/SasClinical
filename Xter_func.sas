@@ -48,6 +48,7 @@ run;
 
 
 * Using compress and compbl funtions;
+* compbl removes extra blanks, i.e only one blank remaining;
 data home.c_comp;
     infile datalines;
     input name : $24.;
@@ -58,7 +59,8 @@ Owen    Nancy
 ;
 run;
 
-
+* Compress removes specified xter or list of xters;
+* if no list or xter specified, compress will remove all blanks;
 data home.c_comp2;
     set home.c_comp;
     Name2 = compress(name);
