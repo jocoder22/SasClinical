@@ -5,7 +5,7 @@ libname home2 "C:\Users\Jose\Documents\SasClinical\chapter2";
 
 data home.lagdiff;
     infile datalines missover;
-    input ID $ Wt @@;
+    input ID $ week Wt @@;
     datalines;
 101 1 234 101 2 236 101 3 240 101 4 242
 102 1 238 102 2 236 102 3 235
