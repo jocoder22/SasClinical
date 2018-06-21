@@ -100,3 +100,11 @@ run;
 * find and findc;
 * find returns the positon of a substring;
 * findc return the position of a xter;
+data _null_;
+    address = "41 Marleong street";
+    find1 = find(address, 'Marleong');
+    find2 = findc(address, "M");
+
+    put find1;
+    put find2;
+run;
