@@ -85,7 +85,17 @@ run;
 * indexw, index, indexc;
 * indexw, finds whole word: strings separated by spaces, or space and end/beginging of string;
 * index returns the position of the substring while indexc returns position of xter;
+data _null_;
+    header = "World most beautiful island";
+    head1 = indexw(header, 'beautiful');
+    head2 = indexw(header, 'beauty');
+    head3 = indexc(header, "af");
 
+    put header=;
+    put head1=;
+    put head2=;
+    put head3=;
+run;
 
 * find and findc;
 * find returns the positon of a substring;
