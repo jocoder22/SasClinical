@@ -108,3 +108,17 @@ data _null_;
     put find1;
     put find2;
 run;
+
+
+
+* count, countc;
+* count returns the number of occurance of a string;
+* countc returns the number of occurances of a xter;
+data _null_;
+    counter = "This is the counter in this history piscis";
+    counter1 = count(counter, "is");
+    counter2 = countc(counter, 'isc');
+
+    put counter1;
+    put counter2;
+run;
