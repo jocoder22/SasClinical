@@ -3,7 +3,7 @@ libname home "C:\Users\Jose\Documents\SasClinical\functions";
 
 data home.func1;
     infile datalines;
-    input Describe : $32;
+    input Describe $32.;
     datalines;
 This is the best eassy
 But i have to write more
@@ -40,9 +40,9 @@ run;
 
 data caseF;
     set home.func1;
-    desUp = upcase(Describe);
-    desLo = lowcase(Describe);
-    desPo = propcase(Describe);
+    desUpper = upcase(Describe);
+    desLower = lowcase(Describe);
+    desProper = propcase(Describe);
 run;
 
 
@@ -51,7 +51,7 @@ run;
 * compbl removes extra blanks, i.e only one blank remaining;
 data home.c_comp;
     infile datalines;
-    input name : $24.;
+    input name $24.;
     datalines;
 Jane   Easiys
 Mark      kolwein
@@ -77,7 +77,8 @@ run;
 * Using substr function;
 data home.suhu;
     set home.c_comp2;
-    Name5 = Upcase(substr(Name4,1,1));
+    Name5 = Upcase(substr(Name4,1,4));
+    substr(Name4,5,4) = "AAA";
 run;
 
 
