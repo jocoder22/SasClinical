@@ -4,8 +4,8 @@
 libname home2 "C:\Users\Jose\Documents\SasClinical\chapter2"; 
 
 data home.testLG;
-    infile datalines missover;
-    input ID $ week Wt;
+    infile datalines;
+    input ID $ week Wt @@;
     datalines;
 101 1 234 101 2 236 101 3 240 101 4 242
 102 1 238 102 2 236 102 3 235
@@ -15,11 +15,19 @@ data home.testLG;
 ;
 run;
 
+
+proc sort data=home.testsort out=home.testsort;
+    by ID;
+run;
+
+
 data home.lagdiff;
-    set home.testLG;
+    set home.testsort;
+    by ID;
     lagg = lag(wt);
     diff = dif(wt);
     P_change = diff / lagg * 100;
+    if first.ID then P_change = 0;
 run;
 
 
