@@ -98,6 +98,9 @@ data _null_;
     put head3=;
 run;
 
+
+
+
 * find and findc;
 * find returns the positon of a substring;
 * findc return the position of a xter;
@@ -106,8 +109,8 @@ data _null_;
     find1 = find(address, 'Marleong');
     find2 = findc(address, "M");
 
-    put find1;
-    put find2;
+    put find1=;
+    put find2=;
 run;
 
 
@@ -120,6 +123,6 @@ data _null_;
     counter1 = count(counter, "is");
     counter2 = countc(counter, 'isc');
 
-    put counter1;
-    put counter2;
+    put counter1=;
+    put counter2=;
 run;
