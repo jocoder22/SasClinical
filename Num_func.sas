@@ -3,7 +3,7 @@
 * diff function returns the diff between current and previous value of variable;
 libname home2 "C:\Users\Jose\Documents\SasClinical\chapter2"; 
 
-data home.lagdiff;
+data home.testLG;
     infile datalines missover;
     input ID $ week Wt @@;
     datalines;
@@ -15,3 +15,9 @@ data home.lagdiff;
 ;
 run;
 
+data home.lagdiff;
+    set home.testLG;
+    lagg = lag(wt);
+    diff = dif(wt);
+    P_change = diff / lagg * 100;
+run;
