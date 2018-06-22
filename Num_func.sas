@@ -21,3 +21,14 @@ data home.lagdiff;
     diff = dif(wt);
     P_change = diff / lagg * 100;
 run;
+
+data _null_;
+    floorme = 123.98;
+    ceilme = 289.33;
+    roundme = 345.45;
+    floorm = floor(floorme);
+    ceilm = ceil(ceilm);
+    roundm = round(roundme);
+    put floorme= ceilme= roundme=;
+    put floorm= ceilm= roundm=;
+end;
