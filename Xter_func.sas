@@ -142,3 +142,7 @@ data home.anniversary(drop=yr) home.serviceyears (drop=yr);
 	format YearsInService $35. MonthEmployed monthfmt.;
 run;
 
+proc print data=home.anniversary;
+	title "More than 20-year Anniversaries in month of August";
+run;
+title;
