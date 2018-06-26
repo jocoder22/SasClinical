@@ -43,6 +43,7 @@ data _null_;
     floorm = floor(floorme);
     ceilm = ceil(ceilme);
     roundm = round(roundme);
+    roundm2 = round(roundme,10)
     put floorme= ceilme= roundme=;
     put floorm= ceilm= roundm=;
 run;
