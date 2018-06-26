@@ -32,6 +32,8 @@ run;
 
 
 
+* Ceil function returns smallest integer greater then the input value;
+* Floor function returns the largest integer than is less than or smaller then the input value;
 data _null_;
     floorme = 123.98;
     ceilme = 289.33;
