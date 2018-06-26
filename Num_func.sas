@@ -32,8 +32,10 @@ run;
 
 
 
-* Ceil function returns smallest integer greater then the input value;
-* Floor function returns the largest integer than is less than or smaller then the input value;
+* Ceil function returns smallest integer greater then the input argument;
+* Floor function returns the largest integer than is less than or smaller then the input argument;
+* Round function return the value of the first argument the nearest multiples of the;
+* second argument or whole integer if second argument is missing;
 data _null_;
     floorme = 123.98;
     ceilme = 289.33;
