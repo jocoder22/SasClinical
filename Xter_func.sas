@@ -128,27 +128,3 @@ data _null_;
 run;
 
 
-* mdy, intck, intnx functions;
-* mdy function returns the month, year, day, weekday, quarter of the date;
-* intck returns the time interval between 2 datalines;
-* intnx returns a future date give a time interval;
-data home.anniversary(drop=yr) home.serviceyears (drop=yr);
-	set sasuser.mechanics(keep=id lastname firstname hired);
-	Yr= intck('year',hired, today());
-	MonthEmployed = month(hired);
-	YearsInService = put(yr,2.)|| " Years in Service";
-	if Yr gt 20 and month(hired)=8 then output anniversary;
-	output serviceyears;
-	format YearsInService $35. MonthEmployed monthfmt.;
-run;
-
-proc print data=home.anniversary;
-	title "More than 20-year Anniversaries in month of August";
-run;
-title;
-
-
-proc print data=serviceyears;
-	title "Employee years of service";
-run;
-title;
