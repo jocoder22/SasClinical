@@ -132,9 +132,23 @@ Scan function
 * Translate function replaces specified xters in a character string;
 data _null_;
 myword = "Sensitised";
-newword = translate(myword, "s", "z");
+newword = translate(myword, "z", "s");
 put myword= newword=;
 run;
 
 
-Tranwrd
+* Tranwrd function replace word strings;
+* if the string has no length, the Tranw return a length of 200;
+* this differs from translate function that replaces xter;
+
+data home.rolls;
+    infile datalines;
+    input states :$12 @@;
+    OldName = tranwrd(states, "New", "Old");
+    datalines;
+New York New Jersey New London
+New Orleans New Mexico New Jackon
+;
+run;
+
+
