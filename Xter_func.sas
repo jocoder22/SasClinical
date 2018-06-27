@@ -128,3 +128,13 @@ data _null_;
 run;
 
 
+Scan function
+* Translate function replaces specified xters in a character string;
+data _null_;
+myword = "Sensitised";
+newword = translate(myword, "s", "z");
+put myword= newword=;
+run;
+
+
+Tranwrd
