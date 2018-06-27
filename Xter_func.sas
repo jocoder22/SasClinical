@@ -128,7 +128,8 @@ data _null_;
 run;
 
 
-Scan function
+* Scan function;
+
 * Translate function replaces specified xters in a character string;
 data _null_;
 myword = "Sensitised";
