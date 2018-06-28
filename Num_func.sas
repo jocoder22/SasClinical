@@ -75,3 +75,8 @@ proc print data=serviceyears;
 	title "Employee years of service";
 run;
 title;
+
+
+
+* Missing function;
+* Returns 1 is value is missing or 0 is not missing;
