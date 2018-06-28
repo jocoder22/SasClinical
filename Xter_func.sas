@@ -176,3 +176,14 @@ data _null_;
     lens8L =  length(lens8);
     put lens6L= lens7L= lens8L=;
 run;
+
+
+* lengthc function returns the length of string including the trailing blanks;
+data _null_;
+    length name33 $ 10;
+    lno = "Johnny ";
+    name33 = "Klevson";
+    name33L = lengthc(name33);
+    InoL = lengthc(Ino);
+    put name33L= InoL=;
+run;
