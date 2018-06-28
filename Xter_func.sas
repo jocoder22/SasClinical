@@ -162,3 +162,17 @@ run;
 
 proc print data=home.rolls;
 run;
+
+
+
+* length and lengthc function;
+* length function returns the length of string excluding trailing blanks;
+data _null_;
+    len6 = "Mango";
+    len7 = "Highlander";
+    len8 = "Miner and godder";
+    lens6L =  length(lens6);
+    lens7L =  length(lens7);
+    lens8L =  length(lens8);
+    put lens6L= lens7L= lens8L=;
+run;
