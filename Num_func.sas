@@ -80,3 +80,16 @@ title;
 
 * Missing function;
 * Returns 1 is value is missing or 0 is not missing;
+data _null_;
+    set home.health end=eof;
+    array num{*} _Numeric_;
+    array Str{*} _Character_;
+    do i=1 to dim(num);
+        if missing(num[i]) then countNum+1;
+    end;
+        do i=1 to dim(Str);
+        if missing(Str[i]) then countStr+1;
+    end;
+    put countNum= countStr=;
+run;
+
