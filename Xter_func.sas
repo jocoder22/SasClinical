@@ -129,6 +129,8 @@ run;
 
 
 * Scan function returns the n-word in a xter expression separated by delimiter;
+* if no delimiter specified, then scan function uses the default delimiters;
+* ! $ % ^ & * ( ) - + | ,  blank . / < ;
 data home.name;
     set home.fullname(keep FullName);
     FirstName = scan(FullName, 1);
