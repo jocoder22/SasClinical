@@ -128,7 +128,13 @@ data _null_;
 run;
 
 
-* Scan function;
+* Scan function returns the n-word in a xter expression separated by delimiter;
+data home.name;
+    set home.fullname(keep FullName);
+    FirstName = scan(FullName, 1);
+    LastName = scan(FullName, 2);
+run;
+
 
 * Translate function replaces specified xters in a character string;
 data _null_;
