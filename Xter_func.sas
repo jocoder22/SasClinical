@@ -78,6 +78,7 @@ run;
 data home.suhu;
     set home.c_comp2;
     Name5 = Upcase(substr(Name4,1,4));
+    Name6 = Upcase(substr(Name4,1,1));
     substr(Name4,5,4) = "AAA";
 run;
 
