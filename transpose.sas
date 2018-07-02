@@ -16,9 +16,13 @@ Iron i7569 120 10 110
 ;
 
 
+
 proc transpose data=thome.prices out=thome.tprices name=SalePrices;
     id Product;
 run;
 
+
+* Using proc print to see the data ;
+* proc transpose don't print output;
 proc print data=thome.tprices;
 run;
