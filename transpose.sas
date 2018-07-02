@@ -14,3 +14,8 @@ Hphone k9013 56 3 53
 Heater h9234 590 50 540
 Iron i7569 120 10 110
 ;
+
+
+proc transpose data=thome.prices out=thome.tprices name=SalePrices;
+    id Product;
+run;
