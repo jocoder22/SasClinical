@@ -19,3 +19,6 @@ Iron i7569 120 10 110
 proc transpose data=thome.prices out=thome.tprices name=SalePrices;
     id Product;
 run;
+
+proc print data=thome.tprices;
+run;
