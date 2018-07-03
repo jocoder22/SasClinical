@@ -113,7 +113,7 @@ run;
 
 
 
-* Transpose and drop the _NAME_ variable;
+* Transpose to re-transpose;
 proc transpose data=thome.studentsorted 
 			   out=thome.tsort2;
 	id subject;
