@@ -93,5 +93,19 @@ Jane Physics 69
 ;
 proc sort data=thome.studentscore
           out=thome.studentsorted;
-    by studet
+    by student;
+run;
+
+
+* Transpose and drop the _NAME_ variable;
+proc transpose data=thome.studentsorted 
+			   out=thome.tsort(drop=_name_) ;
+	id subject;
+	by student;
+run;
+
+
+* Using proc print to see the data ;
+* proc transpose don't print output;
+proc print data=thome.tsort;
 run;
