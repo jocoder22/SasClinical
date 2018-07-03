@@ -48,3 +48,18 @@ run;
 * proc transpose don't print output;
 proc print data=thome.tprices;
 run;
+
+* prefix and suffix options are useful;
+* 1. if id statement refers to numeric variable;
+* 2. Without Id statement and  you want to form specific/insightful column names;
+proc transpose data=thome.prices 
+			   out=thome.FFprices2
+			   name=PriceClass
+			   prefix=product;
+
+run;
+
+* Using proc print to see the data ;
+* proc transpose don't print output;
+proc print data=thome.FFprices2;
+run;
