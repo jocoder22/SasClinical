@@ -63,3 +63,35 @@ run;
 * proc transpose don't print output;
 proc print data=thome.FFprices2;
 run;
+
+
+* Using by statement in transpose function;
+* the dataset must be sorted first;
+data thome.studentscore;
+	input student $ subject $ score;
+	datalines;
+Mark Physics 89
+Jane Maths 69
+Mark Maths 87
+Mark Biology 88
+Mark Agric 85
+Jane Biology 67
+Jane Agric 98
+Jane Econs 93
+Mary Maths 84
+Edward Maths 78
+Mary Biology 84
+Mary Agric 94
+Edward Agric 76
+Mary Physics 75
+Edward Physics 87
+Mark Econs 75
+Mary Econs 92
+Edward Econs 88
+Edward Biology 86
+Jane Physics 69
+;
+proc sort data=thome.studentscore
+          out=thome.studentsorted;
+    by studet
+run;
