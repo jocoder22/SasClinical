@@ -109,3 +109,19 @@ run;
 * proc transpose don't print output;
 proc print data=thome.tsort;
 run;
+
+
+
+
+* Transpose and drop the _NAME_ variable;
+proc transpose data=thome.studentsorted 
+			   out=thome.tsort2;
+	id subject;
+	by var student;
+run;
+
+
+* Using proc print to see the data ;
+* proc transpose don't print output;
+proc print data=thome.tsort2;
+run;
