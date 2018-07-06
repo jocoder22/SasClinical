@@ -17,6 +17,14 @@ proc report data=class1 nowd headskip headline;
         compute BMI;
             BMI = _c4_ /(_c5_ * 0.0254)**2;
         endcomp;
+    define comment/coomputed;
+        compute comment/ character;
+            comment = 'Good';
+        endcomp;
+
+    compute after sex;
+        comment = 'Total';
+    endcomp;
     compute before _page_;
         line @10 'Ages, Weight and Heights of student';
         line @20 'Class 2018';
