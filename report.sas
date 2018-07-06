@@ -24,6 +24,8 @@ proc report data=class1 nowd headskip headline;
 
     compute after sex;
         comment = 'Total';
+        if sex="F" then sex="Female";
+        else sex="Male";
     endcomp;
     compute before _page_;
         line @10 'Ages, Weight and Heights of student';
