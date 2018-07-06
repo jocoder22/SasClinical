@@ -13,7 +13,7 @@ proc report data=class1 nowd headskip headline;
     define age/spacing=4;
     define sex/'Gender' order width=7 across;
     break after sex/ skip dol dul summarize;
-    define BMI /coomputed;
+    define BMI /coomputed format=6.2;
         compute BMI;
             BMI = _c4_ /(_c5_ * 0.0254)**2;
         endcomp;
