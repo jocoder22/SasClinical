@@ -101,3 +101,19 @@ proc sql;
         from sashelp.class
         where Gender="F";
 quit;
+
+proc sql;
+	select Weight, ceil(Weight) as Weight2, Height, 
+	floor(Height) as Height2, ceil(Height) as HeightC
+	from sashelp.class;
+quit;
+
+
+* describe and delete table (using drop);
+proc sql;
+    describe table sqlTable5;
+quit;
+
+proc sql;
+    drop table sqlTable5;
+quit;
