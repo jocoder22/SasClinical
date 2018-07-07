@@ -25,3 +25,9 @@ proc sql;
         set gender='F', name='Jane', age=39
         ;
 quit;
+
+
+* Print using select statement;
+proc sql;
+    select * from sqlTable1;
+quit;
