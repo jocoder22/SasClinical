@@ -31,3 +31,13 @@ quit;
 proc sql;
     select * from sqlTable1;
 quit;
+
+proc sql;
+    select name, gender from sqlTable1;
+quit;
+
+proc sql;
+    create table sqlTable2 as 
+        select * from sqlTable1
+        order by gender desc, age ;
+quit;
