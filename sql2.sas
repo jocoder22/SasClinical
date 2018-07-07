@@ -51,3 +51,23 @@ proc sql;
         select * from sashelp.class
         order by 2, age desc;
 quit;
+
+
+* create format;
+proc format libray=library;
+    value $genderfmt2 
+        "F"="Female"
+        "M"="Male";
+run;
+
+
+* Apply formats and rename variables;
+proc sql;
+    create table sqlTable4 as   
+        select name as SubName,
+               age as Age,
+               sex as Gender foramt=$genderfmt2.,
+               Height as Height_cm,
+               Weight as Weight_kg
+        from sashelp.class;
+quit;
