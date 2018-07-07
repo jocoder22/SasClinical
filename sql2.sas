@@ -71,3 +71,32 @@ proc sql;
                Weight as Weight_kg 'Weight in Kg'
         from sashelp.class;
 quit;
+
+
+proc sql;
+    create table sqlTable4 as   
+        select name as SubName 'Student Name',
+               age as Age,
+               sex as Gender foramt=$genderfmt2.,
+               Height as Height_cm 'Height in cm',
+               Weight as Weight_kg 'Weight in Kg'
+        from sashelp.class
+        where Gender="F";
+quit;
+
+
+* create new variable;
+proc sql;
+    create table sqlTable5 as   
+        select name as SubName 'Student Name',
+               age as Age,
+               sex as Gender foramt=$genderfmt2.,
+               Height as Height_cm 'Height in cm',
+               Weight as Weight_kg 'Weight in Kg',
+        case when age <= 20 then 'Teenager'
+            when age  > 20 and age <= 30 then 'Young'
+            when age > 30 and age <= 40 then 'Middle Age'
+            else 'Older' end as AgeGrp
+        from sashelp.class
+        where Gender="F";
+quit;
