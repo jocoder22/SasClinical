@@ -93,6 +93,7 @@ proc sql;
                sex as Gender foramt=$genderfmt2.,
                Height as Height_cm 'Height in cm',
                Weight as Weight_kg 'Weight in Kg',
+               age+12 as AgePlus,
         case when age <= 20 then 'Teenager'
             when age  > 20 and age <= 30 then 'Young'
             when age > 30 and age <= 40 then 'Middle Age'
