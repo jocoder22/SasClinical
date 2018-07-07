@@ -36,8 +36,18 @@ proc sql;
     select name, gender from sqlTable1;
 quit;
 
+
+* sorting the data;
 proc sql;
     create table sqlTable2 as 
         select * from sqlTable1
         order by gender desc, age ;
+quit;
+
+
+* sort by position of variable;
+proc sql;
+    create table sqlTable3 as   
+        select * from sashelp.class
+        order by 2, age desc;
 quit;
