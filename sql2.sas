@@ -64,10 +64,10 @@ run;
 * Apply formats and rename variables;
 proc sql;
     create table sqlTable4 as   
-        select name as SubName,
+        select name as SubName 'Student Name',
                age as Age,
                sex as Gender foramt=$genderfmt2.,
-               Height as Height_cm,
-               Weight as Weight_kg
+               Height as Height_cm 'Height in cm',
+               Weight as Weight_kg 'Weight in Kg'
         from sashelp.class;
 quit;
