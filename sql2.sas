@@ -102,12 +102,6 @@ proc sql;
         where Gender="F";
 quit;
 
-proc sql;
-	select Weight, ceil(Weight) as Weight2, Height, 
-	floor(Height) as Height2, ceil(Height) as HeightC
-	from sashelp.class;
-quit;
-
 
 * describe and delete table (using drop);
 proc sql;
@@ -117,3 +111,20 @@ quit;
 proc sql;
     drop table sqlTable5;
 quit;
+
+* Using function ;
+proc sql;
+	select Weight, ceil(Weight) as Weight2, Height, 
+	floor(Height) as Height2, ceil(Height) as HeightC
+	from sashelp.class;
+quit;
+
+
+* generating statistics;
+proc sql;
+    select sex, count(age) as n, min(age) as MinAge, 
+        mean(Height) as Ave_Height foramt=6.2, mean(Weight) as Ave_Weight format=6.2
+    from sashelp.class
+    group by sex;
+quit;
+
