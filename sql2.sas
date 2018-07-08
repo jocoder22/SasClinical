@@ -175,3 +175,13 @@ proc sql;
 	except
 	select age, Weight from mtable;
 quit;
+
+
+
+* feedback and outobs= options;
+* feedback option output the variable to the log;
+* outobs= is used to limit the number of observation in the output;
+*  and a warning thus -- WARNING: Statement terminated early due to OUTOBS=10 option.;
+proc sql feedback outobs=10;
+    select * from sashelp.class;
+quit;
