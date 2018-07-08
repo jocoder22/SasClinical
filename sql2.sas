@@ -145,10 +145,27 @@ proc sql;
 quit;
 
 * union combines two tables with sorting;
+* sorting using all variables sequentially starting with the first observation;
 proc sql;
     select * from ftable
     union 
     select * from mtable
 quit;
-* Intercept returns common observations;
-* Except returns non matching observations;
+
+* Intersect returns common observations matched on selected variable;
+* Below no observation was select, observation must match on all variables;
+proc sql;
+	select * from ftable
+	intersect
+	select * from mtable;
+quit;
+
+
+* Here matched observation(s) on age, Weight and Height is returned;
+proc sql;
+	select age, Weight, Height from ftable
+	intersect
+	select age, Weight, Height from mtable;
+quit;
+
+* Except returns non matching observations in table1;
