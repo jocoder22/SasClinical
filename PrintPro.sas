@@ -5,6 +5,7 @@ proc sort data=sasuser.admit out=sortAdmit;
 	by Age;
 run;
 
+* changing the label of obs, using obs= option;
 proc print data=sortAdmit obs="Rank";
 run;
 
@@ -16,7 +17,7 @@ run;
 
 
 
-* Inserting blank lines;
+* Inserting blank lines using blankline= options;
 proc print data=sashelp.cars blankline=10 label;
 	var Make EngineSize Horsepower weight invoice;
 	title1 "Inserting Blank line";
