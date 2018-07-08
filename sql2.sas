@@ -169,3 +169,9 @@ proc sql;
 quit;
 
 * Except returns non matching observations in table1;
+* Here table1 is ftable;
+proc sql;
+	select age, Weight from ftable
+	except
+	select age, Weight from mtable;
+quit;
