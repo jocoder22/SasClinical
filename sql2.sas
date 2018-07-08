@@ -138,6 +138,17 @@ data ftable mtable;
     else if sex ='M' then output mtable;
 run;
 * union all combines two tables without sorting;
+proc sql;
+    select * from ftable
+    union all
+    select * from mtable
+quit;
+
 * union combines two tables with sorting;
+proc sql;
+    select * from ftable
+    union 
+    select * from mtable
+quit;
 * Intercept returns common observations;
 * Except returns non matching observations;
