@@ -185,3 +185,10 @@ quit;
 proc sql feedback outobs=10;
     select * from sashelp.class;
 quit;
+
+
+* selecting range of observation using monotonic() ;
+proc sql feedback;
+	select * from sashelp.class
+    where monotonic between 12 and 18;
+quit;
