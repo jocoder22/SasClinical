@@ -128,3 +128,16 @@ proc sql;
     group by sex;
 quit;
 
+* sql operators;
+* Union all, Union, intersect, except;
+
+* generate test dataset;
+data ftable mtable;
+    set sashelp.class;
+    if sex='F' then output ftable;
+    else if sex ='M' then output mtable;
+run;
+* union all combines two tables without sorting;
+* union combines two tables with sorting;
+* Intercept returns common observations;
+* Except returns non matching observations;
