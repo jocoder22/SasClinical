@@ -179,7 +179,7 @@ quit;
 
 
 * feedback and outobs= options;
-* feedback option output the variable to the log;
+* feedback option output final transformed code to the log;
 * outobs= is used to limit the number of observation in the output;
 *  and a warning thus -- WARNING: Statement terminated early due to OUTOBS=10 option.;
 proc sql feedback outobs=10;
