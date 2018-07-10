@@ -109,6 +109,19 @@ proc sql;
     from sashelp.class;
 quit;
 
+
+* using distinct function;
+proc sql;
+    select distinct(age) from sashelp.class;
+quit;
+
+
+proc sql;
+    select count(distinct age) as Agedist, count(distinct sex) as SexCat
+    from sashelp.class;
+quit;
+
+
 * describe and delete table (using drop);
 proc sql;
     describe table sqlTable5;
