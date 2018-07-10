@@ -131,6 +131,7 @@ proc sql;
     drop table sqlTable5;
 quit;
 
+
 * Using sas functions ;
 proc sql;
 	select Weight, ceil(Weight) as Weight2, Height, 
@@ -210,4 +211,16 @@ quit;
 proc sql feedback;
 	select * from sashelp.class
     where monotonic between 12 and 18;
+quit;
+
+
+
+* Alter table;
+* can add or drop variable;
+proc sql;
+    alter table ftable add race char(12);
+quit;
+
+proc sql;
+    alter table ftable drop weight;
 quit;
