@@ -103,6 +103,12 @@ proc sql;
 quit;
 
 
+* Using newly created variables, calculated keyword;
+proc sql;
+    select * , (weight**2) as weightSq, calculated weightSq/Height as Nweight
+    from sashelp.class;
+quit;
+
 * describe and delete table (using drop);
 proc sql;
     describe table sqlTable5;
@@ -112,7 +118,7 @@ proc sql;
     drop table sqlTable5;
 quit;
 
-* Using function ;
+* Using sas functions ;
 proc sql;
 	select Weight, ceil(Weight) as Weight2, Height, 
 	floor(Height) as Height2, ceil(Height) as HeightC
