@@ -279,3 +279,11 @@ proc sql;
 	select * from ftable inner join mtable
 	on ftable.weight=mtable.weight;
 quit;
+
+
+* Outer Joins;
+* left outer join, take all from the leftmost table and add matches to the right table;
+proc sql;
+	select * from ftable left join mtable
+	on ftable.weight=mtable.weight;
+quit;
