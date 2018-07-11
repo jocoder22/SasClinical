@@ -307,3 +307,19 @@ quit;
 proc sql;
 	select * from ftable2 natural join mtable;
 quit;
+
+
+* Self join;
+* uses where to subset the dataset;
+proc sql;
+	select * from ftable
+	where age ge 35;
+quit;
+
+
+* Cross join make a cross joint, attached each observation left to all observation on the right table;
+* Total number of n X m observations, n is number of observations in left table;
+* while m is the number of observations in the right table;
+proc sql;
+	select * from ftable cross join mtable
+quit;
