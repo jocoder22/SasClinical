@@ -252,3 +252,21 @@ proc sql;
 	else "Male"
 	end;
 quit;
+
+
+* Coalesce function to replace missing values;
+proc sql;
+	create table dup4 as
+	select coalesce(name, "Unknown") as Name, 
+	coalesce(age,0) as Age,coalesce(gender,"unk") as Gender 
+	from table2;
+quit;
+
+
+* Joins;
+* simple, inner, outer(left, right, full);
+* Natural, self, Cross , Union;
+proc sql;
+	select * from ftable, mtable
+	where ftable.weight=mtable.weight;
+quit;
