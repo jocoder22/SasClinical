@@ -6,9 +6,11 @@ filename myfile2 "C:\Users\Jose\Documents\SasClinical\macros";
 proc print data=&a;
 run;
 
+
 data class1;
     set &a;
 run;
+
 
 %put &a; * print to log;
 
@@ -52,11 +54,43 @@ run;
 %sort(dset=sashelp.class, new=class1, byvar=age);
 
 
+
 * Positional parameters;
-%macro sorted(dset, new, byvar);
-    proc sort data=&dset out=&new;
-        by &byvar;
+%macro sorted(dset1, new1, byvar1);
+    proc sort data=&dset1 out=&new1;
+        by &byvar1;
     run;
 %mend;
 
-%sorted(sashelp.class, class1,age);
+%sorted(sashelp.class, class2, sex);
+
+
+%macro multi(cond=, old=, new=, byvar=, tvar=; avar=);
+    %if &cond=S %then %do;
+        proc sort data=&old out=&new;
+            by &byvar;
+        run;
+    %end;
+    %if &cond=F %then %do;
+        proc freq data=&new;
+            by &byvar;
+            table &tvar;
+        run;
+    %end;
+    %if &cond=M %then %do;
+        proc means data=&new;
+            by &byvar;
+            var &avar;
+        run;
+    %end;
+    %if &cond=P %then %do;
+        proc print data=&new;
+        run;
+    %end;
+%mend;
+
+
+%multi(cond=S, old=sashelp.class, new=class4, byvar=sex);
+%multi(cond=S, old=sasuser.blood, new=blood, byvar=gender); 
+%multi(cond=F, new=class4, byvar=sex, tvar=age);  
+%multi(cond=M, new=blood, byvar=gender, avar=rbc);
