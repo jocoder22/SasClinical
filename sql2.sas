@@ -266,6 +266,8 @@ quit;
 * Joins;
 * simple, inner, outer(left, right, full);
 * Natural, self, Cross , Union;
+
+* Simple Join, using where statement;
 proc sql;
 	select * from ftable, mtable
 	where ftable.weight=mtable.weight;
