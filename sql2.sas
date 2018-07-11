@@ -224,3 +224,20 @@ quit;
 proc sql;
     alter table ftable drop weight;
 quit;
+
+
+* Duplicating or Copying;
+proc sql;
+    create table dup1 as
+	select *, sex as Gender 
+	from sashelp.class;
+quit;
+
+
+proc sql;
+	create table dup2 as
+	select *
+	from sashelp.class;
+	alter table dup2 add Gender char;
+	update dup2 set Gender=sex;
+quit;
