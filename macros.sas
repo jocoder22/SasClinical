@@ -29,3 +29,22 @@ run;
     proc print data=sashelp.class;
     run;
 %mend;
+
+%printme;
+
+
+%macro printed(dtname=);
+    proc print data=&dtname;
+    run;
+%mend;
+
+%printed(dtname=sashelp.class);
+
+
+%macro sort(dset=, new=, byvar=);
+    proc sort data=&dset out=&new;
+        by &byvar;
+    run;
+%mend;
+
+%sort(dset=sashelp.class, new=class1, byvar=age);
