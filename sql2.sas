@@ -267,8 +267,15 @@ quit;
 * simple, inner, outer(left, right, full);
 * Natural, self, Cross , Union;
 
-* Simple Join, using where statement;
+* Simple Join, using where statement to combine multiple tables;
 proc sql;
 	select * from ftable, mtable
 	where ftable.weight=mtable.weight;
+quit;
+
+
+* Inner joins for only two tables;
+proc sql;
+	select * from ftable inner join mtable
+	on ftable.weight=mtable.weight;
 quit;
