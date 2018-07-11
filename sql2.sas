@@ -323,3 +323,10 @@ quit;
 proc sql;
 	select * from ftable cross join mtable
 quit;
+
+
+* Union join;
+* Stacks the tables;
+proc sql;
+	select * from ftable union join mtable;
+quit;
