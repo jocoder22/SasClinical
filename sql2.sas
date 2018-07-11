@@ -287,3 +287,23 @@ proc sql;
 	select * from ftable left join mtable
 	on ftable.weight=mtable.weight;
 quit;
+
+* Right outer join, take all from the rightmost table and add matches to the left table;
+proc sql;
+	select * from ftable right join mtable
+	on ftable.weight=mtable.weight;
+quit;
+
+
+
+* Natural join, makes join using variables common to both tables;
+* rename sex in ftable;
+proc sql;
+    create table ftable2 as
+    select name as Fname, sex as Gender, Weight, Height
+    from ftable;
+quit;
+
+proc sql;
+	select * from ftable2 natural join mtable;
+quit;
