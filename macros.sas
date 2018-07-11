@@ -41,6 +41,8 @@ run;
 %printed(dtname=sashelp.class);
 
 
+
+* keyword parameters;
 %macro sort(dset=, new=, byvar=);
     proc sort data=&dset out=&new;
         by &byvar;
@@ -48,3 +50,13 @@ run;
 %mend;
 
 %sort(dset=sashelp.class, new=class1, byvar=age);
+
+
+* Positional parameters;
+%macro sorted(dset, new, byvar);
+    proc sort data=&dset out=&new;
+        by &byvar;
+    run;
+%mend;
+
+%sorted(sashelp.class, class1,age);
