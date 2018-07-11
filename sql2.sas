@@ -241,3 +241,14 @@ proc sql;
 	alter table dup2 add Gender char;
 	update dup2 set Gender=sex;
 quit;
+
+
+proc sql;
+	create table dup3 as
+	select *
+	from sashelp.class;
+	alter table dup3 modify sex char(6);
+	update dup3 set sex= case when sex="F" then "Female"
+	else "Male"
+	end;
+quit;
