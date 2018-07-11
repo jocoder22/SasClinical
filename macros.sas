@@ -94,3 +94,17 @@ run;
 %multi(cond=S, old=sasuser.blood, new=blood, byvar=gender); 
 %multi(cond=F, new=class4, byvar=sex, tvar=age);  
 %multi(cond=M, new=blood, byvar=gender, avar=rbc);
+
+
+%macro looped(dtname=);
+%let i=1;
+%do %while (&i le 4);
+    %let dset=%scan(&dtname, &i);
+        proc print data=&dset;
+        run;
+        %let i=%eval(&i+1);
+    %end;
+%mend;
+
+
+%looped(dtname=sashelp.class sasuser.blood sashelp.cars sashelp.housing);
