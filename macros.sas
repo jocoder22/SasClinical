@@ -113,3 +113,11 @@ run;
 
 
 %looped(dtname=sashelp.class sasuser.blood sashelp.cars sashelp.housing);
+
+
+* Macro interface functions;
+%let a = "This is sas";
+%put %length(&a);
+%put %scan(&a, 1);
+
+
