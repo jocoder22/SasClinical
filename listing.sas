@@ -38,5 +38,40 @@ proc sql;
 quit;
 
 
+optiions ls=200 nocenter nodata nonumber; title;
+proc format;
+    value $gender 'M'='Male' 'F' = 'Female';
+run;
+
+
+proc printto print="C:\Users\Jose\Documents\SasClinical\listing\report1.txt"
+    log="C:\Users\Jose\Documents\SasClinical\listing\report1_log.txt"
+run;
+
+proc report data=advs1 nowd headskip headline split='*';
+    column ('--' usubjid sex country age trtpn trtp param avisitn avisit aval);
+    define param/width=35 order;
+    define usubjid / 'Subject*Identifier' order;
+    define sex / group format=$gender.;
+    define country/ order width=10;
+    define age/ order;
+    define trtpn/ noprint order;
+    define trtp/ order;
+    define avisitn/ noprint order;
+    define avisit/ order;
+    compute before _page_;
+        line @10 'BP3304-002' @120 'l_vitals.sas';
+        line ''; line '';
+        line @40 'Subject Vitals Signs information - listing';
+        line '';
+    endcomp;
+    compute after;
+        line @2 135*'-';
+    endcomp;
+quit;
+
+proc printto;
+run;
+
 
 * In tables we generate statistics;
