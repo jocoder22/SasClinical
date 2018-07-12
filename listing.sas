@@ -67,6 +67,7 @@ proc report data=advs1 nowd headskip headline split='*';
     endcomp;
     compute after;
         line @2 135*'-'; line '';
+        line @2 'Note: Sorted treatment group';
     endcomp;
 quit;
 
