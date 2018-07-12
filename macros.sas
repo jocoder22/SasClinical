@@ -147,6 +147,7 @@ quit;
 * noprint deactivates the mprint options;
 options mprint;
 %printme;
+%printed(dtname=sashelp.class);
 
 
 * serror and merror options are the default;
@@ -157,3 +158,31 @@ options mprint;
 options serror merror;
 %put &pander; * serror will give warning message;
 %donnett; * merror will give warning message;
+
+* mlogic symbolgen gives different message but same meaning ;
+* the two explains what is happend behide the hoard;
+* mlogic has Beginning execution and Ending execution messages;
+options mlogic symbolgen;
+%printed(dtname=sashelp.class);
+
+
+* Storing and saving macros;
+* options sasmstore= links the the folder, and mstored is the save command;
+libname mstorage "C:\Users\Jose\Documents\SasClinical\macros\mstore";
+options sasmstore=mstorage mstored;
+
+%macro printtf/ store source;
+    proc print data=sashelp.class;
+    run;
+%mend;
+
+
+* Using saved macros;
+* the sasautos options will run the library where the macro is stored;
+libname run "C:\Users\Jose\Documents\SasClinical\macros\mstore";
+options sasautos = mstorage;
+%printtf;
+
+
+
+
