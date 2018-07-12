@@ -203,3 +203,17 @@ filename mydoc "C:\Users\Jose\Documents\SasClinical\macros";
 %put &sysuserid;
 
 
+* Multiply &;
+%let dsn=abc;
+%let i = 1;
+%let dsn1=abc1;
+%let abc1=cba1;
+
+%put &dsn&i; * ==> abc1 ;
+%put &&dsn&i; * ==> abc1 ;  * && resolves to &;
+
+%put &&&dsn&i; * ==> cba1 ;
+* first leftmost && resolves to &, then &dsn1  ==> abc, and &i ==> 1;
+* now we have &abc1 ==> cba1 ;
+
+
