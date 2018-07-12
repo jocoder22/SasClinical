@@ -117,10 +117,12 @@ run;
 
 * Macro interface functions;
 %let a = "This is sas";
+%let b = "This is_sas";
 %put %length(&a);
 %put %scan(&a, 1);
 
-
+%put %sysfunc(countw(&a));
+%put %sysfunc(scan(&b, 1, %str(_)));
 * Using sql to create macros;
 proc sql;
     select name into: mvar separated by ','
