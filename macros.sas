@@ -121,3 +121,20 @@ run;
 %put %scan(&a, 1);
 
 
+* Using sql to create macros;
+proc sql;
+    select name into: mvar separated by ','
+    from sashelp.class;
+quit;
+
+%put &mvar;
+
+
+proc sql;
+    select name into: mvar1 - :mvar19 
+    from sashelp.class;
+quit;
+%put &mvar1;
+%put &mvar7;
+%put &mvar12;
+%put &mvar17;
