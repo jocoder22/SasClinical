@@ -184,5 +184,13 @@ options sasautos = mstorage;
 %printtf;
 
 
+* Autocall macros: use to execute programs save in another file;
+* using %include ;
+%include "C:\Users\Jose\Documents\SasClinical\macros";
+%include "C:\Users\Jose\Documents\SasClinical\macros\logg.txt";
+
+
+filename mydoc "C:\Users\Jose\Documents\SasClinical\macros";
+%include mydoc;
 
 
