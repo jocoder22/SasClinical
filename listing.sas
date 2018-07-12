@@ -66,7 +66,7 @@ proc report data=advs1 nowd headskip headline split='*';
         line '';
     endcomp;
     compute after;
-        line @2 135*'-';
+        line @2 135*'-'; line '';
     endcomp;
 quit;
 
