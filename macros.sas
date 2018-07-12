@@ -130,7 +130,7 @@ quit;
 %put &mvar;
 
 
-proc sql;
+proc sql noprint;
     select name into: mvar1 - :mvar19 
     from sashelp.class;
 quit;
@@ -138,3 +138,22 @@ quit;
 %put &mvar7;
 %put &mvar12;
 %put &mvar17;
+
+
+
+* Debugging options;
+* macro debubbing options are global options;
+* mprint will print the procedures inside the macro;
+* noprint deactivates the mprint options;
+options mprint;
+%printme;
+
+
+* serror and merror options are the default;
+* serror give warning for non-existing macro variable;
+* merror gives warning for non-existing macro catalog or function;
+* the noserror and nomerror options deactivates them;
+
+options serror merror;
+%put &pander; * serror will give warning message;
+%donnett; * merror will give warning message;
