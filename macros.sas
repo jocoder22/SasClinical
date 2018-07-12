@@ -42,7 +42,12 @@ run;
 
 %printed(dtname=sashelp.class);
 
-
+%macro dtcreat(new=, old=, var=, val=);
+    data &new;
+        set &old;
+        where &var=&val;
+    run;
+%mend;
 
 * keyword parameters;
 %macro sort(dset=, new=, byvar=);
