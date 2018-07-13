@@ -24,6 +24,8 @@ proc summary data=demog;
 run;
 
 
+
+* Concatenate variable;
 data age2;
     set age1;
     meansd = put(_mean,4.1)||'('||put(_std,5.2)||')';
@@ -31,4 +33,35 @@ data age2;
     N = put(_n,3.0);
     median = put(_mdn,4.1);
     drop _:;
+run;
+
+
+
+* Transpose data;
+proc transpose data=age2 out=age3;
+    id trt;
+    var n meansd median mnmx;
+run;
+
+
+* Generate values for _name_;
+data age4;
+    length newvar$ 30.;
+    set age3;
+    if _name_ = 'N' then newvar='  N';
+    else if _name_ = 'meansd' then newvar='  Mean(SD)';
+    else if _name_ = 'median' then newvar='  Median';
+    else if _name_ = 'mnmx' then newvar='  Min,Max';
+    drop _name_;
+run;
+
+
+data dummy;
+    length newvar$ 30.;
+    newvar = 'Age(years)';
+run;
+
+data age;
+    set dummy age4;
+    ord = 1;
 run;
