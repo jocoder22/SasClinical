@@ -93,3 +93,118 @@ proc transpose data=gen2 out=gen3;
     var np;
     by gender;
 run;
+
+data gen4;
+    length newvar$ 30.;
+    set gen3;
+    if gender=1, the newvar='  Male';
+    else if gender=2 then newvar='  Female';
+    drop gender _name_;
+run;
+
+
+data dummy;
+    length newvar$ 30.;
+    newvar='Gender[n(%)]';
+run;
+
+data gender;
+    set dummy gen4;
+    ord=2;
+run;
+
+
+
+
+* Ethnic statistics;
+proc freq data=demog noprint;
+    by trt;
+    table ethnic/out=ethnic1;
+    where ethnic ne .;
+run;
+
+
+data ethnic2;
+    set ethnic1;
+    np = put(count,3.0)||'('||put(percent,4.1)||')';
+run;
+
+proc sort data=ethnic2;
+    by ethnic;
+run;
+
+
+proc transpose data=ethnic2 out=ethnic3;
+    id trt;
+    var np;
+    by ethnic;
+run;
+
+data ethnic4;
+    length newvar$ 30.;
+    set gen3;
+    if ethnic=1, the newvar='  Hispanic or Latino';
+    else if ethnic=2 then newvar='  Not Hispanic or Latino';
+    drop ethnic _name_;
+run;
+
+
+data dummy;
+    length newvar$ 30.;
+    newvar='Ethnicity[n(%)]';
+run;
+
+data ethnic;
+    set dummy ethnic4;
+    ord=3;
+run;
+
+
+
+
+* Race statistics;
+proc freq data=demog noprint;
+    by trt;
+    table Race/out=Race1;
+    where Race ne .;
+run;
+
+
+data Race2;
+    set Race1;
+    np = put(count,3.0)||'('||put(percent,4.1)||')';
+run;
+
+proc sort data=Race2;
+    by Race;
+run;
+
+
+proc transpose data=Race2 out=Race3;
+    id trt;
+    var np;
+    by Race;
+run;
+
+data Race4;
+    length newvar$ 30.;
+    set Race3;
+    if Race=1, the newvar='  White';
+    else if Race=2 then newvar='  Black or African American';
+    else if Race=3 then newvar='  Asian';
+    drop Race _name_;
+run;
+
+
+data dummy;
+    length newvar$ 30.;
+    newvar='Race[n(%)]';
+run;
+
+data Race;
+    set dummy Race4;
+    ord=4;
+run;
+
+
+ 
