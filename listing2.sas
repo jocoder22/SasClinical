@@ -240,7 +240,8 @@ proc report data=final nowd headline headskip split='*';
      compute before _page_;
         line @2 70*'-';
         line @3 'Reference: Listing 16.4.2.1';
+        line @5 'Percentages are based on the number of subjects in the Population';
+        line @3 'Note: SD = standard deviation, Min = Minimum, Max = Maximum';
     endcomp;
-
 run;
 
