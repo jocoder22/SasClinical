@@ -65,3 +65,31 @@ data age;
     set dummy age4;
     ord = 1;
 run;
+
+
+
+
+
+* Gender statistics;
+proc freq data=demog noprint;
+    by trt;
+    table gender/out=gen1;
+    where gender ne .;
+run;
+
+
+data gen2;
+    set gen1;
+    np = put(count,3.0)||'('||put(percent,4.1)||')';
+run;
+
+proc sort data=gen2;
+    by gender;
+run;
+
+
+proc transpose data=gen2 out=gen3;
+    id trt;
+    var np;
+    by gender;
+run;
