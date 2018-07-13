@@ -1,3 +1,13 @@
+********************************************************************
+* Program name:
+* Output name: t_demog
+* Programmer:
+* Date:
+* Reviewer:
+* Review Date:
+* Title:
+*********************************************************************
+
 * Double the entire data to generate the value holder for the overall data;
 * This is based on the new overall treatment group, with value 9;
 data demog;
