@@ -207,4 +207,30 @@ data Race;
 run;
 
 
- 
+*  Final dataset;
+data final;
+    set age gender ethnic race;
+run;
+
+
+* Creating the final report;
+options nocenter nodate nonumber; title;
+proc report data=final nowd headline headskip split='*';
+    column('--' ord newvar _0 _1 _9);
+    define ord/ order noprint;
+    break after ord/ skip;
+    define newvar/ '';
+    define _1/ 'BP3304*(N=31)';
+    define _0/'Placebo*(N=29)';
+    define _9/'Overall*(N=60)';
+    compute before _page_;
+        line @10 '14.1.2.1 Subject Demographics and baseline characteristics';
+        line @40 'Safety Population';
+    endcomp;
+     compute before _page_;
+        line @2 70*'-';
+        line @3 'Reference: Listing 16.4.2.1';
+    endcomp;
+
+run;
+
