@@ -10,15 +10,16 @@ data adsl;
 run;
 
 
+%macro listtm(var=, title=, num=);
 proc summmary data=adsl;
     class trt01an;
-    var height;
-    output out=ht_1 (where=(trt01an ne .))
+    var &var.;
+    output out=&var._1 (where=(trt01an ne .))
         n=_n mean=_mean std=_std median=_median min=_mn max=_mx;
 run;
 
-data ht_2;
-    set ht_1;
+data &var._2;
+    set &var._1;
     meansd=put(_mean,4.1)||'('||put(_std,5.2)||')';
     mnmx=put(_mn,3.0)||','||put(_mx,3.0);
     n=put(_n,3.0);
@@ -27,16 +28,16 @@ data ht_2;
 run;
 
 
-proc transpose data=ht_2 out=ht_3;
+proc transpose data=&var.2 out=&var.3;
     id trt01an;
     var n meansd median mnmx;
 run;
 
 
 
-data ht_4;
-length newvar$ 30.;
-    set ht_3;
+data &var._4;
+    length newvar$ 30.;
+    set &var._3;
     if _name_='n' then newvar='   N';
     else if _name_='meansdn' then newvar='   Mean(SD)';
     else if _name_='mnmxn' then newvar='   Min, Max';
@@ -47,11 +48,12 @@ run;
 
 data dummy;
     length newvar$ 30.;
-    newvar='Height(cm)';
+    newvar=&title;
 run;
 
-data height;
-    set dummy ht_4;
-    ord=1;
+
+data &var.;
+    set dummy &var._4;
+    ord=&num;
 run;
-    
+%mend;
