@@ -56,4 +56,12 @@ data &var.;
     set dummy &var._4;
     ord=&num;
 run;
+
+proc dataset;
+    delete &var._:;
+run;
 %mend;
+
+* Calling the macro;
+* Calling macro for height statistics;
+%listtm(var=height,title="Height(cm)",num=1);
