@@ -26,6 +26,7 @@ data ht_2;
     drop _:;
 run;
 
+
 proc transpose data=ht_2 out=ht_3;
     id trt01an;
     var n meansd median mnmx;
@@ -34,6 +35,7 @@ run;
 
 
 data ht_4;
+length newvar$ 30.;
     set ht_3;
     if _name_='n' then newvar='   N';
     else if _name_='meansdn' then newvar='   Mean(SD)';
@@ -41,3 +43,15 @@ data ht_4;
     else if _name_='meadian' then newvar='   Median';
     drop _name_;
 run;
+
+
+data dummy;
+    length newvar$ 30.;
+    newvar='Height(cm)';
+run;
+
+data height;
+    set dummy ht_4;
+    ord=1;
+run;
+    
