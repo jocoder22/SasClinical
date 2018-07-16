@@ -17,3 +17,12 @@ proc summmary data=adsl;
         n=_n mean=_mean std=_std median=_median min=_mn max=_mx;
 run;
 
+data ht_2;
+    set ht_1;
+    meansd=put(_mean,4.1)||'('||put(_std,5.2)||')';
+    mnmx=put(_mn,3.0)||','||put(_mx,3.0);
+    n=put(_n,3.0);
+    meadian=put(_median,4.1);
+    drop _:;
+run;
+
