@@ -71,3 +71,10 @@ run;
 
 * Calling macro for height statistics;
 %listtm(var=bmi,title="Body Mass Index(kg/m^2)",num=3);
+
+
+
+* Final dataset;
+data final;
+    set height weight bmi;
+run;
