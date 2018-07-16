@@ -65,3 +65,9 @@ run;
 * Calling the macro;
 * Calling macro for height statistics;
 %listtm(var=height,title="Height(cm)",num=1);
+
+* Calling macro for height statistics;
+%listtm(var=weight,title="Weight(kg)",num=2);
+
+* Calling macro for height statistics;
+%listtm(var=bmi,title="Body Mass Index(kg/m^2)",num=3);
