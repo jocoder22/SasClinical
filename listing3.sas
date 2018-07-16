@@ -26,3 +26,18 @@ data ht_2;
     drop _:;
 run;
 
+proc transpose data=ht_2 out=ht_3;
+    id trt01an;
+    var n meansd median mnmx;
+run;
+
+
+
+data ht_4;
+    set ht_3;
+    if _name_='n' then newvar='   N';
+    else if _name_='meansdn' then newvar='   Mean(SD)';
+    else if _name_='mnmxn' then newvar='   Min, Max';
+    else if _name_='meadian' then newvar='   Median';
+    drop _name_;
+run;
