@@ -10,6 +10,8 @@ data adsl;
 run;
 
 
+
+
 %macro listtm(var=, title=, num=);
 proc summmary data=adsl;
     class trt01an;
@@ -57,10 +59,13 @@ data &var.;
     ord=&num;
 run;
 
+
 proc dataset;
     delete &var._:;
 run;
 %mend;
+
+
 
 * Calling the macro;
 * Calling macro for height statistics;
@@ -77,4 +82,19 @@ run;
 * Final dataset;
 data final;
     set height weight bmi;
+run;
+
+proc sql;
+    select count(distinct subjid) into: N1-: N3 from adsl
+    group by trt01an;
+quit;
+
+proc report data=final nowd headskip headline skip='*';
+    column ('--' ord newvar _1 _0 _9);
+    define ord/order noprint;
+    break after ord/skip;
+    define newvar/'';
+    define _1/"BP3304*(N=&n2)";
+    define _0/"Placebo*(N=&n1)";
+    define _9/"Overall*(N=&n3)";
 run;
