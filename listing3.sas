@@ -89,7 +89,7 @@ proc sql noprint;
     group by trt01an;
 quit;
 
-
+options nodate nonumber nocenter; title;
 proc printto print="mylls/report3.txt";
 run;
 proc report data=final nowd headskip headline skip='*';
