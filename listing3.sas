@@ -1,5 +1,5 @@
 libname home "C:\Users\Jose\Documents\SasClinical";
-filename listing3 "C:\Users\Jose\Documents\SasClinical\listing3";
+%let mylls=C:\Users\Jose\Documents\SasClinical\listing3;
 
 
 * Listing using macros;
@@ -89,6 +89,9 @@ proc sql noprint;
     group by trt01an;
 quit;
 
+
+proc printto print="mylls/report3.txt";
+run;
 proc report data=final nowd headskip headline skip='*';
     column ('--' ord newvar _1 _0 _9);
     define ord/order noprint;
@@ -97,4 +100,7 @@ proc report data=final nowd headskip headline skip='*';
     define _1/"BP3304*(N=&n2)";
     define _0/"Placebo*(N=&n1)";
     define _9/"Overall*(N=&n3)";
+run;
+
+proc printto;
 run;
