@@ -1,5 +1,5 @@
 libname home "C:\Users\Jose\Documents\SasClinical";
-filename mylst "C:\Users\Jose\Documents\SasClinical\listing";
+%let mylst=C:\Users\Jose\Documents\SasClinical\listing;
 
 
 data old;
@@ -44,9 +44,10 @@ proc format;
 run;
 
 
-proc printto print="C:\Users\Jose\Documents\SasClinical\listing\report1.txt"
-    log="C:\Users\Jose\Documents\SasClinical\listing\report1_log.txt"
+proc printto print="&mylst/report1.txt"
+    log="&mylst/report1_log.txt"
 run;
+
 
 proc report data=advs1 nowd headskip headline split='*';
     column ('--' usubjid sex country age trtpn trtp param avisitn avisit aval);
