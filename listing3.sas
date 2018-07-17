@@ -5,7 +5,7 @@ filename listing3 "C:\Users\Jose\Documents\SasClinical\listing3";
 * Listing using macros;
 * First double the dataset;
 data adsl;
-    set sasuser.adsl; output;
+    set home.adsl; output;
     trt01an=9; output;
 run;
 
@@ -25,12 +25,12 @@ data &var._2;
     meansd=put(_mean,4.1)||'('||put(_std,5.2)||')';
     mnmx=put(_mn,3.0)||','||put(_mx,3.0);
     n=put(_n,3.0);
-    meadian=put(_median,4.1);
+    median=put(_median,4.1);
     drop _:;
 run;
 
 
-proc transpose data=&var.2 out=&var.3;
+proc transpose data=&var._2 out=&var._3;
     id trt01an;
     var n meansd median mnmx;
 run;
@@ -60,8 +60,8 @@ data &var.;
 run;
 
 
-proc dataset;
-    delete &var._:;
+proc dataset lib=work nolist;
+    delete &var._: dummy;
 run;
 %mend;
 
@@ -84,7 +84,7 @@ data final;
     set height weight bmi;
 run;
 
-proc sql;
+proc sql noprint;
     select count(distinct subjid) into: N1-: N3 from adsl
     group by trt01an;
 quit;
