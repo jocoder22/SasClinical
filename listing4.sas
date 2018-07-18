@@ -68,3 +68,8 @@ run;
 proc sort data=new1;
     by ord sord;
 run;
+
+data final;
+    merge left new1;
+    by ord sord;
+run;
