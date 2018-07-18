@@ -32,7 +32,39 @@ proc sql;
         where complyn=2 group by trt
     union all
     select count(distinct subjid) as n, trt, 3 as ord, discn as sord from admin
-        where complyn=3 group by trt, discn;
-    union all
+        where complyn=2 group by trt, discn
+    order by trt;
 quit;
 
+proc sql;
+    create table demon as 
+    select count(distinct subjid) as bign, trt from admin
+    group by trt;
+    order by trt;
+quit;
+
+
+data new;
+    merge count denom;
+    by trt;
+    np=put(n,3.0)||'('||put((n/bign)*100,4.1)||')';
+run;
+
+proc sort data=new;
+    by ord sord;
+run;
+
+proc transpose data=new out new1;
+    id trt;
+    var np;
+    by ord sord;
+run;
+
+
+proc sort data=left;
+    by ord sord;
+run;
+
+proc sort data=new1;
+    by ord sord;
+run;
