@@ -5,13 +5,14 @@ proc datasets;
 quit;
 run;
 
-
 proc datasets lib=home;
 quit;
 run;
 
 proc contents data=home._all_ nods;
 run;
+
+
 
 * Getting details of datasets;
 proc datasets lib=home;
@@ -22,6 +23,8 @@ run;
 proc contents data=_all_;
 run;
 
+
+
 * Coping dataset;
 proc copy in=mylib out=newdb;
 run;
@@ -29,6 +32,7 @@ run;
 proc datasets nolist;
     copy in=mylib out=newdb;
 run;
+
 
 
 * Selecting datasets ;
