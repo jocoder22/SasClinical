@@ -41,9 +41,9 @@ data &var._4;
     length newvar$ 30.;
     set &var._3;
     if _name_='n' then newvar='   N';
-    else if _name_='meansdn' then newvar='   Mean(SD)';
-    else if _name_='mnmxn' then newvar='   Min, Max';
-    else if _name_='meadian' then newvar='   Median';
+    else if _name_='meansd' then newvar='   Mean(SD)';
+    else if _name_='mnmx' then newvar='   Min, Max';
+    else if _name_='median' then newvar='   Median';
     drop _name_;
 run;
 
@@ -100,6 +100,9 @@ proc report data=final nowd headskip headline skip='*';
     define _1/"BP3304*(N=&n2)";
     define _0/"Placebo*(N=&n1)";
     define _9/"Overall*(N=&n3)";
+    compute afte;
+        @2 72*'_';
+    endcomp;
 run;
 
 proc printto;
