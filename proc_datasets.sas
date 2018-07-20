@@ -94,3 +94,21 @@ proc datasets lib=newdb nolist;
 quit;
 run;
 
+
+* 3. rename variables and apply formats/informats;
+* using data step;
+data newdb.visit;
+    set newdb.visit(rename=(inv=site pat=subj));
+    format todate fromdate mmddyy10.;
+    informat vstdate todate fromdate mmddyy10.;
+run;
+
+
+proc datasets lib=newdb nolist;
+    modify visit;
+        rename inv=site pat=subj;
+        format todate fromdate mmddyy10.;
+        informat vstdate todate fromdate mmddyy10.;
+quit;
+run;
+
