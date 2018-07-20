@@ -64,16 +64,33 @@ run;
 
 
 * Modifying datasets;
-* Adding label;
+* 1. label dataset;
 * Using data step;
 data newdb.bmi(label="Body Mass Index");
     set newdb.bmi;
 run;
 
 
-* Using proc datasets;
+* Using proc datasets, which is faster and more efficient;
 proc datasets lib=newdb nolist;
     modify height(label="Height of Students");
+quit;
+run;
+
+
+* 2. label variables;
+* using data step;
+data newdb.bmi;
+    set newdb.bmi;
+    label height="Heights of Students"
+          weight="Weights of Students";
+run;
+
+* using proc datasets which is faster and more efficient;
+proc datasets lib=newdb nolist;
+    modify bmi;
+        label height="Heights in cm"
+              weight="Weights in pounds";
 quit;
 run;
 
