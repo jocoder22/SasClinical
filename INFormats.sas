@@ -1,4 +1,3 @@
-
 libname home "C:\Users\Jose\Documents\SasClinical";
 Filename timeq2 "C:\Users\Jose\Documents\SasClinical\chapter1";  
 
