@@ -58,6 +58,22 @@ quit;
 run;
 
 proc datasets lib=newdb nolist;
-    save final;
+    save final; *delete all except final;
 quit;
 run;
+
+
+* Modifying datasets;
+* Adding label;
+* Using data step;
+data newdb.bmi(label="Body Mass Index");
+    set newdb.bmi;
+run;
+
+
+* Using proc datasets;
+proc datasets lib=newdb nolist;
+    modify height(label="Height of Students");
+quit;
+run;
+
