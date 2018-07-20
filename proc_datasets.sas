@@ -43,4 +43,21 @@ run;
 proc datasets nolist;
     copy in=mylib out=newdb;
     select bmi height final;
+quit;
+run;
+
+
+* Deleting or save/delete datasets;
+proc datasets lib=newdb nolist;
+    delete bmi height;
+quit;
+run;
+
+proc datasets lib=newdb nolist kill;
+quit;
+run;
+
+proc datasets lib=newdb nolist;
+    save final;
+quit;
 run;

@@ -62,6 +62,7 @@ run;
 
 proc dataset lib=work nolist;
     delete &var._: dummy;
+quit;
 run;
 %mend;
 
