@@ -119,6 +119,25 @@ run;
 quit;
 
 
+* Donut, star and block graphs;
+proc gchart data=sashelp.class;
+    donut age / discrete type=mean sumvar=height mean;
+    where sex="M";
+run;
+quit;
+
+proc gchart data=sashelp.class;
+    star age / discrete type=mean sumvar=height mean;
+    where sex="M";
+run;
+quit;
+
+proc gchart data=sashelp.class;
+    block age / discrete type=mean sumvar=height mean;
+    where sex="M";
+run;
+quit;
+
 
 
 
