@@ -27,9 +27,18 @@ quit;
 run;
 
 
-* using sumvar to get summary statistics, i.e the y-axis;
+* using sumvar to get summary variable, i.e the y-axis;
 * Here we find the average(mean) height for each discrete age;
+* mean option displays the values on top of each bar;
 proc chart data=sashelp.class;
-    vbar age / discrete type=mean sumvar=height;
+    vbar age / discrete type=mean sumvar=height mean;
+quit;
+run;
+
+
+* use the group option for categorical groups/
+* this displays chart for each group;
+proc chart data=sashelp.class;
+    vbar age / discrete type=mean sumvar=height mean group=sex;
 quit;
 run;
