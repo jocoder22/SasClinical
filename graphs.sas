@@ -11,3 +11,11 @@ proc chart data=sashelp.class;
     vbar age / discrete;
 quit;
 run;
+
+
+* Using the graphical charts, gcharts;
+* this is more colorful and clearer;
+proc gchart data=sashelp.class;
+    vbar age;
+quit;
+run;
