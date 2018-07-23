@@ -36,9 +36,27 @@ quit;
 run;
 
 
-* use the group option for categorical groups/
-* this displays chart for each group;
+* use the group option for categorical groups
+* this displays chart for each group on the same graph;
 proc chart data=sashelp.class;
     vbar age / discrete type=mean sumvar=height mean group=sex;
+quit;
+run;
+
+* subgroup= option stack the groups on top of each other;
+proc chart data=sashelp.class;
+    vbar age / discrete type=mean sumvar=height mean subgroup=sex;
+quit;
+run;
+
+* To get the group graphs on separate pages/output;
+* use the by options, after sorting the data;
+proc sort data=sashelp.class;
+    sort by sex;
+run;
+
+proc chart data=sashelp.class;
+    vbar age / discrete type=mean sumvar=height mean;
+    by sex;
 quit;
 run;
