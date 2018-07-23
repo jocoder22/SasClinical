@@ -74,3 +74,32 @@ proc sgplot data=sashelp.class;
     step x=name y=weight / lineattrs=(color=red thickness=4);
 run;
 quit;
+
+proc sgplot data=sashelp.class;
+    step x=name y=weight / lineattrs=(color=red thickness=4);
+    step x=name y=height / lineattrs=(color=green thickness=4);
+run;
+quit;
+
+
+* Box plots: vbox, hbox;
+proc sgplot data=sashelp.class;
+    vbox age / category=sex;
+run;
+quit;
+
+proc sgplot data=sashelp.class;
+    vbox age / category=sex;
+run;
+quit;
+
+* sgplot vbar, hbar;
+proc sgplot data=sashelp.class;
+    vbar age / group=sex response=height stat=mean;
+run;
+quit;
+
+proc sgplot data=sashelp.class;
+    hbar age / group=sex response=height stat=mean;
+run;
+quit;
