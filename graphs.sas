@@ -51,7 +51,7 @@ run;
 quit;
 
 * To get the group graphs on separate pages/output;
-* use the by options, after sorting the data;
+* use the by statement, after sorting the data;
 proc sort data=sashelp.class;
     sort by sex;
 run;
@@ -61,3 +61,24 @@ proc chart data=sashelp.class;
     by sex;
 run;
 quit;
+
+
+* Subsetting the data using where statement;
+proc chart data=sashelp.class;
+    vbar age / discrete type=mean sumvar=height mean;
+    where sex="M" and age in (11 14 15);
+run;
+quit;
+
+
+* using 3D graphs, vbar3d;
+proc chart data=sashelp.class;
+    vbar3d age / discrete type=mean sumvar=height mean;
+    where sex="M";
+run;
+quit;
+
+
+
+
+
