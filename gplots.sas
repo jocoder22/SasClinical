@@ -54,3 +54,23 @@ proc sgplot data=sashelp.class;
     series x=height y=weight;
 run;
 quit;
+
+* change line attributes;
+proc sgplot data=sashelp.class;
+    series x=height y=weight / lineattrs=(color=red thickness=4);
+run;
+quit;
+
+* combining multiple lines on one plot;
+proc sgplot data=sashelp.class;
+    series x=name y=weight / lineattrs=(color=red thickness=4);
+    series x=name y=height / lineattrs=(color=green thickness=4);
+run;
+quit;
+
+
+* step plot;
+proc sgplot data=sashelp.class;
+    step x=name y=weight / lineattrs=(color=red thickness=4);
+run;
+quit;
