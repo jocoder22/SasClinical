@@ -78,6 +78,13 @@ proc chart data=sashelp.class;
 run;
 quit;
 
+* other 3D options like shapes= cylinder, prism, star, block, hexagon;
+* patternid to change the color and width to change the width of the 3D shapes;
+proc chart data=sashelp.class;
+    vbar3d age / discrete type=mean sumvar=height mean shape=cylinder width=20 patternid=midpoint;
+    where sex="M";
+run;
+quit;
 
 
 
