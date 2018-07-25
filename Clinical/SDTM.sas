@@ -68,7 +68,7 @@ data se;
     studyid="SCL002";
     domain="SE";
     usubjid=studyid||'-'||strip(stud_sit)||"-0"||strip(substr(pt, 5, 1));
-    * seseq=;
+    /* seseq=;
     if visit in (1, 10) then  do;    
         etcd="SCREEN"; element="Screening"; taetord=1; epoch="Screening";
     end;
@@ -80,6 +80,16 @@ data se;
     end;
         if visit=40 then  do;    
         etcd="FU"; element="Follow-up"; taetord=4; epoch="Follow-up";
+    end; */
+
+     if visit in (1, 10) then  do;    
+        etcd="SCRN"; element="Screen"; taetord=1; epoch="Screening";
+    end;
+        if visit=20 then  do;    
+        etcd="K"; element="SCLA"; taetord=2; epoch="Treatment";
+    end;
+        if visit=40 then  do;    
+        etcd="FU"; element="Follow-up"; taetord=3; epoch="Follow-up";
     end;
 
     sestdtc=put(vis_d, yymmdd10.);
