@@ -64,6 +64,18 @@ run;
 * Add se domain;
 %let varkeep=studyid domain usubjid etcd element taetord epoch sestdtc seendtc;
 data se;
+    attrib studyid  label='Study Identifier'   length=$6
+            domain  label='Domain Abbreviation'   length=$2
+            usubjid  label='Unique Subject Identifier'   length=$22
+            * seseq  label='Sequence Number'   length=8;
+            etcd  label='Element Code'   length=$6
+            element  label='Description of Element'   length=$9
+            seupdes  label='Description of Unplanned Element'   length=$40
+            sestdtc  label='Start Date/Time of Element'   length=$10
+            seendtc  label='End Date/Time of Element'   length=$10
+            taetord  label='Planned Order of Elements with Arm'   length=8
+            epoch  label='Epoch'   length=$9
+;
     set sasuser.svdtc(keep=pt stud_sit visit vis_d) ;
     studyid="SCL002";
     domain="SE";
@@ -106,6 +118,7 @@ run;
 
 data se;
     set se;
+    attrib seseq  label='Sequence Number'   length=8;
     by usubjid sestdtc etcd;
     if first.usubjid then seseq=1;
     else seseq+1;
