@@ -29,6 +29,7 @@ data te;
 run;
 
 
+
 * Add ta domain;
 data ta;
     attrib studyid   label='Study Identifier'  length=$10
@@ -57,3 +58,28 @@ data ta;
     etcd="K"; element="SCLA"; taetord=2; epoch="Treatment"; output;
     etcd="FU"; element="Follow-Up"; taetord=3; epoch="Follow-Up"; output;
 run;
+
+
+
+* Add se domain;
+data se;
+    set sasuser.svdtc;
+    studyid="SCL002";
+    domain="SE";
+    usubjid=studyid||'-'||strip(stud_sit)||"-0"||strip(substr(pt, 5, 1));
+    seseq=
+    if visit in (1, 10) then  do;    
+        etcd="SCREEN"; element="Screening"; taetord=1; epoch="Screening";
+    end;
+        if visit=20 then  do;    
+        etcd="BASE"; element="Baseline"; taetord=2; epoch="Treatment";
+    end;
+        if visit=30 then  do;    
+        etcd="TREAT"; element="Treatment"; taetord=3; epoch="Treatment";
+    end;
+        if visit=40 then  do;    
+        etcd="FU"; element="Follow-up"; taetord=4; epoch="Follow-up";
+    end;
+
+    sestdtc=put(vis_d, yymmdd10.);
+    seendtc=put(vis_d, yymmdd10.);
