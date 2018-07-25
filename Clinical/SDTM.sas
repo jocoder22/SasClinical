@@ -75,7 +75,7 @@ data se;
             seendtc  label='End Date/Time of Element'   length=$10
             taetord  label='Planned Order of Elements with Arm'   length=8
             epoch  label='Epoch'   length=$9
-;
+    ;
     set sasuser.svdtc(keep=pt stud_sit visit vis_d) ;
     studyid="SCL002";
     domain="SE";
