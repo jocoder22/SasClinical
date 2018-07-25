@@ -96,3 +96,18 @@ data se;
     seendtc=put(vis_d, yymmdd10.);
     keep &varkeep;
 run;
+
+
+* Generating sequence number;
+* first sort the data;
+proc sort data=se; 
+    by usubjid sestdtc etcd;
+run;
+
+data se;
+    set se;
+    by usubjid sestdtc etcd;
+    if first.usubjid then seseq=1;
+    else seseq+1;
+    where etcd is not missing;
+run;
