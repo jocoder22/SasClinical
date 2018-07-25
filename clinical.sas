@@ -1,6 +1,15 @@
 * Generating the TE domain(dataset);
+options validvarname=upcase;
 data te;
-    STUDYID = "SCL002";
+    attrib studyid    label='Study Identifier'  length=$10
+           domain    label='Domain Abbreviation'  length=$2
+            ectd    label='Element Code'  length=$8
+            element    label='Description of Element'  length=$200
+            testrl    label='Rule for Start of Element'  length=$200
+            teenrl    label='Rule for End of Element'  length=$200
+            tedur    label='Planned Duration of Element'  length=$20
+    ;
+    studyid = "SCL002";
     domain = "TE";
     ectd = "SCRN";
     element = "Screen";
