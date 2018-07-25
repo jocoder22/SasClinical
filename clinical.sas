@@ -11,12 +11,10 @@ data te;
     ectd = "K";
     element = "SCLA";
     testrl = "First dose of study drug";
-    teenrl = "4 days to 1 week after start of element";
-    tedur = "P7D"; output;
+    teenrl = "4 days to 1 week after start of element"; output;
 
     ectd = "FU";
     element = "Follow Up";
-    testrl = "Follow Up";
-    teenrl = "After the last PK plasma sample or 1 week after last dose";
-    tedur = "P7D"; output;
+    testrl = "After the last PK plasma sample or 1 week after last dose";
+    teenrl = "Ends 1 weeks after start of element"; output;
 run;
