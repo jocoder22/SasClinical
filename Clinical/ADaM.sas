@@ -2,7 +2,10 @@ libname sdtm "/folders/myshortcuts/Sas_Training/SDTAM";
 %let ggg=/folders/myshortcuts/Sas_Training/ADaM/EG.sas;
 %include "&ggg";
 
+%let keepvar=studyid usubjid egeval egcat aval avalc ablfl param paramcd
+		adt atm avisitn avisit base norm EGSTRESN;
 
+        
 data adeg_1;
     attrib studyid  label='Study Identifier'
 		usubjid  label='Unique Study Identifier'
@@ -57,4 +60,8 @@ data adeg;
 		pchg=100*(EGSTRESN-BASE)/BASE;
 	end;
 	drop=EGSTRESN;
+run;
+
+
+proc print data=adeg;
 run;
