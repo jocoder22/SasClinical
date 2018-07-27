@@ -3,7 +3,7 @@ libname sdtm "/folders/myshortcuts/Sas_Training/SDTAM";
 %include "&ggg";
 
 
-data adeg;
+data adeg_1;
     attrib studyid  label='Study Identifier'
 		usubjid  label='Unique Study Identifier'
 		egeval  label='Evaluator'
@@ -37,4 +37,24 @@ data adeg;
 	if EGBLFL="Y" then base=EGSTRESN;
 	if EGTESTCD='INTP' then norm=EGSTRESC;
 	keep &keepvar;
+run;
+
+
+proc sort data=adeg_1 out=adeg_2;
+  by usubjid param avisitn;
+run;
+
+
+data adeg;
+	set adeg_2;
+	retain dummy;
+	by usubjid param avisitn;
+	if first.usubjid then dummy=base;
+	if not first.usubjid and EGSTRESN ne . then do;
+		if base ne . then dummy=base;
+		else base=dummy;
+		chg=EGSTRESN-BASE;
+		pchg=100*(EGSTRESN-BASE)/BASE;
+	end;
+	drop=EGSTRESN;
 run;
