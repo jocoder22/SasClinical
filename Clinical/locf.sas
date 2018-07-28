@@ -1,0 +1,10 @@
+* Last observation carried forward(LOCF);
+data height;
+    do subjid=1 to 10;
+        do visit=1 to 5;
+            height=ceil(220 * ranuni(2345));
+            if height < 140 then height = .;
+            output;
+        end;
+    end;
+run;
