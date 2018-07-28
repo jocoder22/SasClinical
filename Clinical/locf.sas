@@ -1,4 +1,5 @@
 * Last observation carried forward(LOCF);
+* create $visit format;
 proc format;
 	value $visit "1"="Screening"
 				"2"="Baseline"
@@ -10,6 +11,7 @@ run;
 
 
 
+* create dataset;
 data height;
     do subjid=1 to 100;
         do visit=1 to 8;
@@ -20,4 +22,14 @@ data height;
         end;
     end;
     format visitc $visit.;
+run;
+
+
+* Do traditional locf;
+data baseheight;
+	set height;
+	by subjid;
+	retain baseline;
+	if first.subjid then baseline=.;
+	if height ne . then baseline=height;
 run;
