@@ -26,10 +26,21 @@ run;
 
 
 * Do traditional locf;
-data baseheight;
+data locf;
 	set height;
 	by subjid;
 	retain baseline;
 	if first.subjid then baseline=.;
 	if height ne . then baseline=height;
+run;
+
+
+* Do DOW locf;
+data locf2;
+    do until(last.subjid);
+        set height;
+        by subjid;
+        if height ne . then baseline=height;
+        output;
+    end;
 run;
