@@ -38,6 +38,8 @@ run;
 proc sort data=vv2; by subjid visnum ; run;
 proc sort data=vv; by subjid visnum; run;
 
+
+* Do traditional locf;
 data final2(drop= v1 v2);
 	retain v1 v2;
 	merge vv2 vv;
@@ -52,3 +54,16 @@ data final2(drop= v1 v2);
 		else v2=value;
 	end;
 run;
+
+
+* Do DOW locf;
+data final3(drop=locf);
+	do until(last.subjid);
+		merge vv2 vv;
+		by subjid visnum;
+		 if value ne . then locf=value;
+		 else value=locf;
+		output;
+	end;
+run;
+	
