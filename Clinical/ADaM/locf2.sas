@@ -35,3 +35,6 @@ data vv2;
 run;
 
 
+proc sort data=vv2; by subjid visnum ; run;
+proc sort data=vv; by subjid visnum; run;
+
