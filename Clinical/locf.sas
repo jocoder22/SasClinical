@@ -29,9 +29,9 @@ run;
 data locf;
 	set height;
 	by subjid;
-	retain baseline;
-	if first.subjid then baseline=.;
-	if height ne . then baseline=height;
+	retain locf;
+	if first.subjid then locf=.;
+	if height ne . then locf=height;
 run;
 
 
@@ -40,7 +40,20 @@ data locf2;
     do until(last.subjid);
         set height;
         by subjid;
-        if height ne . then baseline=height;
+        if height ne . then locf=height;
+        output;
+    end;
+run;
+
+
+* Generate baseline;
+data baseheight;
+    do until(last.subjid);
+        set locf2;
+        by subjid;
+        if visit eq 2 then baseline=height;
+        else if baseline = . and height ne . then baseline=height;
+        if visit ne 1;
         output;
     end;
 run;
