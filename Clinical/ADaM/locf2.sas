@@ -38,3 +38,17 @@ run;
 proc sort data=vv2; by subjid visnum ; run;
 proc sort data=vv; by subjid visnum; run;
 
+data final2(drop= v1 v2);
+	retain v1 v2;
+	merge vv2 vv;
+	by subjid visnum;
+	if first.subjid then v1=.;
+	if visnum < 20 then do;
+		if value =. then value=v1;
+		else v1=value;
+	end;
+	else if 20 <= visnum < 160 then do;
+		if value =. then value=v2;
+		else v2=value;
+	end;
+run;
