@@ -67,3 +67,5 @@ data final3(drop=locf);
 	end;
 run;
 	
+proc compare base=final2 comp=final3;
+run;
