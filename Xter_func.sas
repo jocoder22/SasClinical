@@ -107,8 +107,13 @@ run;
 * findc return the position of a xter;
 * The FINDC function searches for individual characters in a character string, 
 * whereas the FIND function searches for substrings of characters in a character string.;
-* findc options includes: k or v for xter not in given xter;
-        * i to ignore case, t to trim trailing blanks;
+* findc options includes: k or v to search for xters not in given xter;
+        * i to ignore case, t to trim trailing blanks
+        a or A 	adds alphabetic characters to the list of characters.
+        b or B 	searches from right to left, instead of from left to right, 
+                regardless of the sign of the startpos argument.
+        c or C 	adds control characters to the list of characters.
+        d or D 	adds digits to the list of characters.;
 data _null_;
     address = "41 Marleong street";
     find1 = find(address, 'Marleong');
