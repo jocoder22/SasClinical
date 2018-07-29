@@ -61,11 +61,12 @@ data final3(drop=locf);
 	do until(last.subjid);
 		merge vv2 vv;
 		by subjid visnum;
-		 if value ne . then locf=value;
-		 else value=locf;
+		if value ne . then locf=value;
+		else value=locf;
 		output;
 	end;
 run;
-	
+
+
 proc compare base=final2 comp=final3;
 run;

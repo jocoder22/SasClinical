@@ -105,6 +105,8 @@ run;
 * find and findc;
 * find returns the positon of a substring;
 * findc return the position of a xter;
+* The FINDC function searches for individual characters in a character string, 
+* whereas the FIND function searches for substrings of characters in a character string.;
 data _null_;
     address = "41 Marleong street";
     find1 = find(address, 'Marleong');
