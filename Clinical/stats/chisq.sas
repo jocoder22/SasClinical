@@ -12,3 +12,9 @@ Placebo N 78
 ; 
 run;
 
+* conduct chi-square test;
+proc freq data=chiTest;
+    table trt*adea / chisq;
+    weight adct;
+    output out=chstats chisq;
+run;
