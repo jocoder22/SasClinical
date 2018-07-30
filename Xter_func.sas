@@ -62,6 +62,8 @@ run;
 * Compress removes specified xter or list of xters;
 * if no list or xter specified, compress will remove all blanks;
 * if blank is not in specified list, blank will not be removed.;
+* Also third, options k=keep, i=ignore case, D=digits, A=alphabets(upper and lower);
+                * S=space, P=punctuations;
 data home.c_comp2;
     set home.c_comp;
     Name2 = compress(name);
