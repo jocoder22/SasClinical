@@ -74,6 +74,15 @@ run;
 proc print data=home.c_comp2;
 run;
 
+data _null_;
+    string="89-78-nutty Tallty-985_98ktl 98";
+    compt=compress(string,"T","i");
+    comptA=compress(string,,"A");
+    compP=compress(string,,"P");
+    compK=compress(string,,"KDS"); *keep digits and space;
+    comp8=compress(string,"8","KDP"); * third option takes precedence;
+    put compt= comptA= compP= / compK= comp8=;
+run;
 
 
 * Using substr function;
