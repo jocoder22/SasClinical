@@ -21,7 +21,24 @@ proc sql;
 quit;
 
 
-/* Summarizing table data*/
+/* Summarizing table data :
+AVG, MEAN = Average or mean of values
+COUNT, FREQ, N = Aggregate number of non-missing values
+CSS	= Corrected sum of squares
+CV	= Coefficient of variation
+MAX	= Largest value
+MIN	= Smallest value
+NMISS = Number of missing values
+PRT	= Probability of a greater absolute value of Student's t
+RANGE = Difference between the largest and smallest values
+STD	= Standard deviation
+STDERR = Standard error of the mean
+SUM	= Sum of values
+SUMWGT	= Sum of the weight variable values, which is 1
+T = Testing the hypothesis that the population mean is zero
+USS = Uncorrected sum of squares
+VAR = variance
+*/
 proc sql;
     select Dose, count(Dose) as NumberTxt
         from home.treatment
