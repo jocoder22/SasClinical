@@ -13,3 +13,14 @@ data slect;
         otherwise;
     end;
 run;
+
+
+* without select expression;
+data snoexp;
+    set sashelp.class;
+    select;
+        when (gender="F") benefit=1200;
+        when (gender="M") benefit=1000;
+        otherwise;
+    end;
+run;
