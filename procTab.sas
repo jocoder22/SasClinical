@@ -19,3 +19,12 @@ proc tabulate data=sashelp.cars;
 	table origin="", drivetrain="Drive Train"*invoice=""*sum=""/ rts=23 ;
 	title;
 run;
+
+
+
+proc tabulate data=sashelp.cars;
+	class drivetrain origin cylinders;
+	var invoice;
+	table origin*cylinders, drivetrain="Drive Train"*invoice=""*mean=""/ rts=25 ;
+	title;
+run;
