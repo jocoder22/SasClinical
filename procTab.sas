@@ -16,7 +16,8 @@ run;
 proc tabulate data=sashelp.cars;
 	class make drivetrain origin;
 	var invoice;
-	table origin="", drivetrain="Drive Train"*invoice=""*sum=""*format=dollar12.2/ rts=23 ;
+	table origin="", drivetrain="Drive Train"*invoice=""*
+            (min="Lowest Price" mean="Average Price")*format=dollar12.2/ rts=23 ;
 	title;
 run;
 
