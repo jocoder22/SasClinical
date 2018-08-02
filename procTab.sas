@@ -8,3 +8,14 @@ proc tabulate data=sasuser.empdata order=freq format=comma10.;
     label hiredate="Month Hired";
     title "Total Salary for Staff by Hire Month";
 run;
+
+
+
+
+
+proc tabulate data=sashelp.cars;
+	class make drivetrain origin;
+	var invoice;
+	table origin, drivetrain="Drive Train"*invoice=""*sum=""/ rts=23 ;
+	title;
+run;
