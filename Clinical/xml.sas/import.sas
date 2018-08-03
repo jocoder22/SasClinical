@@ -8,3 +8,6 @@ proc contents
     data=xml2.myxml;
 run;
 
+proc print
+    data=xml2.myxml;
+run;
