@@ -29,7 +29,41 @@ data VS;
 ;
 run;
 
-proc sort data=vs out=vssort;
+proc sort data=vs out=vssorted;
 	by USUBJID VSTESTCD  VISITNUM;
 run;
     
+
+data advs;		  
+	set vssorted;
+        by USUBJID VSTESTCD  VISITNUM;
+
+    Label AVAL = "Analysis Value"
+        PARAMCD = "Parameter Code"
+        AVISITN = "Analysis Visit(N)"
+        ABLFL = "Baseline Record Flag"
+        BASELINE = "Baseline Value"
+        CHG = "Change from Baseline"
+        PCHG = "Percentage Change from Baseline";
+	
+	aval = vsstresn;
+	paramcd = vstestcd;
+	avisitn = visitnum;
+	
+	retain baseline;
+	
+	if first.vstestcd then 
+		do;
+			ablfl="Y";
+			baseline = aval;
+		end;
+	else do;
+		change = aval - baseline;
+		pchg = ((aval - baseline) / baseline) * 100;
+	end;
+run;
+
+
+proc print data=advs;
+	var usubjid aval baseline change pchg;
+run;
