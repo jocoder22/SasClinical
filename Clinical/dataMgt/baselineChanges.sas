@@ -29,5 +29,7 @@ data VS;
 ;
 run;
 
-
+proc sort data=vs out=vssort;
+	by usubjid;
+run;
     
