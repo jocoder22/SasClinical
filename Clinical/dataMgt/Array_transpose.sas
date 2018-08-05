@@ -1,3 +1,7 @@
+option validvarname=upcase;
+
+* This will transpose(Normalise) our data;
+
 data vsflat2;
 	set vssort;
 		by usubjid;
