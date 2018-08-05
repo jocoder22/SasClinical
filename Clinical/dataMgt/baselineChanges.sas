@@ -30,6 +30,6 @@ data VS;
 run;
 
 proc sort data=vs out=vssort;
-	by usubjid VSTESTCD  VISITNUM;
+	by USUBJID VSTESTCD  VISITNUM;
 run;
     
