@@ -2,7 +2,7 @@ option validvarname=upcase;
 
 * This will transpose(Normalise) our data;
 
-data vsflat2;
+data vsflat;
 	set vssort;
 		by usubjid;
 		keep usubjid visit1-visit7;
@@ -11,4 +11,8 @@ data vsflat2;
 		if first.usubjid then call missing(of visit[*]);
 			visit{visitnum}=vsstresn;
 		if last.usubjid;
+run;
+
+
+proc print data=vsflat;
 run;
