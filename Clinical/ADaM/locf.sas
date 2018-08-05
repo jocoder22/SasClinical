@@ -32,6 +32,7 @@ data locf;
 	retain locf;
 	if first.subjid then locf=.;
 	if height ne . then locf=height;
+    else height=locf;
 run;
 
 
@@ -53,7 +54,7 @@ data baseheight;
         by subjid;
         if visit eq 2 then baseline=height;
         else if baseline = . and height ne . then baseline=height;
-        if visit ne 1;
+        if visit eq 1 then baseline = .;
         output;
     end;
 run;
