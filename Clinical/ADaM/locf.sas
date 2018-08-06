@@ -67,11 +67,12 @@ run;
 * Generate baseline flag;
 
 data baseFlag;
-        set heama;
-        by subjid visit;
-        retain basefl;
-        if first.subjid then basefl = "";
-        if visit = 2 then basefl = "Y";
+    set heama;
+    by subjid visit;
+    retain basefl;
+    if first.subjid then basefl = "";
+    if visit = 2 then basefl = "Y";
+    label basefl = "Visit Baseline Flag"
 run;
 
 
