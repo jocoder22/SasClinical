@@ -72,5 +72,16 @@ data baseFlag;
         retain basefl;
         if first.subjid then basefl = "";
         if visit = 2 then basefl = "Y";
+run;
+
+
+data bflag2;
+    do until (last.subjid);
+        set heama;
+        by subjid visit;
+        if visit = 2 then basefl = "Y";
+        else basefl = "";
+        output;
     end;
+    label basefl = "Visit Baseline Flag"
 run;
