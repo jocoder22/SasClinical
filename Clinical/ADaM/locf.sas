@@ -70,7 +70,7 @@ data baseFlag;
     set heama;
     by subjid visit;
     retain basefl;
-    if first.subjid then basefl = "";
+    if first.subjid then basefl = " ";
     if visit = 2 then basefl = "Y";
     label basefl = "Visit Baseline Flag"
 run;
@@ -81,7 +81,7 @@ data bflag2;
         set heama;
         by subjid visit;
         if visit = 2 then basefl = "Y";
-        else basefl = "";
+        else basefl = " ";
         output;
     end;
     label basefl = "Visit Baseline Flag"
