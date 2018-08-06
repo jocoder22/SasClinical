@@ -59,9 +59,13 @@ data baseheight;
     end;
 run;
 
-
+* Sort data by subjid and visit;
+proc sort data=height out=heama;
+    by subjid visit;
+run;
 
 * Generate baseline flag;
+
 data baseFlag;
         set heama;
         by subjid visit;
