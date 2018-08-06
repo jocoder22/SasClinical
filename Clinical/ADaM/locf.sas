@@ -58,3 +58,15 @@ data baseheight;
         output;
     end;
 run;
+
+
+
+* Generate baseline flag;
+data baseFlag;
+        set heama;
+        by subjid visit;
+        retain basefl;
+        if first.subjid then basefl = "";
+        if visit = 2 then basefl = "Y";
+    end;
+run;
