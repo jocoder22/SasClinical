@@ -18,3 +18,10 @@ proc freq data=chiTest;
     weight adct;
     output out=chstats chisq;
 run;
+
+
+
+proc logistic data=adsl;
+    model aval(event="1") = baseline sexn racen trtpn 
+                                / clodds = wald;
+run;
