@@ -22,6 +22,5 @@ run;
 
 
 proc logistic data=adsl;
-    model aval(event="1") = baseline sexn racen trtpn 
-                                / clodds = wald;
+    model aval(event="1") = baseline sexn racen trtpn / clodds = wald;
 run;
