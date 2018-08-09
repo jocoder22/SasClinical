@@ -103,3 +103,16 @@ proc sgplot data=sashelp.class;
     hbar age / group=sex response=height stat=mean;
 run;
 quit;
+
+
+
+proc template;
+    define style newblue / store=work.templ;
+    parent=styles.htmlblue;
+
+    class graph / attrpriority='none';
+    class GraphData1 / markersymbol="circle" contrastcolor=black;
+    class GraphData2 / markersymbol="star" contrastcolor=black;
+
+    end;
+run;
