@@ -28,4 +28,16 @@ proc univariate data=adsl;
     var height weight;
 run;
 
+* using by statement to get descriptive statistics for subunit/group;
+* first sort the data;
+proc sort data=adsl out=adsl2;
+    by sex;
+run;
 
+
+title "Height and Weight descriptive statistics by sex";
+ods select BasicMeasures;
+proc univariate data=adsl2;
+    by sex;
+    var height weight;
+run;
