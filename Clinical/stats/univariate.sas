@@ -13,3 +13,19 @@ data adsl;
 109 M 192 249 124 F 161 188 129 F 142 199 130 M 169 269
 ;
 run;
+
+
+* Generate all tables for selected numeric variables;
+proc univariate data=adsl;
+    var height weight;
+run;
+
+
+* using ods select to select specific output;
+title 'Height and Weight descriptive statistics';
+ods select BasicMeasures Quantiles;
+proc univariate data=adsl;
+    var height weight;
+run;
+
+
