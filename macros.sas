@@ -132,12 +132,12 @@ run;
 
 * Using sql to create macros;
 proc sql;
-    select name into: mvar separated by ','
+    select name into: mvar separated by ' '
     from sashelp.class;
 quit;
 
 %put &mvar;
-
+%put %sysfunc(scan(&mvar, 12));
 
 proc sql noprint;
     select name into: mvar1 - :mvar19 
