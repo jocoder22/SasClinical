@@ -34,7 +34,8 @@ run;
 
 %printme;
 
-* macro with named parameter;
+* macro with keyword parameter;
+* the named keyword automatically becomes a macro variable;
 %macro printed(dtname=);
     proc print data=&dtname;
     run;
