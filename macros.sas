@@ -34,7 +34,7 @@ run;
 
 %printme;
 
-
+* macro with named parameter;
 %macro printed(dtname=);
     proc print data=&dtname;
     run;
