@@ -130,12 +130,24 @@ run;
 %put %sysfunc(scan(&b, 1, %str(_)));
 
 
+* creating macro variables using symput, symputx and symget;
+AgeAveg = 21;
+data _null_;
+    set sashelp.class;
+    if name = "Jane" then do;
+        call symputx('janeAge', age);
+        call symput('janeDept', dept);
+    end;
+    Agedev = age - symget(AgeAveg);
+run;
+
+
+
 * Using sql to create macros;
 proc sql;
-    select name into: mvar
+    select name into: mvarf
     from sashelp.class;
 quit;
-
 
 
 proc sql noprint;
