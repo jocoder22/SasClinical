@@ -132,6 +132,13 @@ run;
 
 * Using sql to create macros;
 proc sql;
+    select name into: mvar
+    from sashelp.class;
+quit;
+
+
+
+proc sql noprint;
     select name into: mvar separated by ' '
     from sashelp.class;
 quit;
