@@ -72,6 +72,8 @@ run;
 %sorted(sashelp.class, class2, sex);
 
 
+* Using keyword parameter is the standard;
+* the parameters can be listed in any order;
 %macro multi(cond=, old=, new=, byvar=, tvar=; avar=);
     %if &cond=S %then %do;
         proc sort data=&old out=&new;
@@ -118,6 +120,7 @@ run;
 
 
 * Macro interface functions;
+* uses data set functions in macro programs;
 %let a = "This is sas";
 %let b = "This is_sas";
 %put %length(&a);
