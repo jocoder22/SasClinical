@@ -245,3 +245,26 @@ filename mydoc "C:\Users\Jose\Documents\SasClinical\macros";
 * now we have &abc1 ==> cba1 ;
 
 
+ data mnthly_sales; 
+    length zip $ 5 cty $ 8 var $ 10;
+    input zip $ cty $ var $ sales; 
+    label   zip="Zip Code"
+            cty="County" 
+            var="Variety" 
+            sales="Monthly Sales"; 
+    datalines; 
+ 52423 Scott Merlot 186. 
+ 52423 Scott Chardonnay 156.61 
+ 52423 Scott Zinfandel 35.5 7 
+ 52423 Scott Merlot 55.3 
+ 52388 Scott Merlot 122.89 
+ 52388 Scott Chardonnay 78.22 
+ 52388 Scott Zinfandel 15.4 
+ 52200 Adams Merlot 385.51 
+ 52200 Adams Chardonnay 246 
+ 52200 Adams Zinfandel 151.1 
+ 52200 Adams Chardonnay 76.24
+ 52199 Adams Merlot 233.03
+ 52199 Adams Chardonnay 185.22
+ 52199 Adams Zinfandel 95.84
+ ; 
