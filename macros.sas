@@ -177,8 +177,8 @@ options mlogic symbolgen;
 
 * Storing and saving macros;
 * options sasmstore= links the the folder, and mstored is the save command;
-libname mstorage "C:\Users\Jose\Documents\SasClinical\macros\mstore";
-options sasmstore=mstorage mstored;
+libname mastore "C:\Users\Jose\Documents\SasClinical\macros\mstore";
+options sasmstore=mastore mstored;
 
 %macro printtf/ store source;
     proc print data=sashelp.class;
