@@ -131,7 +131,7 @@ run;
 
 
 * creating macro variables using symput, symputx and symget;
-AgeAveg = 21;
+%let AgeAveg = 21;
 data _null_;
     set sashelp.class;
     if name = "Jane" then do;
