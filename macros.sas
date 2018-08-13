@@ -62,6 +62,7 @@ run;
 
 
 * Positional parameters;
+* the positional parameter must be listed according to their positions;
 %macro sorted(dset1, new1, byvar1);
     proc sort data=&dset1 out=&new1;
         by &byvar1;
