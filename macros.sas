@@ -144,12 +144,14 @@ run;
 
 
 * Using sql to create macros;
+
 proc sql;
     select name into: mvarf
     from sashelp.class;
 quit;
 
 
+* the variable values are separated by space;
 proc sql noprint;
     select name into: mvar separated by ' '
     from sashelp.class;
@@ -158,6 +160,9 @@ quit;
 %put &mvar;
 %put %sysfunc(scan(&mvar, 12));
 
+
+* This forms a macro for each value of the variable;
+* here we formed 19 macros;
 proc sql noprint;
     select name into: mvar1 - :mvar19 
     from sashelp.class;
