@@ -15,8 +15,15 @@ proc format library=library;
                   ;
 run;
 
+
+* Using format, first use the fmtsearch option to link to the libname;
 options fmtsearch=(library);
 
 proc print data=sashelp.class;
     format sex $gender. age agegrp. ;
+run;
+
+
+* printing the content of a format library;
+proc format library=library fmtlib;
 run;
