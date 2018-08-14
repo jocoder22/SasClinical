@@ -8,3 +8,8 @@ proc format;
                   15 - high = "Old"
                   ;
 run;
+
+
+proc print data=sashelp.class;
+    format sex $gender. age agegrp. ;
+run;
