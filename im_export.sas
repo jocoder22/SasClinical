@@ -60,12 +60,24 @@ run;
 
 
 /* Exporting files */
+* exporting to text file;
 proc export outfile="&folder/mycars.txt"
     data=sashelp.cars
     dbms=dlm replace;
     delimiter=" ";
 run;
 
+
+* exporting to text file;
+* exporting to csv file;
+proc export outfile="&folder/mycars2.csv"
+    data=sashelp.cars
+    dbms=csv replace;
+    delimiter=" ";
+run;
+
+
+* Expoting to excell file;
 proc export outfile="&folder/Excars.xlsx"
     data=sashelp.cars
     dbms=xlsx replace;
