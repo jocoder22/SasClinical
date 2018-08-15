@@ -31,6 +31,14 @@ proc import datatable=Flight
 run;
 
 
+proc import table=Flight
+		out=home.flight
+		dbms=access replace;
+	database="&folder/acs.mdb";
+run;
+
+
+
 /* Import cvs file */
 proc import datafile="&folder/mydata.cvs"
         out=home.mycvs
