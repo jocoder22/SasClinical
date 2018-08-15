@@ -95,3 +95,18 @@ data _null_;
     put countNum= countStr=;
 run;
 
+
+
+* sum function in data step and sum statement in proc print;
+* sum in data step, sum the observations, row summation;
+data sumf;
+    set sashelp.cars;
+    totalsum = sum(of invoice msrp);
+run;
+
+
+* sum in proc print;
+* this sum the variables , column summation;
+proc print data=sumf;
+    sum invoice msrp;
+run;
