@@ -21,9 +21,11 @@ proc sort data=home.testsort out=home.testsort;
 run;
 
 
+* lag will lag the values by 1 i.e shift the value to prior value;
+* dif function will calculate the difference between value and value before it;
 data home.lagdiff;
     set home.testsort;
-    by ID;
+    by ID week;
     lagg = lag(wt);
     diff = dif(wt);
     P_change = diff / lagg * 100;
