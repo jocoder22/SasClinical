@@ -4,6 +4,7 @@ libname home "C:\Users\Jose\Documents\SasClinical";
 
 /* Importing data/files using Proc import*/
 /* Import excell file*/
+* datarow is used to select specific number of observations;
 proc import out=home.mydata
 	datafile="&folder/mydata.xls"
 	dbms=xls replace;
