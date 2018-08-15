@@ -32,7 +32,7 @@ run;
 
 
 proc import table=Flight
-		out=home.flight
+		out=home.flight2
 		dbms=access replace;
 	database="&folder/acs.mdb";
 run;
@@ -49,6 +49,7 @@ run;
 
 
 /* Import other delimited file */
+* others dbms =  tab ;
 proc import datafile="&folder/mydata22.txt"
         out=home.mytext
         dbms=dlm replace;
