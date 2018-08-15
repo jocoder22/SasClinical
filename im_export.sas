@@ -14,6 +14,7 @@ proc import out=home.mydata
 run;
 
 /* Import sheet range*/
+* Don't use sheet= when using range, range= will have reference to the sheet;
 proc import out=home.mydataRange
 	datafile="&folder/mydata.xls"
 	dbms=xls replace;
