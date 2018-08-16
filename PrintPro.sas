@@ -1,6 +1,22 @@
 libname home "C:\Users\Jose\Documents\SasClinical\sql2";
-filename myfolder "C:\Users\Jose\Documents\SasClinical"
-;
+filename myfolder "C:\Users\Jose\Documents\SasClinical";
+
+* print options -- noobs width double heading lable split n  ;
+* print statements -- id var label by ;
+* width can by full or minimium, uniform uniformby (default);
+* double give double spacing blw observations;
+proc print data=sashelp.class noobs width=full double;
+	var age sex weight;
+run;
+
+
+
+* heading displays the variable name in a particular orientation -- horizontal or veritcal;
+* n print the number of observations at the end of the report;
+proc print data=sashelp.class noobs heading=veritcal  n;
+	var age sex weight;
+run;
+
 * This show changing the obs= print options;
 * with sorting;
 proc sort data=sasuser.admit out=sortAdmit;
