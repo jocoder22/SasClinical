@@ -139,3 +139,24 @@ data logfac;
     log10a = log10(a);
     squa = sqrt(a);
 run;
+
+
+
+
+* Input and put functions;
+* Remember date is a non-standard numeric variable;
+* so length of date is always 8;
+data putinp;
+    input jdate: ddmmyy10,;
+    format jdate ddmmyy10.;
+    datalines;
+    17/01/2018
+    ;
+    run;
+
+
+* put functions, the length of the variable is same as the format width;
+data newputin;
+    set putinp;
+    char = put(jdate,ddmmyy10.);
+    char2 = put(jdate,date9.);
