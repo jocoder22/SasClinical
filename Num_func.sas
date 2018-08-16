@@ -113,6 +113,7 @@ run;
 
 
 
+* factorial, square root, log and log10 functions;
 data logfac;
     a = 4;
     faca = fact(a);
