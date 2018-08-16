@@ -110,3 +110,13 @@ run;
 proc print data=sumf;
     sum invoice msrp;
 run;
+
+
+
+data logfac;
+    a = 4;
+    faca = fact(a);
+    loga = log(a);
+    log10a = log10(a);
+    squa = sqrt(a);
+run;
