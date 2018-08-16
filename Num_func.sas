@@ -84,6 +84,21 @@ title;
 
 
 
+
+* Using time  and related functions;
+data timme;
+    tm = time();
+    date2 = '09jul2018'd;
+    time1 = hms(05,12,18);
+    time2 = '14:56:51't;
+    dtime = datetime();
+    dtime2 = dhms(date2,19,32,14);
+    format tm time1 time2 time8. dtime dtime2 datetime18.;
+run;
+
+
+
+
 * Missing function;
 * Returns 1 is value is missing or 0 is not missing;
 data _null_;
@@ -98,7 +113,6 @@ data _null_;
     end;
     put countNum= countStr=;
 run;
-
 
 
 * sum function in data step and sum statement in proc print;
