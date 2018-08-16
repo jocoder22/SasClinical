@@ -97,7 +97,20 @@ data timme;
 run;
 
 
-
+* using yrdiff, timepart, datepart function;
+data parttd;
+    input dt : datetime18.;
+    format dt datetime18.;
+    birthd = '09jun1989'd;
+    todayd = today();
+    ageyr = round(yrdiff(todayd, birthd, 'actual'));
+    datame = '09mar2018:18:38:45'dt;
+    dpart = datepart(datame);
+    tpart =  timepart(datame);
+    datalines;
+    12jun2008:14:09:59
+    ;
+run;
 
 * Missing function;
 * Returns 1 is value is missing or 0 is not missing;
