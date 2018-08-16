@@ -155,8 +155,11 @@ data putinp;
     run;
 
 
-* put functions, the length of the variable is same as the format width;
+* put functions, the length of the resulting variable is same as the format width;
+* using put function, the length of the resulting numeric variable will be 8;
 data newputin;
     set putinp;
-    char = put(jdate,ddmmyy10.);
-    char2 = put(jdate,date9.);
+    char = put(jdate, ddmmyy10.);
+    char2 = put(jdate, date9.);
+    num = input(char, ddmmyy10.);
+run;
