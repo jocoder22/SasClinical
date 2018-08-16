@@ -17,10 +17,18 @@ proc print data=sashelp.class noobs heading=veritcal  n;
 	var age sex weight;
 run;
 
+
+
+
+
 * This show changing the obs= print options;
 * with sorting;
 proc sort data=sasuser.admit out=sortAdmit;
 	by Age;
+run;
+
+* Without sorting;
+proc print data=sasuser.admit (obs=10) obs="Rank";
 run;
 
 * changing the label of obs, using obs= option;
@@ -28,11 +36,19 @@ proc print data=sortAdmit obs="Rank";
 run;
 
 
-* Without sorting;
-proc print data=sasuser.admit (obs=10) obs="Rank";
+
+* creating sequence number;
+proc sort data=sashelp.class out=class;
+	by sex;
 run;
 
-
+* Create sequence number for each by group;
+data classsqe;
+	set class;
+	by sex;
+	if first.sex then seqNo = 1;
+	else seqNo + 1;
+run;
 
 
 * Inserting blank lines using blankline= options;
