@@ -157,12 +157,15 @@ data ftable mtable;
     if sex='F' then output ftable;
     else if sex ='M' then output mtable;
 run;
+
+
 * union all combines two tables without sorting;
 proc sql;
     select * from ftable
     union all
     select * from mtable
 quit;
+
 
 * union combines two tables with sorting;
 * sorting using all variables sequentially starting with the first observation;
