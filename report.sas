@@ -1,3 +1,9 @@
+* simple proc report is same as proc print ;
+proc report data=sashelp.class;
+run;
+
+
+
 proc sort data=sashelp.class out=class1;
     by sex;
 run;

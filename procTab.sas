@@ -97,3 +97,4 @@ proc tabulate data=sasuser.blood;
 	var rbc;
 	table gender*bloodgrp, (rbc chole)*(mean*f=7.2 n*f=5.2) / rts=30 box="Insert text here";
 run;
+
