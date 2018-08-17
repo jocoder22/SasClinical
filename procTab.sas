@@ -55,9 +55,27 @@ proc tabulate data=sasuser.blood;
 run;
 
 
-* using comma (,) give tabular orientation ;
+* using comma (,) give tabular orientation with rows and columns;
+* The row before comma and columns after comma ;
 proc tabulate data=sasuser.blood;
 	class gender bloodgrp;
 	var rbc;
 	table gender, bloodgrp;
+run;
+
+
+* Adding format to manage variable length ;
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender, bloodgrp (rbc chole)*(mean*f=7.2 n*f=3.);
+run;
+
+
+* multiple cross multiplication ;
+* Here gender and bloodgrp forms the row while rbc and chole the columns;
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender*bloodgrp, (rbc chole)*(mean*f=7.2 n*f=5.2);
 run;
