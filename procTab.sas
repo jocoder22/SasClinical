@@ -79,3 +79,21 @@ proc tabulate data=sasuser.blood;
 	var rbc;
 	table gender*bloodgrp, (rbc chole)*(mean*f=7.2 n*f=5.2);
 run;
+
+
+* label variables using keylabel ;
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender all*bloodgrp all, (rbc chole)*(mean*f=7.2 n*f=5.2);
+	keylabel mean="Average" all="Total";
+run;
+
+
+* Handle box with rts= and box= ;
+* rts to size the length of the box, while box= to insert label or text ;
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender*bloodgrp, (rbc chole)*(mean*f=7.2 n*f=5.2) / rts=30 box="Insert text here";
+run;
