@@ -1,4 +1,4 @@
-* simple proc report is same as proc print ;
+* simple proc report is same as proc print without obs;
 proc report data=sashelp.class;
 run;
 
@@ -34,12 +34,18 @@ proc report data=class1 nowd headskip headline;
         else if sex="M" then sex="Male";
     endcomp;
     compute before _page_;
-        line @10 'Ages, Weight and Heights of student';
+        line @10 'Ages, Weight and Heights of students';
         line @20 'Class 2018';
     endcomp;
-    compute after _page_;
+    compute before ;
+        line @10 'REPORT STARTS HERE!';
+    endcomp;
+    compute after;
         line @5 'Note: Weight in Kg';
         line @5 'Note: Heights in Inches';
+    endcomp;
+    compute after _page_;
+        line @10 "--"*(50)'PAGE END' "--"*(50);
     endcomp;
     format _numeric_ 6.2;
 run;
