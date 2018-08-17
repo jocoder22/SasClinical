@@ -37,3 +37,10 @@ proc tabulate data=sashelp.class;
 	var age;
 	table sex age;
 run;
+
+
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender rbc bloodgrp;
+run;
