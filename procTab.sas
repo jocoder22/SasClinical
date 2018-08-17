@@ -44,3 +44,20 @@ proc tabulate data=sasuser.blood;
 	var rbc;
 	table gender rbc bloodgrp;
 run;
+
+
+* Cross tabulation;
+* using * , gives flat orientation ;
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender*bloodgrp;
+run;
+
+
+* using comma (,) give tabular orientation ;
+proc tabulate data=sasuser.blood;
+	class gender bloodgrp;
+	var rbc;
+	table gender, bloodgrp;
+run;
