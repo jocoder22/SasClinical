@@ -29,3 +29,11 @@ proc tabulate data=sashelp.cars;
 	table origin*cylinders, drivetrain="Drive Train"*invoice=""*mean=""*format=dollar12.2/ rts=25 ;
 	title;
 run;
+
+
+
+proc tabulate data=sashelp.class;
+	class sex;
+	var age;
+	table sex age;
+run;
