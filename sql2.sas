@@ -205,7 +205,7 @@ proc sql;
 quit;
 
 * Except returns non matching observations in table1;
-* Here table1 is ftable;
+* Here table1 is ftable, so will print non matching observations in ftable ;
 proc sql;
 	select age, Weight from ftable
 	except
@@ -259,6 +259,8 @@ proc sql;
 quit;
 
 
+
+* modify a variable values ;
 proc sql;
 	create table dup3 as
 	select *
