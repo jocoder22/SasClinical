@@ -104,8 +104,15 @@ quit;
 
 
 * Using newly created variables, calculated keyword;
+* calculated keyword allows you to directly used newly created variable ;
 proc sql;
-    select * , (weight**2) as weightSq, calculated weightSq/Height as Nweight
+    select * , (weight**2) as weightSq, Height/ calculated weightSq as Bmi
+    from sashelp.class;
+quit;
+
+proc sql;
+    select * , (height*0.0254)**2 as Heightsq, 
+    	weight/calculated Heightsq as Bmi
     from sashelp.class;
 quit;
 
@@ -213,7 +220,7 @@ quit;
 * selecting range of observation using monotonic() ;
 proc sql feedback;
 	select * from sashelp.class
-    where monotonic between 12 and 18;
+    where monotonic() between 12 and 18;
 quit;
 
 
