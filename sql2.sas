@@ -128,6 +128,12 @@ proc sql;
     from sashelp.class;
 quit;
 
+* This select distinct combination of age and sex ;
+proc sql;
+	select distinct age,sex
+	from sashelp.class;
+quit;
+
 
 * describe and delete table (using drop);
 proc sql;
