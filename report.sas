@@ -8,7 +8,9 @@ proc sort data=sashelp.class out=class1;
     by sex;
 run;
 
-
+proc format;
+	value $gender "F"="Female" "M"="Male";
+run;
 
 * Using proc report;
 * group and order options gives the same result;
