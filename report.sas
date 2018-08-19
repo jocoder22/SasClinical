@@ -25,7 +25,7 @@ proc report data=class1 nowd headskip headline split="*";
         compute BMI;
             BMI = _c5_ /(_c4_ * 0.0254)**2;
         endcomp;
-    define comment/computed;
+    define comment/computed length=14;
 		if BMI lt 18.50 then
 			comment="Underweight";
 		else if BMI ge 18.50 and BMI le 24.99 then
