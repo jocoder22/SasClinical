@@ -26,9 +26,15 @@ proc report data=class1 nowd headskip headline split="*";
             BMI = _c5_ /(_c4_ * 0.0254)**2;
         endcomp;
     define comment/computed;
-        compute comment/ character;
-            comment = 'Good';
-        endcomp;
+		if BMI lt 18.50 then
+			comment="Underweight";
+		else if BMI ge 18.50 and BMI le 24.99 then
+			comment="Normal weight";
+		else if BMI ge 25.00 and BMI le 29.99 then
+			comment="Overweight";
+		else if BMI ge 30.00 then
+			comment="Obese";
+    endcomp;
     compute before _page_;
         line @10 'Ages, Weight and Heights of students';
         line @20 'Class 2018';
