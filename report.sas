@@ -29,13 +29,13 @@ proc report data=class1 nowd headskip headline split="*";
         compute comment/ character;
             comment = 'Good';
         endcomp;
-
-
     compute before _page_;
         line @10 'Ages, Weight and Heights of students';
         line @20 'Class 2018';
     endcomp;
     compute after;
+        line ' ';
+        line @2 85*'-';
         line @5 'Note: Weight in Kg';
         line @5 'Note: Heights in Inches';
     endcomp;
