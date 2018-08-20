@@ -64,6 +64,7 @@ data locf2(drop=dummy);
 		if value ne . then dummy=value;
 		else value=dummy;
 	end;
+	else dummy=value;
 run;
 
 
