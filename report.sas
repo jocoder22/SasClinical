@@ -53,3 +53,14 @@ proc report data=class1 nowd headskip headline split="*";
     endcomp;
     format _numeric_ 6.2;
 run;
+
+
+
+* Create another report ;
+options nodate nocenter nonumber; title;
+proc sql;
+	create table analysis3 as select r.CTR1N, r.SBJ1N, age_1n, racen, region , 
+		gender, AEVEND1O , AEVSER1C , AEVSEV1C , AEVSMR1C , AEVSTT1O , PT_TXT , 
+		SOC_TXT from myfile.dm as l right join myfile.aev as r on l.sbj1n=r.sbj1n and 
+		l.CTR1N=r.CTR1N order by ctr1n , sbj1n;
+quit;
