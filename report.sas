@@ -1,3 +1,6 @@
+libname myfile "C:\Users\Jose\Documents\SasClinical\sql2";
+
+
 * simple proc report is same as proc print without obs;
 proc report data=sashelp.class;
 run;
