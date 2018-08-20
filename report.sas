@@ -67,6 +67,7 @@ quit;
 
 
 
+%let keepvar = rcp asr aps aesteddtc AEVSEV1C AEVSMR1C lastrec;
 
 data finalanaly;
 	set analysis3b end=eof;
