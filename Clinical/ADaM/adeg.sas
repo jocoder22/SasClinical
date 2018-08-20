@@ -1,6 +1,10 @@
+options validvarname=upcase;
+
 libname sdtm "/folders/myshortcuts/Sas_Training/SDTAM";
 %let ggg=/folders/myshortcuts/Sas_Training/ADaM/EG.sas;
 %include "&ggg";
+
+
 
 %let keepvar2=studyid usubjid egeval egcat aval avalc ablfl param paramcd
 		adt atm avisitn avisit base norm EGSTRESN;
