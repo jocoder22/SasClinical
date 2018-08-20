@@ -97,3 +97,18 @@ data finalanaly;
 	format SBJ1N z5. region region. gender sex. racen race. AEVSEV1C sev. AEVSMR1C 
 		rel.;
 run;
+
+
+%let fitto = C:\Users\Jose\Documents\SasClinical\sql2 ;
+
+proc printto file="&fitto./report3.txt" log="&fitto./report3_log.txt";
+run;
+
+options nodate nocenter nonumber;
+title;
+
+
+
+
+proc printto;
+run;
