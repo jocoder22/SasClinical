@@ -38,6 +38,8 @@ data baseheight;
 
         * if height for visit 2 is missing then locf to become baseline ;
         else if baseline = . and height ne . then baseline=height; 
+
+        if height = . then height = baseline;
 run;
 
 
