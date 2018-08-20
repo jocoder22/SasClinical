@@ -31,7 +31,6 @@ run;
 
 * Generate baseline;
 data baseheight;
-    do until(last.subjid);
         set sortH(where=(visit not eq 1));
         retain baseline;
         by subjid;
@@ -39,8 +38,6 @@ data baseheight;
 
         * if height for visit 2 is missing then locf to become baseline ;
         else if baseline = . and height ne . then baseline=height; 
-        output;
-    end;
 run;
 
 
