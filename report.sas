@@ -108,6 +108,42 @@ options nodate nocenter nonumber;
 title;
 
 
+proc report data=finalanaly nowd missing spacing=3 headline headskip split="*";
+	column('--' lastrec rcp asr aps aesteddtc AEVSEV1C AEVSMR1C);
+	define rcp / 'Region/*Center/*Patient' width=16;
+	define asr / 'Age/*Sex/*Race';
+	define aps / 'Adverse Event*(Reported/Preferred/System*Organ Class)' flow 
+		order order=internal width=27;
+	define aesteddtc / 'Start date/*End date' width=20;
+	define AEVSEV1C / 'Severity';
+	define AEVSMR1C / 'Relation*to*Study Drug' center;
+	define lastrec / display noprint order order=internal;
+	compute before _page_;
+		line @3 'Listing 14.3.2-1.2'  @30 
+			'Serious adverse events during double-blind treatment period by treatment';
+		line ' ';
+		line @3 'Treatment: ABC 300 mg';
+	endcomp;
+	rbreak after / skip;
+	compute after _page_ / left;
+		line " ";
+		line @3 114*'_';
+
+		if not lastrec then
+			letter='(Continue on next page pls)';
+		else
+			letter='(End of Report)';
+		line @86 letter $28.;
+		line " ";
+		line " ";
+	endcomp;
+	compute after;
+		line @3 118*'-';
+		line @3 'Severity: Mild=Mild, Mod=Moderate, Sev=Severe';
+		line @3 'Relationship to study drug: Not susp=Not suspected, Susp=Suspected';
+		line @3 'Gender:1-male 2-Female';
+	endcomp;
+run;
 
 
 proc printto;
