@@ -32,19 +32,18 @@ run;
 * Generate baseline;
 data baseheight;
     do until(last.subjid);
-        set sortH;
+        set sortH(where=(visit not eq 1));
+        retain baseline;
         by subjid;
         if visit eq 2 then baseline=height;
-        else if baseline = . and height ne . then baseline=height;
-        if visit eq 1 then baseline = .;
+
+        * if height for visit 2 is missing then locf to become baseline ;
+        else if baseline = . and height ne . then baseline=height; 
         output;
     end;
 run;
 
-* Sort data by subjid and visit;
-proc sort data=height out=heama;
-    by subjid visit;
-run;
+
 
 * Generate baseline flag;
 
