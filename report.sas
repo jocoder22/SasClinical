@@ -61,6 +61,38 @@ options nodate nocenter nonumber; title;
 proc sql;
 	create table analysis3 as select r.CTR1N, r.SBJ1N, age_1n, racen, region , 
 		gender, AEVEND1O , AEVSER1C , AEVSEV1C , AEVSMR1C , AEVSTT1O , PT_TXT , 
-		SOC_TXT from myfile.dm as l right join myfile.aev as r on l.sbj1n=r.sbj1n and 
+		SOC_TXT from myfile.dm as l left join myfile.aev as r on l.sbj1n=r.sbj1n and 
 		l.CTR1N=r.CTR1N order by ctr1n , sbj1n;
 quit;
+
+
+
+
+data finalanaly;
+	set analysis3b end=eof;
+	centre="02"||put(ctr1n, z2.);
+	rcp=put(region, region.)||"/"||centre||"/"||put(sbj1n, z5.);
+	asr=put(age_1n, 2.)||"/"||put(gender, sex.)||"/"||put(racen, race.);
+	aps=strip(AEVNAM1A)||'/'||strip(PT_TXT)||"/"||strip(SOC_TXT);
+	aestdtc=substr(AEVSTT1O, 1, 9);
+	aeendtc=substr(AEVEND1O, 1, 9);
+
+	if AEVSEV1C=. then
+		AEVSEV1C=0;
+
+	if AEVSEV1C=0 and AEVSMR1C=. then
+		AEVSMR1C=2;
+
+	if aestdtc=' ' then
+		aestdtc='01JAN2010';
+
+	if aeendtc=' ' then
+		aeendtc='01JAN2011';
+	aesteddtc=strip(aestdtc)||"/"||strip(aeendtc);
+
+	if eof then
+		lastrec=1;
+	keep &keepvar;
+	format SBJ1N z5. region region. gender sex. racen race. AEVSEV1C sev. AEVSMR1C 
+		rel.;
+run;
