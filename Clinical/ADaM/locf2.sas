@@ -55,6 +55,17 @@ data final2(drop= v1 v2);
 	end;
 run;
 
+* tradional locf II ;
+data locf2(drop=dummy);
+	set vv2;
+	retain dummy;
+	by subjid visnum;
+	if not first.subjid then do;
+		if value ne . then dummy=value;
+		else value=dummy;
+	end;
+run;
+
 
 * Do DOW locf;
 data final3(drop=locf);

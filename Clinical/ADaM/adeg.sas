@@ -20,8 +20,8 @@ data adeg_1;
 		ablfl  label='Baseline Flag'
 		param  label='Parameter Description'
 		paramcd  label='Parameter Code'
-		adt  label='Actual Date of ECG Taken'
-		atm  label='Actual Time of ECG Taken'
+		adt  label='Actual Date of ECG Taken' Format=date9.
+		atm  label='Actual Time of ECG Taken' Format=time5.
 		avisitn  label='Analysis Visit number'
 		avisit  label='Analysis Visit '
 		base  label='Baseline Value'
