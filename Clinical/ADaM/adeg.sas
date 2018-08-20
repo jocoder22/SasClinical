@@ -26,8 +26,6 @@ data adeg_1;
 		norm  label='Abnormality'
 	;
     set work.eg;
-	egeval=EGEVAL;
-	egcat=EGCAT;
 	aval=EGSTRESN;
 	avalc=EGSTRESC;
 	ablfl=EGBLFL;
