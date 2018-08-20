@@ -2,7 +2,7 @@ libname sdtm "/folders/myshortcuts/Sas_Training/SDTAM";
 %let ggg=/folders/myshortcuts/Sas_Training/ADaM/EG.sas;
 %include "&ggg";
 
-%let keepvar=studyid usubjid egeval egcat aval avalc ablfl param paramcd
+%let keepvar2=studyid usubjid egeval egcat aval avalc ablfl param paramcd
 		adt atm avisitn avisit base norm EGSTRESN;
 
         
@@ -39,7 +39,7 @@ data adeg_1;
 	avisit=VISIT ;
 	if EGBLFL="Y" then base=EGSTRESN;
 	if EGTESTCD='INTP' then norm=EGSTRESC;
-	keep &keepvar;
+	keep &keepvar2;
 run;
 
 
