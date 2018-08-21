@@ -9,3 +9,16 @@ data numtt / debug;
     else if sex="M" then classHeight = Height - medium(Height);
     else classHeight is missing;
 run;
+
+
+* Debugger commands ;
+/*
+BREAK	    JUMP
+CALCULATE	LIST
+DELETE	    QUIT
+DESCRIBE	SET
+ENTER	    STEP
+EXAMINE	    SWAP
+GO	        TRACE
+HELP	    WATCH
+*/
