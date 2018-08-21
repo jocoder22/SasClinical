@@ -27,3 +27,8 @@ HELP	    WATCH
 * Break is used to set breakpoints, short form is b ;
 b 7 ; * breakpoint at line 7;
 b 15 after 4 ; * breakpoint at line 15 after every 4 execution of the line;
+
+
+* Calculate used to Calculation involving numeric values, short form calc ;
+calc income+expense
+calc (payment + tax) * rate 
