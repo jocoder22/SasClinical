@@ -38,3 +38,11 @@ calc (payment + tax) * rate
 d b 7;
 d w abc;
 d b _ALL_ ;
+
+
+* Describe display the attribute of a variable, short form desc;
+desc gender;
+desc array{i+k};
+desc treatment;
+
+
