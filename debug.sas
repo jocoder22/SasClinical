@@ -68,9 +68,15 @@ g 15 ; * go and stop at line 15 ;
 step ;
 step 5 ;
 
+
 * Jump restarts suspended program ;
 * with argument, start at the line or label;
 j 45;
+
+
+* Watch suspend execution when the value of specified variable change, alias w;
+w orange;
+w income;
 
 
 
