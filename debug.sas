@@ -60,6 +60,17 @@ l w b ;
 * Go resume the execution of the program, short form g ;
 * With argument, it indicate stop line ;
 g ;
-g 15 ; * go and stop at line 15
+g 15 ; * go and stop at line 15 ;
+
+
+* Step, execute one statement at a time, use ENTER also ;
+* with argument, indicate number of statements to execute ;
+step ;
+step 5 ;
+
+* Jump restarts suspended program ;
+* with argument, start at the line or label;
+j 45;
+
 
 
