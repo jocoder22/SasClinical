@@ -46,3 +46,9 @@ desc array{i+k};
 desc treatment;
 
 
+* Examine display the values of variables. short form ex ;
+ex _ALL_;
+ex n name
+ex trt_date date10.
+
+
