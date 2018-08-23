@@ -57,3 +57,9 @@ l _ALL_;
 l w b ;
 
 
+* Go resume the execution of the program, short form g ;
+* With argument, it indicate stop line ;
+g ;
+g 15 ; * go and stop at line 15
+
+
