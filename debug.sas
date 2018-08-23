@@ -52,3 +52,8 @@ ex n name
 ex trt_date date10.
 
 
+* List displays all occurances of items listed in the argument, short form l ;
+l _ALL_;
+l w b ;
+
+
