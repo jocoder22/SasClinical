@@ -33,3 +33,20 @@ data mytableC;
 set sashelp.vcolumn;
 where libname='WORK' and memname='NNN';
 run;
+
+
+
+
+/* This describes the properties of the columns in the table dataset NNN */
+/* this uses sql procedure */
+proc sql;
+    create table mytable2 as 
+    select * from sashelp.vcolumn 
+    where libname='WORK' and memname='NNN';
+quit;
+
+
+proc sql;
+    create table mytable3 as 
+    Select * from dictionary.dictionaries;
+quit;
