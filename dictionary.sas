@@ -50,3 +50,14 @@ proc sql;
     create table mytable3 as 
     Select * from dictionary.dictionaries;
 quit;
+
+
+
+/* This displays the occurances of column names in libnames except maps and sashelp */
+proc sql;
+    select name, count(*) as Frequency
+    from dictionary.columns where libname not in ('MAPS', 'SASHELP') 
+    group by name
+    having count(*) > 1 
+    order by Frequency DESC;
+quit;
