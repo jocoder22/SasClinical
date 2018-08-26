@@ -3,6 +3,13 @@
 * diff function returns the diff between current and previous value of variable;
 libname home2 "C:\Users\Jose\Documents\SasClinical\chapter2"; 
 
+proc format;
+    value monthfmt 1="January" 2="February" 3="March" 4="April"
+                   5="May" 6="June" 7="July" 8="August"
+                   9="September" 10="October" 11="November" 12="December"
+                   ;
+run;
+
 data home.testLG;
     infile datalines;
     input ID $ week Wt @@;
