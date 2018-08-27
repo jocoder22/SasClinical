@@ -76,8 +76,8 @@ quit;
 
 * display number of observations in all dataset in libname sashelp and sasuser ;
 proc sql;
-    select name, nobs 'Number of Observations'
+    select libname, name, nobs 'Number of Observations'
     from dictionary.tables
     where libname in ('SASHELP', 'SASUSER')
-    order by nobs asc;
+    order by nobs desc;
 quit;
