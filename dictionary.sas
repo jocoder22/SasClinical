@@ -8,6 +8,13 @@ proc sql;
     describe view sashelp.vtable;
 quit;
 
+proc sql;
+    select libname, memname, memtype
+    from dictionary.members
+    where memtype in ('DATA', 'VIEW')
+    order by libname asc, memname asc;
+quit;
+
 
 * To see the contents of the dictionary ;
 proc sql;
