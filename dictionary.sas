@@ -1,7 +1,11 @@
 
 * This shows the structure of the dictionary table on the log window ;
 proc sql;
-describe table dictionary.tables;
+    describe table dictionary.tables;
+quit;
+
+proc sql;
+    describe view sashelp.vtable;
 quit;
 
 
