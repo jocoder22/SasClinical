@@ -27,15 +27,15 @@ quit;
 
 /* This describles the properties of dataset NNN */
 data mytable;
-set sashelp.vtable;
-where libname='WORK' and memname='NNN';
+    set sashelp.vtable;
+    where libname='WORK' and memname='NNN';
 run;
 
 /* This describes the properties of the columns in the table dataset NNN */
 /* this uses data set step */
 data mytableC;
-set sashelp.vcolumn;
-where libname='WORK' and memname='NNN';
+    set sashelp.vcolumn;
+    where libname='WORK' and memname='NNN';
 run;
 
 
@@ -64,4 +64,13 @@ proc sql;
     group by name
     having count(*) > 1 
     order by Frequency DESC;
+quit;
+
+
+* display number of observations in all dataset in libname sashelp and sasuser ;
+proc sql;
+    select name, nobs 'Number of Observations'
+    from dictionary.tables
+    where libname in ('SASHELP', 'SASUSER')
+    order by nobs asc;
 quit;
