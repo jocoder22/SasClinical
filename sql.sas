@@ -69,10 +69,20 @@ proc sql;
  where calculated range in ('High', 'Medium');
  quit;
 
+
  proc sql;
  select model, make, msrp,
   msrp as range 'Price Range' 
  from sashelp.cars
  where put(msrp, range.) in ('High', 'Medium');
  quit;
+
+
+
+ proc sql;
+	select  type, origin, mean(msrp) as meanp "Mean Price"  format = dollar12.
+		from sashelp.cars
+	group by  type,  origin
+	order by type, meanp desc;
+quit;
 
