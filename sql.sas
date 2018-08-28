@@ -53,3 +53,26 @@ proc sql;
         from home.double
         group by Siteid Gender;
 quit;
+
+
+proc format;
+ value range 40000-high ='High'
+ 			26000 -< 40000 ='Medium'
+ 			other = 'Low';
+run;
+
+
+proc sql;
+ select model, make, msrp,
+ put(msrp, range.) as range 'Price Range' 
+ from sashelp.cars
+ where calculated range in ('High', 'Medium');
+ quit;
+
+ proc sql;
+ select model, make, msrp,
+  msrp as range 'Price Range' 
+ from sashelp.cars
+ where put(msrp, range.) in ('High', 'Medium');
+ quit;
+
