@@ -149,3 +149,19 @@ run;
 
 proc printto;
 run;
+
+
+
+proc report data=sashelp.cars nowd headline headskip split='*';
+	column ('--' origin make type msrp,(mean max));
+	define origin / group 'Country of Origin';
+	define make /  order order=internal "Manufacturer" ;
+	define msrp / analysis 'Min Sale Retail Price';
+	define type / group;
+	break after make / skip summarize;	
+	compute after make ;
+		make = "Total";
+		origin = " ";
+	line " ";
+	endcomp;
+run;
