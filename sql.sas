@@ -79,10 +79,12 @@ proc sql;
 
 
 
+
+
  proc sql;
 	select  type, origin, mean(msrp) as meanp "Mean Price"  format = dollar12.
 		from sashelp.cars
 	group by  type,  origin
-	order by type, meanp desc;
+	order by type desc, meanp desc;
 quit;
 
