@@ -306,3 +306,54 @@ John  40 44
 ;
 run;
 
+
+
+
+data fil31;
+	infile datalines;
+	input name$ 1-4  @;
+	if name = "Sue" then input age 7-8;
+	else input indum 10-11;
+	datalines;
+Ruth 39 11
+Jose 32 22
+Sue 30 33
+John 40 44
+;
+run;
+
+
+
+/* what is the value of age when name is Sue */
+data fil33;
+	infile datalines;
+	input name$ 1-4  @;
+	if name = "Sue" then input age 7-8;
+	else input indum 10-11;
+	datalines;
+Ruth  39 11
+Jose  32 22
+Sue   30 33
+John  40 44
+;
+run;
+
+
+data fil33;
+	infile datalines;
+	input name$ idnum age;
+	if age=. then agegrp = "Unknown";
+	else if age=1 then agegrp = "Low";
+	else if age=2 or 3 then agegrp = "Medium";
+	else  agegrp = "High";
+	datalines;
+Ruth 39 1
+Jose 32 2
+Suew 30 3
+Johny 40 .
+Sue 30 3
+John 40 4
+;
+run;
+
+
