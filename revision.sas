@@ -357,3 +357,74 @@ John 40 4
 run;
 
 
+data fil55;
+	infile datalines;
+	input name idnum age;
+	if age=. then agegrp = "Unknown";
+	else if age=1 then agegrp = "Low";
+	else if age=2 or 3 then agegrp = "Medium";
+	else  agegrp = "High";
+	if _error_ then message = "Problem   ";
+	else message = "No Problem";
+	datalines;
+Ruth 39 1
+Jose 32 2
+Suew 30 3
+Johny 40 .
+Sue 30 3
+John 40 4
+;
+run;
+
+
+/* What is the value of weight, Weight2 */
+data weight2;
+	infile datalines;
+	input @1 Age 2. @4 weight 2 @4 Weight2 5;
+	datalines;
+73 94
+;
+run;
+
+
+/* what is the value of agent2 in observation */
+/* there is no value, only one observation is read */
+data agents;
+	infile datalines dlm=",";
+	input agent1 $ agent2 $ agent3 $;
+	datalines;
+Bronwm,,Snimitt,Peter,Matthew
+;
+run;
+
+
+data agents2;
+	infile datalines dlm=",";
+	input agent1 $ price dollar8.;
+	datalines;
+Bronwm,$21,987
+Snimitt,$677,845
+Peter,$809,874
+Matthew,$984,593
+;
+run;
+
+proc sort data=sashelp.class out=classT;
+	by sex descending weight;
+run;
+
+data filast;
+	set classT;
+	by sex descending weight;
+	retain temp;
+	if first.sex then do;
+		temp = weight;
+		output;
+	end;
+	else if last.sex then do;
+		range = temp - weight;
+		output;
+	end;
+run;
+
+
