@@ -92,3 +92,54 @@ data settt2;
 	by name;
 run;
 
+
+/* How many observation in dataset settt3 */
+data settt3;
+	set emply(in=inem) sal(in=insal);
+	by name;
+run;
+
+
+/* How many observation in dataset settt4 */
+data settt4;
+	set emply(in=inem) sal(in=insal);
+	by name;
+	if inem and insal;
+run;
+
+
+/* Why did the program fail */
+proc sort data=emply; by descending name;
+proc sort data=sal; by descending name;
+data mer2;
+	merge emply(in=inem) sal(in=insal);
+	by name;
+run;
+
+
+data mndt;
+	dattt = mdy(03,12,2013);
+run;
+
+
+proc format;
+    value monthfmt 1="January" 2="February" 3="March" 4="April"
+                   5="May" 6="June" 7="July" 8="August"
+                   9="September" 10="October" 11="November" 12="December"
+                   ;
+run;
+
+data anniversary(drop=yr tmonth retire) serviceyears (drop=yr tmonth);
+	set sasuser.mechanics(keep=id lastname firstname hired birth);
+	Yr= intck('year',hired, today());
+	retire = intnx('month',birth,65*12,'end');
+	tmonth = month(today());
+	MonthEmployed = month(hired);
+	YearsInService = put(yr,2.)|| " Years in Service";
+	Retirement = 'Retirement is on '||put(retire,date9.);
+    dayto = mdy(01,23,2018);
+	if Yr gt 20 and month(hired)=tmonth then output anniversary;
+	output serviceyears;
+	format YearsInService $35. MonthEmployed monthfmt. dayto date9.;
+run;
+
