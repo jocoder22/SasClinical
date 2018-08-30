@@ -428,3 +428,80 @@ data filast;
 run;
 
 
+/* What is message when amount is lt 30000 */
+data edut;
+	 infile datalines;
+	 input name$ amount;
+	 if amount ge 30000 then message = "Over 30"; 
+	 else if amount lt 30000 then message ="Under 30";
+	 datalines;
+Ruth 29000
+Jose 32000
+Suew 20999
+Johny 40000
+Sue 22000
+John 49840
+;
+run;
+
+proc print;
+run;
+
+
+data r23;
+	input year qrt budget;
+	cards;
+2001 3 500
+2001 4 400
+2002 1 700
+;
+run;
+
+data r24;
+	input year qrt sales;
+	cards;
+2001 4 300
+2002 1 600
+2002 1 800
+2004 1 900
+;
+run;
+
+proc sql;
+	select r23.*, sales
+	from r23, r24;
+quit;
+
+
+proc sql;
+	select sales, r23.*
+	from r23, r24
+	where r23.year=r24.year;
+quit;
+
+
+%let value1 = 9;
+%let value2 = 5;
+%let value3 = 5.98;
+%let value4 = 98.98;
+%put %eval(&value1/&value2);
+%put %sysevalf(&value3+&value4);
+
+data _NULL_;
+	set edut;
+	call symput(name, put(amount,dollar.));
+run;
+
+%put _user_;
+
+
+%put &Ruth  &Jose  &Suew  &Johny  &Sue  &John;
+
+proc sql;
+	select * 
+	from r23 outer union corr
+	select * from r24;
+quit;
+
+%put &syserr;
+
