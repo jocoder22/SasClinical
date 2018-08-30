@@ -205,3 +205,35 @@ data grand;
 	cotl = length(costage);
 run;
 
+
+/* the length and types of date1-date4 */
+data datem;
+	date1 = input('13mar2018',date9.);
+	date2 = put('13mar2018'd,date9.);
+	date3 = input('13/03/2018',ddmmyy10.);
+	date4 = put('13mar2018'd,ddmmyy10.);
+run;
+
+
+/* How many observation here: */
+/* what is the value of year, month and x */
+data yyy;
+	do year = 1 to 5;
+		do month = 1 to 12;
+			x + 1;
+		end;
+	end;
+run;
+
+
+/* How many observation here: */
+data yyy2;
+	do year = 1 to 5;
+		do month = 1 to 12;
+			x + 1;
+			output;
+		end;
+	end;
+run;
+
+
