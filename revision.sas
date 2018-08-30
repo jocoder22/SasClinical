@@ -48,3 +48,47 @@ ods csvall file='C:Documents/SasClinical/class3.csv';
 	run;
 ods csvall close;
 
+
+data emply;
+	infile datalines;
+	input name$ age;
+	datalines;
+bruce 30
+dan 35
+dan .
+;
+run;
+
+
+
+data Sal;
+	infile datalines;
+	input name$ salary;
+	datalines;
+bruce 40000
+bruce 35000
+dan 37000
+dan 68000
+;
+run;
+
+
+proc sort data=emply; by name;run;
+proc sort data=sal; by name;run;
+
+
+/* How many dataset */
+/* How many observation in dataset mer */
+data mer;
+	merge emply(in=inem) sal(in=insal);
+	by name;
+	if inem and insal;
+run;
+
+
+/* How many observation in dataset settt2 */
+data settt2;
+	set emply(in=inem) sal(in=insal);
+	by name;
+run;
+
