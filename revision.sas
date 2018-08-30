@@ -237,3 +237,72 @@ data yyy2;
 run;
 
 
+
+/* what is the value of n */
+data nnn;
+	do while(n gt 6);
+		n + 1;
+	end;
+run;
+
+
+/* what is the value of n */
+data nnn;
+	do while(n lt 6);
+		n + 1;
+	end;
+run;
+
+data doy;
+	set sashelp.class;
+run;
+
+
+/* How many variable and observations here */
+data doyear;
+	do year = 1 to 3;
+		set sashelp.class;
+		capital + 5000;
+	end;
+run;
+
+
+/* How many variable and observations here */
+data doyear2;
+	do year = 1 to 3;
+		set sashelp.class(obs=3);
+		capital + 5000;
+	end;
+run;
+
+/* How many variable and observations here */
+data doyear3;
+	do year = 1 to 3;
+		set sashelp.class(obs=3);
+		capital + 5000;
+		output;
+	end;
+run;
+
+/* How many variable and observations here */
+data doyear4;
+	do year = 1 to 3;
+		set sashelp.class;
+		capital + 5000;
+		output;
+	end;
+run;
+
+data fil33;
+	infile datalines;
+	input name$ 1-4  @;
+	if name = "Sue" then input age 7-8;
+	else input indum 10-11;
+	datalines;
+Ruth  39 11
+Jose  32 22
+Sue   30 33
+John  40 44
+;
+run;
+
