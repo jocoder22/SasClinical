@@ -143,3 +143,65 @@ data anniversary(drop=yr tmonth retire) serviceyears (drop=yr tmonth);
 	format YearsInService $35. MonthEmployed monthfmt. dayto date9.;
 run;
 
+
+/* What is the outcome here */
+data _null_;
+	set sashelp.class;
+	file myfile(class3.csv);
+	put Name $15. @5 Age weight Height;
+run;
+
+
+/* How many dataset */
+data newdata;
+	infile myfile(class.csv) dlm="," firstobs=2;
+	input Name $ Sex $ Age Weight Height;
+	file myfile(class3.csv);
+	put Name $15. Sex$ Age weight Height;
+run;
+
+
+
+data substr1;
+	length Name $ 8;
+	Name = "john";
+	put Name;
+	i = length(Name);
+	substr(Name,5,4) = "More";
+	put Name;
+run;
+
+
+data new;
+sample_str = "Pin Code 411014";
+SUBSTR(sample_str, 4, 5) = ":";
+run;
+
+/* What's the value of totap */
+/* missing operations */
+data psa;
+	if origp = . then origp = 100;
+	put origp;
+	transp = 100;
+	origp = .;
+	totap =  transp + origp;
+	totap2 =  sum(transp,origp);
+run;
+
+
+/* why the retain here */
+/* what is the value of price */
+/* what is the value of costage */
+data grand;
+	set sashelp.class;
+	retain grandt 0;
+	grandt = sum(grandt, age);
+	total + age;
+	cost = "20000";
+	numb = age;
+	ddd = "_";
+	price = 0.01 * cost;
+	costage = cost||"_"||age;
+	cotl = length(costage);
+run;
+
