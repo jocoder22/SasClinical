@@ -74,7 +74,7 @@ run;
 
 * Using keyword parameter is the standard;
 * the parameters can be listed in any order;
-%macro multi(cond=, old=, new=, byvar=, tvar=; avar=);
+%macro multi(cond=, old=, new=, byvar=, tvar=, avar=);
     %if &cond=S %then %do;
         proc sort data=&old out=&new;
             by &byvar;
@@ -192,7 +192,7 @@ options serror merror;
 %put &pander; * serror will give warning message;
 %donnett; * merror will give warning message;
 
-* mlogic symbolgen gives different message but same meaning ;
+* mlogic and  symbolgen gives different message but same meaning ;
 * the two explains what is happend behide the hoard;
 * mlogic has Beginning execution and Ending execution messages;
 options mlogic symbolgen;
