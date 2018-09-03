@@ -213,9 +213,7 @@ run;
 proc print data=&mydata; run;
 %mend;
 
-
-
-
+%goschool(dta=sashelp.class, mydata=one)
 
 
 
