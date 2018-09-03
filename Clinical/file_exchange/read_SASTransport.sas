@@ -4,7 +4,7 @@ libname muser "C:\sastraining\sasTransport";
 
 
 * Using Sql procedure ;
-proc copy in=sastrans out=muser;
+proc copy in=sastrans out=muser memtype=data;
     select egk;
 run;
 
