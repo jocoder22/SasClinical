@@ -245,6 +245,7 @@ filename mydoc "C:\Users\Jose\Documents\SasClinical\macros";
 %include mydoc;
 
 
+
 * System defined automatic macro variables;
 %put _automatic_;
 %put &sysdate;
