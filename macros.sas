@@ -74,7 +74,7 @@ run;
 
 * Using keyword parameter is the standard;
 * the parameters can be listed in any order;
-%macro multi(cond=, old=, new=, byvar=, tvar=; avar=);
+%macro multi(cond=, old=, new=, byvar=, tvar=, avar=);
     %if &cond=S %then %do;
         proc sort data=&old out=&new;
             by &byvar;
@@ -176,8 +176,11 @@ quit;
 
 * Debugging options;
 * macro debubbing options are global options;
-* mprint will print the procedures inside the macro;
+* mprint will print the procedures and datasets inside the macro substituting the value
+  of any defined macro variable, the final program without macro ;
+*  mprint output starts with thus: MPRINT(name of macro) : each statement of the final program ;
 * noprint deactivates the mprint options;
+
 options mprint;
 %printme;
 %printed(dtname=sashelp.class);
@@ -192,9 +195,12 @@ options serror merror;
 %put &pander; * serror will give warning message;
 %donnett; * merror will give warning message;
 
-* mlogic symbolgen gives different message but same meaning ;
-* the two explains what is happend behide the hoard;
-* mlogic has Beginning execution and Ending execution messages;
+* mlogic and  symbolgen gives different message of the tracing done by macro processor
+* the two explains what is happend behide the hoard (tracing of the macro processor exection);
+* mlogic has Beginning execution and Ending execution messages, and other messages in between;
+* in between messages are: 1. values of parameters at invocation
+                           2. whether if the %if condition is true or false
+                         
 options mlogic symbolgen;
 %printed(dtname=sashelp.class);
 
