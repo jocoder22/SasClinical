@@ -4,10 +4,14 @@ proc sql;
     describe table dictionary.tables;
 quit;
 
+
+* Using sashelp.vtable to show the structure of dictionary table ;
 proc sql;
     describe view sashelp.vtable;
 quit;
 
+
+* describes the structure of data and view ;
 proc sql;
     select libname, memname, memtype
     from dictionary.members
@@ -38,6 +42,8 @@ data mytable;
     where libname='WORK' and memname='NNN';
 run;
 
+
+
 /* This describes the properties of the columns in the table dataset NNN */
 /* this uses data set step */
 data mytableC;
@@ -57,6 +63,8 @@ proc sql;
 quit;
 
 
+
+* Describe all dataset, views, catalogs and templates in all libraries ;
 proc sql;
     create table mytable3 as 
     Select * from dictionary.dictionaries;

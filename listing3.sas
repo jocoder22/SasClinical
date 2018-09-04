@@ -20,6 +20,7 @@ proc summmary data=adsl;
         n=_n mean=_mean std=_std median=_median min=_mn max=_mx;
 run;
 
+
 data &var._2;
     set &var._1;
     meansd=put(_mean,4.1)||'('||put(_std,5.2)||')';
@@ -72,10 +73,10 @@ run;
 * Calling macro for height statistics;
 %listtm(var=height,title="Height(cm)",num=1);
 
-* Calling macro for height statistics;
+* Calling macro for weight statistics;
 %listtm(var=weight,title="Weight(kg)",num=2);
 
-* Calling macro for height statistics;
+* Calling macro for BMI statistics;
 %listtm(var=bmi,title="Body Mass Index(kg/m^2)",num=3);
 
 
@@ -93,6 +94,8 @@ quit;
 options nodate nonumber nocenter; title;
 proc printto print="mylls/report3.txt";
 run;
+
+
 proc report data=final nowd headskip headline skip='*';
     column ('--' ord newvar _1 _0 _9);
     define ord/order noprint;

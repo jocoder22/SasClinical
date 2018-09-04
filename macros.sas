@@ -205,6 +205,24 @@ options mlogic symbolgen;
 %printed(dtname=sashelp.class);
 
 
+%macro goschool(dta=,mydata=);
+proc print data=&dta;
+run;
+
+data &mydata;
+set &dta;
+	length newgender $ 6;
+	%if sex='M' %then newgender = "Male";
+	%else %if sex="F" %then newgender = "Female";
+run;
+
+proc print data=&mydata; run;
+%mend;
+
+%goschool(dta=sashelp.class, mydata=one)
+
+
+
 * Storing and saving macros;
 * options sasmstore= links the the folder, and mstored is the save command;
 libname mastore "C:\Users\Jose\Documents\SasClinical\macros\mstore";
@@ -231,6 +249,7 @@ options sasautos = mstorage;
 
 filename mydoc "C:\Users\Jose\Documents\SasClinical\macros";
 %include mydoc;
+
 
 
 * System defined automatic macro variables;
