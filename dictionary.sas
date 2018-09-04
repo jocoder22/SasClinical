@@ -4,6 +4,8 @@ proc sql;
     describe table dictionary.tables;
 quit;
 
+
+* Using sashelp.vtable to show the structure of dictionary table ;
 proc sql;
     describe view sashelp.vtable;
 quit;
@@ -57,6 +59,8 @@ proc sql;
 quit;
 
 
+
+* Describe all dataset, views, catalogs and templates in all libraries ;
 proc sql;
     create table mytable3 as 
     Select * from dictionary.dictionaries;
