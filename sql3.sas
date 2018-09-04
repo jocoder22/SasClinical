@@ -103,7 +103,7 @@ proc sql;
 quit;
 
 
-
+* Using put and format to subset the data ;
 proc sql;
 	select Age, weight, sbp format=sbpfmt.
 	from demo
