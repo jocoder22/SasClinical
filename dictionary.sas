@@ -40,6 +40,8 @@ data mytable;
     where libname='WORK' and memname='NNN';
 run;
 
+
+
 /* This describes the properties of the columns in the table dataset NNN */
 /* this uses data set step */
 data mytableC;
