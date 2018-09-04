@@ -140,6 +140,8 @@ proc sql;
     describe table sqlTable5;
 quit;
 
+
+* This will delete the table ;
 proc sql;
     drop table sqlTable5;
 quit;
