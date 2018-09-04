@@ -74,6 +74,11 @@ proc sql noprint; Create table mmn as
  	from demo;
 quit;
 
-
-
+* Transpose the data ;
+proc transpose data=mmn 
+		name=Variables 
+		label=Variable_Labels 
+		out=TransMMN;
+	var n age agem age2 age2m weight weightm;
+run;
 
