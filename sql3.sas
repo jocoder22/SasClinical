@@ -27,3 +27,11 @@ proc sql;
 	from sashelp.class
 	where monotonic() <=  12;
 quit;
+
+
+* This select range of observation ;
+proc sql;
+	select * 
+	from sashelp.class
+	where monotonic() between 9 and 15;
+quit;
