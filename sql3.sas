@@ -44,7 +44,7 @@ data demo(drop = i);
 		Age = int(ranuni(89) * 100);
 		Age2 = ceil(ranuni(456) * 100);
 		Weight = floor(ranuni(789) * 1000);
-		SBP = floor(ranuni(12) * 100);
+		SBP = floor(ranuni(12) * 200);
 		if Age < 16 or Age > 90 then call missing(Age);
 		if Age2 < 16 or Age2 > 90 then call missing(Age2);
 		if Weight < 80 or Weight > 220 then call missing(Weight);
