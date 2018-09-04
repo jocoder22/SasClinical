@@ -161,7 +161,12 @@ proc sql;
     group by sex;
 quit;
 
-* sql operators;
+
+
+
+
+
+* sql set operators;
 * Union all, Union, intersect, except;
 
 * generate test dataset;
