@@ -44,6 +44,7 @@ data demo(drop = i);
 		Age = int(ranuni(89) * 100);
 		Age2 = ceil(ranuni(456) * 100);
 		Weight = floor(ranuni(789) * 1000);
+		SBP = floor(ranuni(12) * 100);
 		if Age < 16 or Age > 90 then call missing(Age);
 		if Age2 < 16 or Age2 > 90 then call missing(Age2);
 		if Weight < 80 or Weight > 220 then call missing(Weight);
@@ -81,4 +82,12 @@ proc transpose data=mmn
 		out=TransMMN;
 	var n age agem age2 age2m weight weightm;
 run;
+
+
+
+proc sql;
+	select Age, weight, sbp 
+	from demo
+	where sbp between 80 and 180;
+quit;
 
