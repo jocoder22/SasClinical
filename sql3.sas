@@ -51,3 +51,11 @@ data demo(drop = i);
 	end;
 run;
 
+
+* Using coalesce function ;
+proc sql;
+	select monotonic() as Obs, *, coalesce(Age, Age2, ceil(avg(Age))) as newAge,
+		coalesce(weight, floor(avg(weight))) as newWt
+	from demo;
+quit;
+
