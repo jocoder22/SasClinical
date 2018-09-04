@@ -10,6 +10,8 @@ proc sql;
     describe view sashelp.vtable;
 quit;
 
+
+* describes the structure of data and view ;
 proc sql;
     select libname, memname, memtype
     from dictionary.members
