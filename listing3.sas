@@ -20,6 +20,7 @@ proc summmary data=adsl;
         n=_n mean=_mean std=_std median=_median min=_mn max=_mx;
 run;
 
+
 data &var._2;
     set &var._1;
     meansd=put(_mean,4.1)||'('||put(_std,5.2)||')';
