@@ -35,3 +35,19 @@ proc sql;
 	from sashelp.class
 	where monotonic() between 9 and 15;
 quit;
+
+
+
+* generate data set ;
+data demo(drop = i);
+	do i = 1 to 90;
+		Age = int(ranuni(89) * 100);
+		Age2 = ceil(ranuni(456) * 100);
+		Weight = floor(ranuni(789) * 1000);
+		if Age < 16 or Age > 90 then call missing(Age);
+		if Age2 < 16 or Age2 > 90 then call missing(Age2);
+		if Weight < 80 or Weight > 220 then call missing(Weight);
+		output;
+	end;
+run;
+
