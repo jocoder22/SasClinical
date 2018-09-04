@@ -59,3 +59,21 @@ proc sql;
 	from demo;
 quit;
 
+
+
+* count, nmiss function ;
+
+proc sql noprint; Create table mmn as
+	select count(*) as N 'Total',
+		count(Age) as Age 'Non-missing Age',
+		nmiss(Age) as Agem 'Missing Age',
+		count(Age2) as Age2 'Non-missing Age2',
+		nmiss(Age2) as Age2m 'Missing Age2',
+		count(Weight) as Weight 'Non-missing Weight',
+		nmiss(Weight) as Weightm 'Missing Weight'
+ 	from demo;
+quit;
+
+
+
+
