@@ -102,3 +102,10 @@ proc sql;
 	where sbp between 80 and 180;
 quit;
 
+
+
+proc sql;
+	select Age, weight, sbp format=sbpfmt.
+	from demo
+	where put(sbp,sbpfmt.) in ("Severe","Moderate");
+quit;
