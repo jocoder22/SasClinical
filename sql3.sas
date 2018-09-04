@@ -85,6 +85,17 @@ run;
 
 
 
+* Create format ;
+proc format;
+	value sbpfmt 
+		160-high = 'Severe'
+		140-<160 = 'Moderate'
+		120-<140 = 'Normal'
+		other    = 'Low'
+		;
+run;
+
+
 proc sql;
 	select Age, weight, sbp 
 	from demo
