@@ -184,6 +184,13 @@ proc transpose data=finalex out=tfinal
 run;
 
 
+
+* First sort ;
+proc sort data=tfinal out=tfinal2;
+    by subject;
+run;
+
+
 * Re-transpose ;
 proc transpose data=tfinal out=Rfinal;
     var subject;
