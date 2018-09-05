@@ -185,6 +185,7 @@ run;
 
 
 
+
 * First sort ;
 proc sort data=tfinal out=tfinal2;
     by subject;
