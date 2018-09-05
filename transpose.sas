@@ -135,7 +135,7 @@ data FinalEx;
 John  85 85 86 85 87 86 87
 Jane  80 79 79 78 78 79 78
 Peter  78 77 77 77 76 76 77
-Patric 84 84 85 84 83 84 85
+Patrick 84 84 85 84 83 84 85
 Jude 80 81 80 80 79 79 80
 Okoye 79 79 79 80 80 78 80
 Ruth 83 83 85 85 86 87 87
@@ -173,4 +173,12 @@ data longEX;
     end;
     drop &sub Student;
     format subject subfmt.;
+run;
+
+
+* using Transpose ;
+proc transpose data=finalex out=tfinal
+	name=Subject;
+	var &sub;
+	id name;
 run;
