@@ -125,3 +125,29 @@ run;
 * proc transpose don't print output;
 proc print data=thome.tsort2;
 run;
+
+
+
+* This is the dataset ;
+data FinalEx;
+   input Name $ Math Bios Physics Chem Eng Comp Agric;
+   datalines;
+John  85 85 86 85 87 86 87
+Jane  80 79 79 78 78 79 78
+Peter  78 77 77 77 76 76 77
+Patric 84 84 85 84 83 84 85
+Jude 80 81 80 80 79 79 80
+Okoye 79 79 79 80 80 78 80
+Ruth 83 83 85 85 86 87 87
+Benson 81 83 82 82 83 83 82
+Huggan 81 81 81 82 82 83 81
+Mary 80 81 82 82 82 84 86
+Kelly 84 85 84 83 83 83 84
+Oneil 74 75 75 76 75 76 76
+Mathar 83 84 82 81 83 83 82
+vinta 86 87 87 87 87 87 86
+Winston 82 83 84 85 84 85 86
+;
+run;
+
+
