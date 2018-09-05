@@ -162,4 +162,5 @@ data longEX;
         output;
     end;
     drop &sub Student;
+    format subject subfmt.;
 run;
