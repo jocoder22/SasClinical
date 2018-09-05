@@ -157,7 +157,7 @@ proc format;
                  4 =  "Chemistry"  5 = "English Language"
                  6 = "Computer Science" 7 =  "Agricultural Science"
                  ;
-end;
+run;
 
 data longEX;
     set FinalEx;
