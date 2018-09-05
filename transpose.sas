@@ -154,7 +154,7 @@ run;
 
 data longEX;
     set FinalEx;
-    array score{7} &sub;
+    array scr{7} &sub;
     Student + 1;
     do subject = 1 to 7;
         score = scr{subject};
