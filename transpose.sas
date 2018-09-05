@@ -150,4 +150,15 @@ Winston 82 83 84 85 84 85 86
 ;
 run;
 
+%let sub = Math Bios Physics Chem Eng Comp Agric;
 
+data longEX;
+    set FinalEx;
+    array score{7} &sub;
+    Student + 1;
+    do subject = 1 to 7;
+        score = scr{subject};
+        output;
+    end;
+    drop &sub;
+run;
