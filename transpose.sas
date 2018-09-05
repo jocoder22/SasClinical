@@ -152,6 +152,13 @@ run;
 
 %let sub = Math Bios Physics Chem Eng Comp Agric;
 
+proc format;
+    value subfmt 1 = "Mathetics" 2 = "Biology" 3 = "Physics"
+                 4 =  "Chemistry"  5 = "English Language"
+                 6 = "Computer Science" 7 =  "Agricultural Science"
+                 ;
+end;
+
 data longEX;
     set FinalEx;
     array scr{7} &sub;
