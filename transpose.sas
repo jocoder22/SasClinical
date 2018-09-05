@@ -182,3 +182,11 @@ proc transpose data=finalex out=tfinal
 	var &sub;
 	id name;
 run;
+
+
+* Re-transpose ;
+proc transpose data=tfinal out=Rfinal;
+    var subject;
+    id name;
+run;
+    
