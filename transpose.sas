@@ -162,10 +162,13 @@ run;
 data longEX;
     set FinalEx;
     array scr{7} &sub;
+    array temp{7}$ _temporary_ ("Maths" "Biology" "Physics" "Chem" "EngLng" "CompSC" "AgricSC");
+    length ExamNum $ 28;
     Student + 1;
-    ExamNum = "2018/Nbexm/B89/"||put(Student,z3.);
+    
     do subject = 1 to 7;
         score = scr{subject};
+        ExamNum = "2018/Nbexm/B89/"||put(Student,z3.)||"/"||temp(subject);
         output;
     end;
     drop &sub Student;
