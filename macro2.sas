@@ -42,5 +42,7 @@
 
 
 %dancing(Reggae, HipPop);
+
+* Can call global macro variable even outside the macro definition ;
 %put Which dance is &dance2.?;
 
