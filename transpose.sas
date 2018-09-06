@@ -157,6 +157,14 @@ proc format;
                  4 =  "Chemistry"  5 = "English Language"
                  6 = "Computer Science"  7 = "Agricultural Science"
                  ;
+    value $submtt  "Math" = "Mathematics" 
+            "Bios" = "Biology"  
+            "Physics" = "Physics"
+            "Chem" =  "Chemistry"  
+            "Eng" = "English Language"
+            "Comp" = "Computer Science"  
+            "Agric" = "Agricultural Science"
+            ;
 run;
 
 data longEX;
