@@ -45,5 +45,7 @@
 
 * Can call global macro variable even outside the macro definition ;
 %put Which dance is &dance2.?;
+
+* search for dance2 macro variable ;
 %put %symglobl(dance2);
 %put %symlocal(dance2);
