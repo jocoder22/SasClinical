@@ -12,3 +12,16 @@
 * search for scope, returns 1 if found in local symbol table and Zero otherwise ;
 %put %symlocal(Road);
 %put %symlocal(Room);
+
+
+* Using %local to restrict macro variable changes to within the macro that defined the variable ;
+* it also create a local macro variable in the local symbol table ;
+
+%let cityname = New York;
+%macro demo(name);
+    %local cityname;
+    %let cityname = &name;
+    %put cityname is &name;
+%mend;
+
+%put After demo execution the name of the city is &cityname;
