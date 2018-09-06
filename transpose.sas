@@ -179,11 +179,8 @@ run;
 * using Transpose ;
 proc transpose data=finalex out=tfinal
 	name=Subject;
-	var &sub;
 	id name;
 run;
-
-
 
 
 * First sort ;
@@ -194,7 +191,6 @@ run;
 
 * Re-transpose ;
 proc transpose data=tfinal out=Rfinal;
-    var subject;
-    id name;
+    id subject;
 run;
     
