@@ -188,6 +188,7 @@ run;
 proc transpose data=finalex out=tfinal
 	name=Subject;
 	id name;
+    format Subject $submtt.;
 run;
 
 proc print data=tfinal;
