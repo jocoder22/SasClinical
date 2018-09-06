@@ -16,6 +16,7 @@
 
 * Using %local to restrict macro variable changes to within the macro that defined the variable ;
 * it also create a local macro variable in the local symbol table ;
+* local variable is not valid on the open code, i.e cand declare %local outside the macro ;
 
 %let cityname = New York;
 %macro demo(name);
@@ -26,3 +27,18 @@
 
 %demo(Baltimore);
 %put After demo execution the name of the city is &cityname;
+
+
+* Using %global for global declaration ;
+%global dance;
+%let dance = DoggleHog;
+
+%macro dancing(d1, d2);
+    %global dance2;
+    %let dance2 = Boggie;
+    %put Please start with &dance and then followed by &dance2;
+    %put Then do &d1 and finally &d2 , Thanks;
+%mend;
+
+
+
