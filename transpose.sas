@@ -190,6 +190,10 @@ proc transpose data=finalex out=tfinal
 	id name;
 run;
 
+proc print data=tfinal;
+	format Subject $submtt.;
+run;
+
 
 * First sort ;
 proc sort data=tfinal out=tfinal2;
