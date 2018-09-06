@@ -21,7 +21,8 @@
 %macro demo(name);
     %local cityname;
     %let cityname = &name;
-    %put cityname is &name;
+    %put The name of the city is &name;
 %mend;
 
+%demo(Baltimore);
 %put After demo execution the name of the city is &cityname;
