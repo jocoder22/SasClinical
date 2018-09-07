@@ -55,3 +55,11 @@
 * First you must name the fileref mprint ;
 options mfile mlogic mprint
 filename mprint "C:/mymacro/outprint.txt"
+
+
+%let joy = joyfull Praise;
+data hootte;
+    bogge = resolve('&joy');
+    bogge2 = resolve('%dancing(Reggae, Ogone');
+    %put bogge =  bogg2 = ;
+run;
