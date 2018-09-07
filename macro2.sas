@@ -49,3 +49,9 @@
 * search for dance2 macro variable ;
 %put %symglobl(dance2);
 %put %symlocal(dance2);
+
+
+* Mfile is used to direct the mprint output to external file ;
+* First you must name the fileref mprint ;
+options mfile mlogic mprint
+filename mprint "C:/mymacro/outprint.txt"
