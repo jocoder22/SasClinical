@@ -14,8 +14,8 @@ proc import out=home.mydata
 run;
 
 
-/* Import sheet range*/
-* Don't use sheet= when using range, range= will have reference to the sheet;
+/* Import sheet range */
+* Don't use sheet= when using range, range= will have reference to the sheet ;
 proc import out=home.mydataRange
 	datafile="&folder/mydata.xls"
 	dbms=xls replace;
@@ -24,7 +24,7 @@ proc import out=home.mydataRange
 run;
 
 
-/* Importing Microsoft Access Table*/
+/* Importing Microsoft Access Table */
 proc import datatable=Flight
 		out=home.flight
 		dbms=access replace;
