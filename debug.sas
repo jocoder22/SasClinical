@@ -34,16 +34,19 @@ calc income+expense
 calc (payment + tax) * rate 
 
 
+
 * Delete removes a breakpoint or watch, short form d ;
 d b 7;
 d w abc;
 d b _ALL_ ;
 
 
+
 * Describe display the attribute of a variable, short form desc;
 desc gender;
 desc array{i+k};
 desc treatment;
+
 
 
 * Examine display the values of variables. short form ex ;
