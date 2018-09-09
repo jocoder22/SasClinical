@@ -28,6 +28,7 @@ proc sql;
 quit;
 
 
+
 /* This display the libraries and their contents */
 /* this include data, catalog, views, itemstor */
 proc sql;
@@ -80,6 +81,7 @@ proc sql;
     having count(*) > 1 
     order by Frequency DESC;
 quit;
+
 
 
 * display number of observations in all dataset in libname sashelp and sasuser ;
