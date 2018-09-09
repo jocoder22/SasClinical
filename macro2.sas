@@ -57,6 +57,8 @@ options mfile mlogic mprint
 filename mprint "C:/mymacro/outprint.txt"
 
 
+
+* resolve is used to assign result of macro functon to a variable ;
 %let joy = joyfull Praise;
 data hootte;
     bogge = resolve('&joy');
