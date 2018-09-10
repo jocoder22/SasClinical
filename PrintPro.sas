@@ -10,7 +10,6 @@ proc print data=sashelp.class noobs width=full double;
 run;
 
 
-
 * heading displays the variable name in a particular orientation -- horizontal or veritcal;
 * n print the number of observations at the end of the report;
 proc print data=sashelp.class noobs heading=veritcal  n;
