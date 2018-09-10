@@ -81,6 +81,7 @@ data home.anniversary(drop=yr tmonth) home.serviceyears (drop=yr tmonth);
 run;
 
 
+
 proc print data=home.anniversary;
 	title "More than 20-year Anniversaries in month of August";
 run;
@@ -121,6 +122,7 @@ data parttd;
     12jun2008:14:09:59
     ;
 run;
+
 
 * Missing function;
 * Returns 1 is value is missing or 0 is not missing;
