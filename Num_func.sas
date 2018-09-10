@@ -180,6 +180,7 @@ data putinp;
     run;
 
 
+
 * put functions, the length of the resulting variable is same as the format width;
 * using input function, the length of the resulting numeric variable will be 8;
 * for input function, if not using format for resulting variable, defaults for best12.   ;
