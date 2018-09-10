@@ -11,8 +11,6 @@ run;
 
 
 
-
-
 proc tabulate data=sashelp.cars;
 	class make drivetrain origin;
 	var invoice;
