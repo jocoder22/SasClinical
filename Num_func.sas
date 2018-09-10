@@ -189,3 +189,16 @@ data newputin;
     char2 = put(jdate, date9.);
     num = input(char, ddmmyy10.);
 run;
+
+
+
+
+sas9 -locale pl_PL;
+      libname new "C:\Users\Jose\Documents\SASAql" ;
+      filename trans "C:\Users\Jose\Downloads\ZIPPROCSQL\sql.cpo";
+
+      proc cimport isfileutf8=no library=new infile=trans;
+      run;
+
+proc options option=encoding;    
+run;
