@@ -18,9 +18,6 @@ proc print data=sashelp.class noobs heading=veritcal  n;
 run;
 
 
-
-
-
 * This show changing the obs= print options;
 * with sorting;
 proc sort data=sasuser.admit out=sortAdmit;
