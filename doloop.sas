@@ -16,7 +16,7 @@ run;
 
 
 
-data mortage; 
+data mortage(drop=netloan downpayment); 
     grossloan = 299900;
     downpayment = 14695;
     monthlypay = 2144;
