@@ -12,6 +12,10 @@ Koshi Shauan 80 87 .
 Vancovar Maurine  98 . 98
 Kelly Wishdony 92 85 .
 ;
+run;
+
+proc print data=ExScores;
+run;
 
 
 
