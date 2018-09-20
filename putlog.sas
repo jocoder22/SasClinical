@@ -30,3 +30,6 @@ DATA error2;
          file outfil;
       end;
 run;
+
+proc print data=error2;
+run;
