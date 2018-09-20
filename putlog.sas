@@ -1,7 +1,7 @@
 options pageno=1 nodate linesize=80 pagesize=60;  
 filename outfil "C:Documents/home/putlogg.txt";
 
-data ExamScores;
+data ExScores;
    infile datalines;
    input LastName $ FirstName $ Maths Chemisty Biology;
    datalines;
@@ -12,3 +12,16 @@ Koshi Shauan 80 87 .
 Vancovar Maurine  98 . 98
 Kelly Wishdony 92 85 .
 ;
+
+
+DATA error2;
+  set ExScores;
+   if Maths le 90 then
+      do;
+         file log;
+         put 'Score is less than 90 ' Maths=;
+         _error_=1;
+         error "Maths is less than or equals 90 " LastName= FirstName=;
+         file outfil;
+      end;
+run;
