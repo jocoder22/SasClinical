@@ -1,3 +1,6 @@
+options pageno=1 nodate linesize=80 pagesize=60;  
+filename outfil "C:Documents/home/putlogg.txt";
+
 data ExamScores;
    infile datalines;
    input LastName $ FirstName $ Maths Chemisty Biology;
