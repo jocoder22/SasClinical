@@ -28,6 +28,7 @@ DATA error2;
          _error_=1;
          error "Maths is less than or equals 90 " LastName= FirstName=;
          file outfil;
+         put LastName FirstName maths chemistry biology;
          putlog "NOTE: Maths score less than or equals 90 "  maths= 5.2;
          putlog "WARNING: " LastName FirstName " maths score is less than or equals 90";
          putlog "ERROR: Check log for errors";
