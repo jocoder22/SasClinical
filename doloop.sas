@@ -38,7 +38,7 @@ proc print data=loan1;
 run;
 
 
-data mortageCalc;
+data mortageCalc(keep= time monthlypay total);
     pAndi = 2154;
     tax = 565;
     insurance = 57;
