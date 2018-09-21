@@ -27,12 +27,13 @@ DATA error2;
          put 'Score is less than 90 ' Maths=;
          _error_=1;
          error "Maths is less than or equals 90 " LastName= FirstName=;
+         reviewed = "*** ";
          file outfil;
          put LastName FirstName maths chemistry biology reviewed;
          putlog "NOTE: Maths score less than or equals 90 "  maths= 5.2;
          putlog "WARNING: " LastName FirstName " maths score is less than or equals 90";
          putlog "ERROR: Check log for errors";
-         reviewed = "*** ";
+         
       end;
       else reviewed = "Good";
 run;
