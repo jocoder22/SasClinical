@@ -36,3 +36,10 @@ run;
 
 proc print data=loan1;
 run;
+
+
+data mortageCalc;
+    pAndi = 2154;
+    tax = 565;
+    insurance = 57;
+    HOAFees 374;
