@@ -35,7 +35,6 @@ DATA error2;
          reviewed = "*** ";
       end;
       else reviewed = "Good";
-
 run;
 
 proc print data=error2;
