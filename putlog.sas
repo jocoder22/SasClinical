@@ -32,8 +32,7 @@ DATA error2;
          put LastName FirstName maths chemistry biology reviewed;
          putlog "NOTE: Maths score less than or equals 90 "  maths= 5.2;
          putlog "WARNING: " LastName FirstName " maths score is less than or equals 90";
-         putlog "ERROR: Check log for errors";
-         
+         putlog "ERROR: Check log for errors";  
       end;
       else reviewed = "Good";
 run;
