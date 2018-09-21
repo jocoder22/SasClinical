@@ -21,13 +21,14 @@ run;
 
 DATA error2;
   set ExScores;
+  length reviewed $ 4;
    if Maths le 90 then
       do;
          file log;
          put 'Score is less than 90 ' Maths=;
          _error_=1;
          error "Maths is less than or equals 90 " LastName= FirstName=;
-         reviewed = "*** ";
+         reviewed = "***";
          file outfil;
          put LastName FirstName maths chemistry biology reviewed;
          putlog "NOTE: Maths score less than or equals 90 "  maths= 5.2;
