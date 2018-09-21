@@ -43,7 +43,7 @@ data mortageCalc;
     tax = 565;
     insurance = 57;
     HOAFees = 374;
-    time = 30 * 12;
+    time = 10 * 12;
     monthlypay = pAndi + insurance + tax + HOAFees;
     do i = 1 to time;
         Total + monthlypay;
