@@ -32,7 +32,10 @@ DATA error2;
          putlog "NOTE: Maths score less than or equals 90 "  maths= 5.2;
          putlog "WARNING: " LastName FirstName " maths score is less than or equals 90";
          putlog "ERROR: Check log for errors";
+         reviewed = "*** ";
       end;
+      else reviewed = "Good";
+
 run;
 
 proc print data=error2;
