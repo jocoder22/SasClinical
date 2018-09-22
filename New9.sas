@@ -16,6 +16,8 @@ data _null_;
 	put my_arr(*) numer(*);
 	put name age sex weight height;
 	putlog name age sex weight height;
+    put _ALL_;
+	putlog _all_;
 run;
 
 
