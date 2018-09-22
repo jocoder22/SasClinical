@@ -15,6 +15,12 @@ data usingput;
 			put height dollar7.2 "09"x age 4.1;
 			put _infile_;
 		end;
+    else 
+        do;
+            count + 1;
+            put "(" count 2.0 ")"  @;
+            put "09"x name " is of height " height " inches";
+        end;
 run;
 
 
