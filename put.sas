@@ -1,3 +1,6 @@
+filename myfile "C:\Users\Jose\Documents/myfolders/tab.txt";
+filename myfile2 "C:\Users\Jose\/myfolders/putinfile.txt";
+
 data usingput;
 	set sashelp.class;
 	file myfile;
