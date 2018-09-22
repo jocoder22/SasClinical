@@ -33,6 +33,7 @@ data putinfile;
 	put @(2*age) name;
     put @(2*age) name /
 	  @5 "gender " sex;
+    put @1 name overprint @1'#######';
 	datalines;
 Mark 49 M
 Uju 35 F
