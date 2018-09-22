@@ -29,6 +29,8 @@ data putinfile;
 	input name $ age sex $;
 	file myfile2;
 	put _infile_;
+    put @age name;
+	put @(2*age) name;
 	datalines;
 Mark 49 M
 Uju 35 F
