@@ -9,6 +9,15 @@ data putlog1;
     putlog "ERROR: THIS WRITE ERROR message IN RED";
 run;
 
+data _null_;
+	set sashelp.class;
+	array my_arr{*} _numeric_;
+	array numer{*} _character_;
+	put my_arr(*) numer(*);
+	put name age sex weight height;
+	putlog name age sex weight height;
+run;
+
 
 * The integer in operators;
 data badair;
