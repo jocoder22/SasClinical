@@ -26,3 +26,17 @@ data badair;
 	set sashelp.air;
 	if air in(0:186);
 run;
+
+
+* using ifn and ifc;
+data putinfile2;
+	infile datalines missover;
+	input name $ age sex $;
+    age = ifn(age le 0, 50, age);
+	datalines;
+Mark . M
+Uju 35 F
+Kelly . 
+Keth 24 F
+;
+run;
