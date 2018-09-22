@@ -19,7 +19,7 @@ data usingput;
         do;
             count + 1;
             put "(" count 2.0 ")"  @;
-            put "09"x name " is of height " height " inches";
+            put +1 name " is of height " height " inches";
         end;
 run;
 
