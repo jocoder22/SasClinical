@@ -33,6 +33,7 @@ data putinfile2;
 	infile datalines missover;
 	input name $ age sex $;
     age = ifn(age le 0, 50, age);
+    sex = ifc(sex = " ", "Unknown", sex);
 	datalines;
 Mark . M
 Uju 35 F
