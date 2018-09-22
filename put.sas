@@ -31,6 +31,8 @@ data putinfile;
 	put _infile_;
     put @age name;
 	put @(2*age) name;
+    put @(2*age) name /
+	  @5 "gender " sex;
 	datalines;
 Mark 49 M
 Uju 35 F
