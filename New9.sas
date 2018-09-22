@@ -9,3 +9,9 @@ data putlog1;
     putlog "ERROR: THIS WRITE ERROR message IN RED";
 run;
 
+
+* The integer in operators;
+data badair;
+	set sashelp.air;
+	if air in(0:186);
+run;
