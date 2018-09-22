@@ -16,3 +16,17 @@ data usingput;
 			put _infile_;
 		end;
 run;
+
+
+
+data putinfile;
+	input name $ age sex $;
+	file myfile2;
+	put _infile_;
+	datalines;
+Mark 49 M
+Uju 35 F
+Kelly 56 M
+Keth 24 F
+;
+run;
