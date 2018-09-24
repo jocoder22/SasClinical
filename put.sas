@@ -53,3 +53,13 @@ ods rtf file="/folders/myfolders/Odspage/pageof.rtf";
 proc print data=sashelp.air;
 run;
 ods rtf close;
+
+
+ods escapechar= '\';
+title 'This is the document with page x of y'
+	j=r 'Page \{thispage} of \{lastpage}';
+ods pdf file='/folders/myfolders/Odspage/pagespdf1.pdf';
+options nonumber nodate center ls=max;
+proc print data=sashelp.air;
+run;
+ods pdf close;
