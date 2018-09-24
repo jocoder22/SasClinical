@@ -43,7 +43,8 @@ Keth 24 F
 run;
 
 
-
+options nonumber nodate;
+title;
 
 ods escapechar= "\";
 title 'This is the document with page x of y'
