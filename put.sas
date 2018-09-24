@@ -41,3 +41,12 @@ Kelly 56 M
 Keth 24 F
 ;
 run;
+
+
+
+title 'This is the document with page x of y'
+	j=r 'Page \{pageof}';
+ods rtf file="/folders/myfolders/Odspage/pageof.rtf";
+proc print data=sashelp.air;
+run;
+ods rtf close;
