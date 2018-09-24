@@ -149,3 +149,7 @@ proc sort data=cargo out=bydate;
 	by date;
 run;
 
+
+proc sort data=cargo out=byharbour;
+	by Harbour;
+run;
