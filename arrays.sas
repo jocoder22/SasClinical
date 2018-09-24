@@ -142,3 +142,10 @@ data cargo;
 	format Revenue dollar16.2;
 	drop crgorev1-crgorev6;
 run;
+
+
+* sort dataset cargo;
+proc sort data=cargo out=bydate;
+	by date;
+run;
+
