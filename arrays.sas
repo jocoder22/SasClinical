@@ -1,3 +1,5 @@
+option validvarname=upcase;
+
 data patient_visits;
 	input Name $ (visit1-visit4)(: mmddyy10.);
 	format visit1-visit4 mmddyy10.;
