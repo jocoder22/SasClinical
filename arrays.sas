@@ -211,6 +211,8 @@ proc sort data=worker2 out=byyear;
 	by year;
 run;
 
+
+* Generate TotalRevenue by month;
 data Dbymonth;
 	do until(last.date);
 		set bymonth;
