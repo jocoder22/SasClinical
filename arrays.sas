@@ -154,6 +154,7 @@ proc sort data=cargo out=byharbour;
 	by Harbour;
 run;
 
+* generate cargo2 dataset;
 data cargo2;
 	set sasuser.Y2000;
 	array crg{*} crgorev1-crgorev6;
@@ -166,6 +167,7 @@ data cargo2;
 run;
 
 
+* generate TotalRevenue by date;
 data Dbydate;
 	do until(last.date);
 		set bydate;
@@ -178,7 +180,7 @@ data Dbydate;
 run;
 
 
-
+* Geerate TotalRevenue by Harbour;
 data Dbyharbour;
 	do until(last.Harbour);
 		set byharbour;
