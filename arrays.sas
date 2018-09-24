@@ -193,4 +193,12 @@ data Dbyharbour;
 run;
 
 
+* Generate the month and year;
+data worker2;
+	set sashelp.workers;
+	Month = substr(put(date, monyy5.),1,3);
+	Year = substr(put(date, monyy5.),4,2);
+run;
+
+
 
