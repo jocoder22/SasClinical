@@ -127,3 +127,16 @@ run;
 
 proc print data=nairavalue5;
 run;
+
+
+
+
+* Array to calculate total;
+data cargo;
+	set sasuser.Y2000;
+	array crg{*} crgorev1-crgorev6;
+	do i = 1 to dim(crg);
+		Revenue = crg{i};
+		Harbour = "Harbour" || put(i, z2.);
+	end;
+run;
