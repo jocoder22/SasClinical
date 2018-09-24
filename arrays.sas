@@ -206,3 +206,8 @@ proc sort data=worker2 out=bymonth;
 	by month;
 run;
 
+* sort worker2 by year;
+proc sort data=worker2 out=byyear;
+	by year;
+run;
+
