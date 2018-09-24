@@ -111,3 +111,19 @@ data wide3;
 			visit{visitnum}=vsstresn;
 		if last.usubjid;
 run;
+
+
+
+* Using do over statement;
+* Do over uses index-less array  --- remove the { }, but must have element;
+data nairavalue5;
+	set sasuser.Y2000;
+	array carray _numeric_;
+	do over carray;
+		carray = carray * 100;
+	end;
+	format crgorev1-crgorev6 dollar20.2;
+run;
+
+proc print data=nairavalue5;
+run;
