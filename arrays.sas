@@ -167,12 +167,28 @@ run;
 
 
 data Dbydate;
-	do until(date.last);
+	do until(last.date);
 		set bydate;
 		by date;
-		if first.date then Total = 0;
+		if first.date then TotalRevenue = 0;
 		TotalRevenue + Revenue;
 	end;
 	format TotalRevenue dollar22.2;
 	drop Harbour;
 run;
+
+
+
+data Dbyharbour;
+	do until(last.Harbour);
+		set byharbour;
+		by Harbour;
+		if first.Harbour then TotalRevenue = 0;
+		TotalRevenue + Revenue;
+	end;
+	format TotalRevenue dollar22.2;
+	drop date;
+run;
+
+
+
