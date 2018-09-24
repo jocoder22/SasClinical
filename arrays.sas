@@ -74,4 +74,5 @@ data vs;
 run;
 
 
-
+proc print data=vs;
+run;
