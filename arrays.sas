@@ -212,6 +212,7 @@ proc sort data=worker2 out=byyear;
 run;
 
 
+
 * Generate TotalRevenue by month;
 data Dbymonth;
 	do until(last.date);
@@ -220,6 +221,7 @@ data Dbymonth;
 		if first.date then TotalRevenue = 0;
 		TotalRevenue + electric + masonry;
 	end;
+	GrandTotal + TotalRevenue;
 run;
 
 
