@@ -38,10 +38,13 @@ data wide;
 	by name;
 	array visit{4};
 	retain visit;
-	if first.name then call missing(of visit[*],counter);
-	counter+1;
-	visit(counter)=dateofvisit;
+	if first.name then call missing(of visit[*],i);
+	i+1;
+	visit(i)=dateofvisit;
 	if last.name then output;
 	format visit : mmddyy10.;
-	drop dateofvisit counter;
+	drop dateofvisit i;
+run;
+
+proc print data=wide;
 run;
