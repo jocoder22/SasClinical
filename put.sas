@@ -44,6 +44,8 @@ run;
 
 
 
+
+ods escapechar= "\";
 title 'This is the document with page x of y'
 	j=r 'Page \{pageof}';
 ods rtf file="/folders/myfolders/Odspage/pageof.rtf";
