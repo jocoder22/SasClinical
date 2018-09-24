@@ -46,6 +46,7 @@ data wide;
 	drop dateofvisit i;
 run;
 
+* print wide dataset;
 proc print data=wide;
 run;
 
@@ -73,7 +74,7 @@ data vs;
 ;
 run;
 
-
+* print vs dataset;
 proc print data=vs;
 run;
 
