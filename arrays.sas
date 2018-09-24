@@ -26,4 +26,22 @@ run;
 
 
 * Rotate to wide form;
+* First sort the data;
+proc sort data=long out=longsorted;
+	by name dateofvisit;
+run;
 
+
+* Then rotate wide;
+data wide;
+	set longsorted;
+	by name;
+	array visit{4};
+	retain visit;
+	if first.name then call missing(of visit[*],counter);
+	counter+1;
+	visit(counter)=dateofvisit;
+	if last.name then output;
+	format visit : mmddyy10.;
+	drop dateofvisit counter;
+run;
