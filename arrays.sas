@@ -48,3 +48,30 @@ run;
 
 proc print data=wide;
 run;
+
+
+
+data vs;
+	label USUBJID = "Unique Subject Indentifier"
+		  VSTESTCD = "Vitals Signs Test Short Name"
+		  VISITNUM = "Visit Number"
+		  VSSTRESN = "Numeric Result/Finding in Standard Units";
+	input USUBJID $ VSTESTCD $ VISITNUM VSSTRESN;
+	datalines;
+101 SBP 1 160
+101 SBP 3 140
+101 SBP 5 150
+101 SBP 6 180
+102 SBP 1 170
+102 SBP 4 190
+102 SBP 6 110
+102 SBP 7 150
+103 SBP 1 169
+103 SBP 4 188
+103 SBP 5 148
+103 SBP 7 159
+;
+run;
+
+
+
