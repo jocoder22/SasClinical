@@ -76,3 +76,8 @@ run;
 
 proc print data=vs;
 run;
+
+* first sort the dataset;
+proc sort data=vs out=vssort;
+	by usubjid;
+run;
