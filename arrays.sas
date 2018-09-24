@@ -211,3 +211,13 @@ proc sort data=worker2 out=byyear;
 	by year;
 run;
 
+data Dbymonth;
+	do until(last.date);
+		set bymonth;
+		by month;
+		if first.date then TotalRevenue = 0;
+		TotalRevenue + electric + masonry;
+	end;
+run;
+
+
