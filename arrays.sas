@@ -159,9 +159,9 @@ data cargo2;
 	array crg{*} crgorev1-crgorev6;
 
 	DailyRevenue = sum( of crg{*});
-	Total + DailyRevenue;
+	TotalRevenue + DailyRevenue;
 	
-	format DailyRevenue Total dollar22.2;
+	format DailyRevenue TotalRevenue dollar22.2;
 	drop crgorev1-crgorev6;
 run;
 
