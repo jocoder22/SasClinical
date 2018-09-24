@@ -81,3 +81,32 @@ run;
 proc sort data=vs out=vssort;
 	by usubjid;
 run;
+
+
+* Rotate wide;
+data wide2;
+	set vssort;
+		by usubjid;
+		keep usubjid visit1-visit7;
+		retain visit1-visit7;
+		array sbps {7} visit1-visit7;
+		
+		if first.usubjid then
+			do i=1 to 7;
+				sbps{i} = .;
+			end;
+		sbps(visitnum) =  vsstresn;
+		if last.usubjid;
+run;
+
+
+data wide3;
+	set vssort;
+		by usubjid;
+		keep usubjid visit1-visit7;
+		retain visit1-visit7;
+		array visit{7};
+		if first.usubjid then call missing(of visit[*]);
+			visit{visitnum}=vsstresn;
+		if last.usubjid;
+run;
