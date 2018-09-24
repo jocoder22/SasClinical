@@ -140,7 +140,7 @@ data cargo;
 		Harbour = "Harbour" || put(i, z2.);
 	end;
 	format Revenue dollar16.2;
-	drop crgorev1-crgorev6;
+	drop crgorev1-crgorev6 i;
 run;
 
 
@@ -165,3 +165,14 @@ data cargo2;
 	drop crgorev1-crgorev6;
 run;
 
+
+data Dbydate;
+	do until(date.last);
+		set bydate;
+		by date;
+		if first.date then Total = 0;
+		TotalRevenue + Revenue;
+	end;
+	format TotalRevenue dollar22.2;
+	drop Harbour;
+run;
