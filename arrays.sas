@@ -139,4 +139,6 @@ data cargo;
 		Revenue = crg{i};
 		Harbour = "Harbour" || put(i, z2.);
 	end;
+	format Revenue dollar16.2;
+	drop crgorev1-crgorev6;
 run;
