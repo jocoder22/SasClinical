@@ -153,3 +153,15 @@ run;
 proc sort data=cargo out=byharbour;
 	by Harbour;
 run;
+
+data cargo2;
+	set sasuser.Y2000;
+	array crg{*} crgorev1-crgorev6;
+
+	DailyRevenue = sum( of crg{*});
+	Total + DailyRevenue;
+	
+	format DailyRevenue Total dollar22.2;
+	drop crgorev1-crgorev6;
+run;
+
