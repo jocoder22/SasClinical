@@ -145,3 +145,12 @@ data Dbymonth2;
 	format  Month mnthv.;
 	drop  year date masonry electric ;
 run;
+
+
+/* using proc sql */
+proc sql ;
+	select sum(electric) as ElectricTotal format=dollar15.2,
+			sum(masonry) as MasonryTotal format=dollar15.2,
+			sum(calculated ElectricTotal, calculated MasonryTotal) as GrandTotal format=dollar15.2
+	from bymonth2;
+quit;
