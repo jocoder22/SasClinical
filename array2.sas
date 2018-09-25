@@ -74,10 +74,10 @@ proc format;
 				 "MAY" = 5 "JUN" = 6 "JUL" = 7 "AUG" = 8
 				 "SEP" = 9 "OCT" = 10 "NOV" = 11 "DEC" = 12
 				 ;
-		value $mnthv 1 = "JAN" 2 = "FEB"  3 = "MAR" 
-				4 = "APR"  5 = "MAY" 6 = "JUN" 
-				7 =  "JUL"  8  = "AUG" 9 =  "SEP" 
-				10 =  "OCT" 11 = "NOV" 12 = "DEC" 
+		value mnthv 1 = "JANUARY" 2 = "FEBRUARY"  3 = "MARCH" 
+				4 = "APRIL"  5 = "MAY" 6 = "JUNE" 
+				7 =  "JULY"  8  = "AUGUST" 9 =  "SEPTEMBER" 
+				10 =  "OCTOBER" 11 = "NOVEMBER" 12 = "DECEMBER" 
 				 ;
 		invalue $mnth2b "JAN" = 1 "FEB" = 2 "MAR" = 3 "APR" = 4
 				 "MAY" = 5 "JUN" = 6 "JUL" = 7 "AUG" = 8
@@ -134,14 +134,14 @@ proc sql;
        order by monthcase;
 quit;
 
-data Dbymonth;
+data Dbymonth2;
 	do until(last.Month);
-		set bymonth211(drop=month rename=monthcase=Month) end=eof;
+		set bymonth211(drop=month rename=monthcase=Month);
 		by Month;
 		if first.Month then TotalRevenue = 0;
 		TotalRevenue + electric + masonry;
 	end;
 	GrandTotal + TotalRevenue;
-	format  Month $mnthv.;
+	format  Month mnthv.;
 	drop  year date masonry electric ;
 run;
