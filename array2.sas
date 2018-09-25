@@ -86,12 +86,13 @@ run;
 * Generate TotalRevenue by month;
 data Dbymonth;
 	do until(last.date);
-		set bymonth;
+		set bymonth(end=eof);
 		by month;
 		if first.date then TotalRevenue = 0;
 		TotalRevenue + electric + masonry;
 	end;
 	GrandTotal + TotalRevenue;
+    if eof then output;
 run;
 
 
