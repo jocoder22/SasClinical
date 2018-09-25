@@ -62,6 +62,8 @@ data Dbyharbour;
 run;
 
 
+
+* Using sashelp.worker2 dataset;
 * Generate the month and year;
 data worker2;
 	set sashelp.workers;
@@ -95,4 +97,28 @@ data Dbymonth;
     if eof then output;
 run;
 
+
+
+* Customized sort using proc sql;
+proc sql;
+	create table bymonth211 as
+	select * ,
+        case (month)
+             When  "JAN" then 1
+             When "FEB" then 2
+             When  "MAR" then 3
+             When  "APR" then 4
+             When  "MAY" then 5
+             When  "JUN" then 6
+             When  "JUL" then 7
+             When  "AUG" then 8
+             When  "SEP" then 9
+             When  "OCT" then 10
+             When  "NOV" then 11
+             When  "DEC" then 12
+             else .
+        end as monthcase
+        from worker2
+       order by monthcase;
+quit;
 
