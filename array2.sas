@@ -88,7 +88,7 @@ run;
 * Generate TotalRevenue by month;
 data Dbymonth;
 	do until(last.date);
-		set bymonth(end=eof);
+		set bymonth end=eof;
 		by month;
 		if first.date then TotalRevenue = 0;
 		TotalRevenue + electric + masonry;
@@ -101,7 +101,7 @@ run;
 
 * Customized sort using proc sql;
 proc sql;
-	create table bymonth211 as
+	create table bymonth2 as
 	select * ,
         case (month)
              When  "JAN" then 1
@@ -122,3 +122,14 @@ proc sql;
        order by monthcase;
 quit;
 
+data Dbymonth2;
+	do until(last.monthcase);
+		set bymonth2 end=eof;
+		by monthcase;
+		if first.monthcase then TotalRevenue = 0;
+		TotalRevenue + electric + masonry;
+	end;
+	GrandTotal + TotalRevenue;
+	format month $mnthv.;
+	drop monthcase year;
+run;
