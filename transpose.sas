@@ -19,9 +19,10 @@ Iron i7569 120 10 110
 * use transpose function to make the data long;
 * You can use options like, prefix, suffix, name;
 * Can use statements like, id, idlabel, by (rememeber data must be sorted), var, copy;
-* Id statement select the variable values to use as column names for transposed data;
-* Here Values in Product variable are used as column names;
+* Id statement selects the variable values to use as column names for transposed data;
+* Here Values in Product variable are used as column names ie. Tv, Radio, Mwave;
 * Transpose function uses COL1 - COL.. if id statement is omitted;
+* name is used to represent the column name of the transposed variable;
 proc transpose data=thome.prices 
                out=thome.tprices 
                name=SalePrices;
