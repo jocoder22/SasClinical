@@ -54,7 +54,7 @@ run;
 
 * write to the log;
 data _null_;
-	put 41*"-" / "Time: &duration seconds" / 41*"-" ;
+	put 21*"-" / "Time: &duration seconds" / 21*"-" ;
 run;
 
 
