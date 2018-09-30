@@ -18,14 +18,15 @@ run;
 
 * Rotating wide using array;
 data lcargo;
+	label date = "RevenueDate";
 	array crgorev{6};
-	label date "RevenueDate";
-		do i = 1 to dim(crgorev);
-			set scargo; 
-		    by date;
-			crgorev(i) = Revenue;
-		end;
-		output;
+	
+	do i = 1 to dim(crgorev);
+		set scargo; 
+		by date;
+		crgorev(i) = Revenue;
+	end;
+	output;
 	drop i revenue harbour;
 run;
 
