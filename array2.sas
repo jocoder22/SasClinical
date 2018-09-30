@@ -119,7 +119,7 @@ data Dbyyear;
 		if first.year then TotalRevenue = 0;
 		TotalRevenue + electric + masonry;
 	end;
-
+	GrandTotal + TotalRevenue;
 run;
 
 
