@@ -52,6 +52,7 @@ run;
 %let endtime = %sysfunc(datetime());
 %let duration = %sysfunc(putn(&endtime - &starttime, 8.5));
 
+
 * write to the log;
 data _null_;
 	put 21*"-" / "Time: &duration seconds" / 21*"-" ;
