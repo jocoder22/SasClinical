@@ -32,6 +32,23 @@ data lcargo;
 run;
 
 
+* Time program for efficiency;
+%let starttime = %sysfunc(datetime());
+
+* Sas program to time;
+* Rotating wide using array;
+data lcargo;
+	label Date = "RevenueDate";
+	array crgorev{6};
+	
+	do i = 1 to dim(crgorev);
+		set scargo; 
+		by Date;
+		crgorev(i) = Revenue;
+	end;
+	drop i revenue harbour;
+run;
+
 
 
 * Array to calculate total;
