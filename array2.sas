@@ -1,4 +1,4 @@
-* Array to calculate total;
+* Rotating long using array;
 data cargo;
 	set sasuser.Y2000;
 	array crg{*} crgorev1-crgorev6;
@@ -12,6 +12,8 @@ data cargo;
 run;
 
 
+
+* Array to calculate total;
 * sort dataset cargo;
 proc sort data=cargo out=bydate;
 	by date;
