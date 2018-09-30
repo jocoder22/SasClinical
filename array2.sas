@@ -11,18 +11,18 @@ data cargo;
 	drop crgorev1-crgorev6 i;
 run;
 
-proc sort data=cargo;
+proc sort data=cargo out=scargo;
 	by date;
 run;
 
 
 * Rotating wide using array;
 data lcargo;
-	array rcargo{6};
-		do i = 1 to dim(rcargo);
+	array crgorev{6};
+		do i = 1 to dim(crgorev);
 			set scargo; 
 		    by date;
-			rcargo(i) = Revenue;
+			crgorev(i) = Revenue;
 		end;
 		output;
 	drop i revenue harbour;
