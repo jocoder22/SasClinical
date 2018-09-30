@@ -1,4 +1,6 @@
 * Rotating long using array;
+option validvarname=upcase;
+
 data cargo;
 	set sasuser.Y2000;
 	array crg{*} crgorev1-crgorev6;
