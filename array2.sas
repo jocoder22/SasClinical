@@ -5,6 +5,7 @@ data cargo;
 	do i = 1 to dim(crg);
 		Revenue = crg{i};
 		Harbour = "Harbour" || put(i, z2.);
+		output;
 	end;
 	format Revenue dollar16.2;
 	drop crgorev1-crgorev6 i;
