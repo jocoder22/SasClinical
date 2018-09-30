@@ -111,6 +111,17 @@ data Dbymonth;
 run;
 
 
+* Generate TotalRevenue by year;
+data Dbyyear;
+	do until(last.year);
+		set byyear ;
+		by year;
+		if first.year then TotalRevenue = 0;
+		TotalRevenue + electric + masonry;
+	end;
+
+run;
+
 
 * Customized sort using proc sql;
 proc sql;
