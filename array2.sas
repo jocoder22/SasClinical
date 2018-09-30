@@ -64,7 +64,7 @@ run;
 %let starttime = %sysfunc(datetime());
 
 * Sas program to time;
-* Rotating wide using array;
+* Rotating wide using proc transpose;
 proc transpose data=scargo
 				out=scargot(drop=_Name_)
 				prefix=CargoRev;
@@ -75,6 +75,11 @@ run;
 
 %let endtime = %sysfunc(datetime());
 %let duration = %sysfunc(putn(&endtime - &starttime, 8.5));
+
+* write to the log;
+data _null_;
+	put 21*"-" / "Time: &duration seconds" / 21*"-" ;
+run;
 
 
 
