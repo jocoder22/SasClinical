@@ -107,7 +107,7 @@ data Dbymonth;
 		TotalRevenue + electric + masonry;
 	end;
 	GrandTotal + TotalRevenue;
-    if eof then output;
+    * if eof then output;
 run;
 
 
