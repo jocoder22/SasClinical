@@ -28,7 +28,6 @@ data lcargo;
 		by Date;
 		crgorev(i) = Revenue;
 	end;
-	output;
 	drop i revenue harbour;
 run;
 
