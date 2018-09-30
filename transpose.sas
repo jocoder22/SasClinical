@@ -22,7 +22,7 @@ Iron i7569 120 10 110
 * Id statement selects the variable values to use as column names for transposed data;
 * Here Values in Product variable are used as column names ie. Tv, Radio, Mwave;
 * Transpose function uses COL1 - COL.. if id statement is omitted;
-* name is used to represent the column name of the transposed variable;
+* name is used to represent the column name of the transposed variable i.e Gprice, Discount, Fprice;
 proc transpose data=thome.prices 
                out=thome.tprices 
                name=SalePrices;
@@ -38,6 +38,7 @@ run;
 
 * use var statement to select variable to include in the transposition;
 * Transpose function works only on numeric variables if var is omitted;
+* if omitted transpose works on all numeric variables;
 proc transpose data=thome.prices 
                out=thome.FFprices 
                name=SalePrices;
