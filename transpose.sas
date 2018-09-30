@@ -121,7 +121,7 @@ run;
 proc transpose data=thome.studentsorted 
 			   out=thome.tsort2;
 	id subject;
-	by var student;
+	by student;
 run;
 
 
