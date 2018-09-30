@@ -49,6 +49,8 @@ data lcargo;
 	drop i revenue harbour;
 run;
 
+%let endtime = %sysfunc(datetime());
+%let duration = %sysfunc(putn(&endtime - &starttime, 8.5));
 
 
 * Array to calculate total;
