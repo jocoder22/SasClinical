@@ -36,9 +36,9 @@ proc print data=thome.tprices;
 run;
 
 
-* use var statement to select variable to include in the transposition;
+* Use var statement to select variable to include in the transposition;
 * Transpose function works only on numeric variables if var is omitted;
-* if omitted transpose works on all numeric variables;
+* If omitted transpose works on all numeric variables;
 proc transpose data=thome.prices 
                out=thome.FFprices 
                name=SalePrices;
@@ -46,10 +46,12 @@ proc transpose data=thome.prices
     id Product;
 run;
 
+
 * Using proc print to see the data ;
 * proc transpose don't print output;
 proc print data=thome.tprices;
 run;
+
 
 * prefix and suffix options are useful;
 * 1. if id statement refers to numeric variable;

@@ -59,6 +59,29 @@ data _null_;
 run;
 
 
+
+* Time program for efficiency II;
+%let starttime = %sysfunc(datetime());
+
+* Sas program to time;
+* Rotating wide using array;
+proc transpose data=scargo
+				out=scargot(drop=_Name_)
+				prefix=CargoRev;
+				
+	var revenue;
+	by date;
+run;
+
+%let endtime = %sysfunc(datetime());
+%let duration = %sysfunc(putn(&endtime - &starttime, 8.5));
+
+
+
+
+
+
+
 * Array to calculate total;
 * sort dataset cargo;
 proc sort data=cargo out=bydate;
