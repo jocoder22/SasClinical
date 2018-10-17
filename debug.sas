@@ -80,6 +80,7 @@ j 45;
 * Watch suspend execution when the value of specified variable change, alias w;
 w orange;
 w income;
+w salary
 
 
 
